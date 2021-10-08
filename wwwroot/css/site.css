@@ -1,71 +1,110 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
+﻿.loginback {
+  margin: 0;
+  padding: 0;    
+  background-image: url(img/LoginBackground.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: sans-serif;
+  color: white;
+}
 
-a.navbar-brand {
-  white-space: normal;
+
+.loginbox img{
+  width: 18,75rem;
+  height: 15,625rem;
+  margin: 170px 0px 0px 370px;
+  border-left: grey;
+  border-left-width: 300px;
+  border-left-style:  solid;
+  position: absolute;
+}
+
+#login{
+  margin: 250px 0px 0px 425px; 
+  position: absolute; 
+  border: 1px;
+  border-color: red;
+  border-style: solid;
+  height: 25px;
+  width: 200px;
+}
+
+#senha{
+  margin: 310px 0px 0px 425px; 
+  position: absolute; 
+  border: 1px;
+  border-color: red;
+  border-style: solid;
+  height: 25px;
+  width: 200px;
+}
+
+.buttonlogin{
+  margin: 370px 0px 0px 480px;
+  height: 30px;
+  width: 80px;
   text-align: center;
-  word-break: break-all;
+  position: absolute;
+  background-image: linear-gradient(to top right, rgb(133, 21, 21), red);
+  font-weight: bold;   
+  color: white;
+  border: white;
+  border-style: solid;
+  border-width: 1px;
 }
 
-/* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
+.textlogin{
+  margin: 165px 0px 0px 425px;
+  position: absolute;
+  font-size: 12px;
+  width: 220px;
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+.pU{
+  margin: 230px 0px 0px 425px;
+  position: absolute;
 }
 
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+.pS{
+  margin: 290px 0px 0px 425px;
+  position: absolute;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  font-size: 14px;
-}
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+.loginback a{
+  color: white;
+  text-decoration: none;
 }
 
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+.pE{
+  margin: 340px 0px 0px 425px;
+  position: absolute;
+  font-size: 12px;    
 }
 
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
+.pE:hover{
+  color: red;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
+.pE:active{
+  color: rgb(255, 67, 67);
 }
+
+
+/*MENU PRINCIPAL*/
+
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+  margin: 0;
+  padding: 0;    
+  background-image: url(img/DefaultBackground.png);
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  font-family: sans-serif;
 }
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+
+header img{
+  
 }
