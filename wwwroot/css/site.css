@@ -14,15 +14,15 @@
 .loginbox img{
   width: 18,75rem;
   height: 15,625rem;
-  margin: 170px 0px 0px 370px;
+  margin: 10,625rem 0rem 0rem 23,125rem;
   border-left: grey;
-  border-left-width: 300px;
+  border-left-width: 18,75rem;
   border-left-style:  solid;
   position: absolute;
 }
 
 #login{
-  margin: 250px 0px 0px 425px; 
+  margin: 15,625rem 0rem 0rem 25,5625rem; 
   position: absolute; 
   border: 1px;
   border-color: red;
@@ -32,7 +32,7 @@
 }
 
 #senha{
-  margin: 310px 0px 0px 425px; 
+  margin: 19,375rem 0rem 0rem 26,5625rem; 
   position: absolute; 
   border: 1px;
   border-color: red;
@@ -42,7 +42,7 @@
 }
 
 .buttonlogin{
-  margin: 370px 0px 0px 480px;
+  margin: 23,125rem 0rem 0rem 30rem;
   height: 30px;
   width: 80px;
   text-align: center;
@@ -56,19 +56,19 @@
 }
 
 .textlogin{
-  margin: 165px 0px 0px 425px;
+  margin: 10,3125rem 0rem 0rem 26,5625rem;
   position: absolute;
   font-size: 12px;
   width: 220px;
 }
 
 .pU{
-  margin: 230px 0px 0px 425px;
+  margin: 14,375rem 0rem 0rem 26,5625rem;
   position: absolute;
 }
 
 .pS{
-  margin: 290px 0px 0px 425px;
+  margin: 18,125rem 0rem 0rem 26,5625rem;
   position: absolute;
 }
 
@@ -78,7 +78,7 @@
 }
 
 .pE{
-  margin: 340px 0px 0px 425px;
+  margin: 21,25rem 0rem 0rem 26,5625rem;
   position: absolute;
   font-size: 12px;    
 }
