@@ -1,7 +1,7 @@
 ﻿.loginback {
   margin: 0rem;
   padding: 0rem;    
-  background-image: url(img/LoginBackground.png);
+  background-image: url('../img/LoginBackground.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -18,12 +18,12 @@
   border-left: grey;
   border-left-width: 18.75rem;
   border-left-style:  solid;
-  position: absolute;
+  /* position: absolute; */
 }
 
 #login{
   margin: 15.625rem 0rem 0rem 26.5625rem; 
-  position: absolute; 
+  /* position: absolute;  */
   border: 0.0625rem;
   border-color: red;
   border-style: solid;
@@ -33,7 +33,7 @@
 
 #senha{
   margin: 19.375rem 0rem 0rem 26.5625rem; 
-  position: absolute; 
+  /* position: absolute;  */
   border: 0.0625rem;
   border-color: red;
   border-style: solid;
@@ -46,7 +46,7 @@
   height: 1.875rem;
   width: 5rem;
   text-align: center;
-  position: absolute;
+  /* position: absolute; */
   background-image: linear-gradient(to top right, rgb(133, 21, 21), red);
   font-weight: bold;   
   color: white;
@@ -57,19 +57,19 @@
 
 .textlogin{
   margin: 10.3125rem 0rem 0rem 26.5625rem;
-  position: absolute;
+  /* position: absolute; */
   font-size: 0.75rem;
   width: 13.75rem;
 }
 
 .pU{
   margin: 14.375rem 0rem 0rem 26.5625rem;
-  position: absolute;
+  /* position: absolute; */
 }
 
 .pS{
   margin: 18.125rem 0rem 0rem 26.5625rem;
-  position: absolute;
+  /* position: absolute; */
 }
 
 .loginback a{
@@ -79,7 +79,7 @@
 
 .pE{
   margin: 21.25rem 0rem 0rem 26.5625rem;
-  position: absolute;
+  /* position: absolute; */
   font-size: 0.75rem;    
 }
 
@@ -95,7 +95,7 @@
 /*MENU PRINCIPAL*/
 
 
-body {
+/* body {
   margin: 0rem;
   padding: 0rem;    
   background-image: url(img/DefaultBackground.png);
@@ -103,5 +103,5 @@ body {
   background-position: top;
   background-repeat: no-repeat;
   font-family: sans-serif;
-}
+} */
 

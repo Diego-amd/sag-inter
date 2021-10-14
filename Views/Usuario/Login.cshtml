@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Login";
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+<div class="loginback">
+    <div class="loginbox">
+        <img src="../img/SushiJuLogo.png" alt="Logo Sushi da Ju">
+    </div>   
+    <div class="textlogin">
+        <h5>Sistema Administrativo Gastronômico</h2>
+    </div>
+    @if(ViewBag.Message != null) {
+        <div class="alert alert-danger">
+            @ViewBag.Message
+        </div>
+    }
+    <form asp-controller="Usuario" asp-action="Login" method="POST">
+        <label class="pU" for="login">Usuário</label>
+        <input type="text" id="login" name="login-senha" placeholder="Digite o usuário">
+        <label class="pS" for="senha">Senha</l>
+        <input type="text" id="senha" name="login-senha" placeholder="Digite a senha">
+        <a href="#" class="pE">Esqueceu a senha?</a>
+        <button type="submit" class="buttonlogin">Entrar</button>
+        </a>
+    </form>
+</div>
