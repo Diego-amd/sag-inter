@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using sag.Repositories;
 
 namespace sag
 {
@@ -23,6 +24,8 @@ namespace sag
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IUsuarioRepository, UsuarioDatabaseRepository>();
+
             services.AddControllersWithViews();
         }
 
@@ -50,7 +53,7 @@ namespace sag
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Login}/{action=Index}/{id?}");
+                    pattern: "{controller=Usuario}/{action=Login}/{id?}");
             });
         }
     }

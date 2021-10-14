@@ -45,7 +45,7 @@ go
 -- status = 1 => finalizado
 CREATE TABLE tb_pedidos(
 	id_pedido		int primary key identity not null,
-	cod_usuario		int references tb_usuarios not null,
+	cod_usuario		int references tb_funcionarios not null,
 	hora_entrada	time not null,
 	hora_saida		time not null,
 	data_entrada	date not null,
