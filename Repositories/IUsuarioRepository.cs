@@ -4,6 +4,6 @@ namespace sag.Repositories
 {
     public interface IUsuarioRepository
     {
-        Usuarios Read(string email, string senha);
+        Usuarios Read(string login, string senha);
     }
 }
