@@ -9,6 +9,7 @@ namespace sag.Controllers
     {
         private IGastosBrutosRepository repository;
 
+        //TODO: Adicionar verificação de usuário logado usando a session
         public GastosBrutosController(IGastosBrutosRepository repository)
         {
             this.repository = repository;

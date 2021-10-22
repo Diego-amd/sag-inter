@@ -6,6 +6,7 @@ namespace sag.Repositories
 {
     public class GastosBrutosDatabaseRepository : BDContext, IGastosBrutosRepository
     {
+        //TODO: Fazer a parte do banco dos gastos brutos
         public void Create(GastosBrutos model)
         {
             throw new System.NotImplementedException();
