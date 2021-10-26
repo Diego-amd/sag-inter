@@ -16,9 +16,10 @@ namespace sag.Repositores
         {
             // var context = new BDContext(); //abre a conexão
             // context.Dispose(); //fecha a conexão
-            var strConnection = "Data Source = localhost; Integrated Security = True; User=admin; Password=A1b2c3d4e5!; Initial Catalog = bd_sag";
+            var strConnection = "Data Source = localhost; Integrated Security = True; User=admin; Password=A1b2c3d4e5!; Initial Catalog = db_sag";
             connection = new SqlConnection(strConnection);
             connection.Open();
+            Console.WriteLine("Não deu erro no banco");
         }
 
         public void Dispose()

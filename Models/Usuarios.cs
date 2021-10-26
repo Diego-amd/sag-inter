@@ -2,7 +2,7 @@ namespace sag.Models
 {
     public class Usuarios
     {
-        public int Id_usuario { get; set; }
+        public int? Id { get; set; }
         public string Nome { get; set; }
         public string Login { get; set; }
         public string Senha { get; set; }
