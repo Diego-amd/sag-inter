@@ -1,3 +1,8 @@
+-- Nome: Arthur Lins Beluci
+-- Nome: Diego Aparecido Armindo
+-- Nome: Heiter Pagamin Malagoli
+-- FATEC Rio Preto 		4ª ADS Tarde
+
 CREATE DATABASE db_sag
 GO
 
@@ -13,26 +18,23 @@ CREATE TABLE tb_usuarios (
 	senha			varchar(10)	not null,
 	telefone		varchar(15) null,
 	estado			int not null,
+	email			varchar(100) not null,
+	endereco		varchar(150) null,
 	check (estado in(0,1))
 )
 go
 
+-- admin = 1 -> admin
 CREATE TABLE tb_funcionarios(
 	cod_usuario		int primary key references tb_usuarios,
 	funcao			varchar(20) not null,
-	endereco		varchar(150) null,
-)
-go
-
-CREATE TABLE tb_admin(
-	cod_usuario		int primary key references tb_usuarios,
-	email			varchar(100) not null
+	admin			int not null
 )
 go
 
 CREATE TABLE tb_gastos_brutos(
 	id_gasto		int primary key identity not null,
-	cod_usuario		int references tb_admin not null,
+	cod_usuario		int references tb_funcionarios not null,
 	valor_gasto		float not null,
 	data_pagamento	date,
 	data_vencimento	date
@@ -76,10 +78,12 @@ CREATE TABLE tb_itens_pedidos(
 )
 go
 
-INSERT INTO tb_usuarios VALUES ('Juliana Lins', 'juliana.lins', '123', '17992485735', 1)
-INSERT INTO tb_usuarios VALUES ('Garçom Ferreira', 'garcom.ferreira', '321', '18995623564', 1)
+INSERT INTO tb_usuarios VALUES ('Juliana Lins', 'juliana.lins', '123', '17992485735', 1, 'teste@teste.com.br', 'Rua teste')
+INSERT INTO tb_usuarios VALUES ('Garçom Ferreira', 'garcom.ferreira', '321', '18995623564', 1, 'garcom@teste.com.br', 'Rua bla bla')
 
-INSERT INTO tb_funcionarios VALUES (2, 'Garçom', 'R. Teste cadastro, 3505, Jd. Conceição')
+INSERT INTO tb_funcionarios VALUES (1, 'Administrador', 1)
 
-INSERT INTO tb_admin VALUES (1, 'juliana.lins@gmail.com')
+select * from tb_funcionarios
+
+select * from tb_usuarios
 
