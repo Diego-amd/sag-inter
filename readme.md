@@ -43,6 +43,11 @@ dotnet watch run
 
 ## URL's úteis e cursos
 
+Artigo sobre as bibliotecas JS para criação de gráficos:
+```
+https://marquesfernandes.com/desenvolvimento/6-bibliotecas-javascript-para-criacao-de-graficos/
+```
+
 Documentação Bootstrap:
 ```
 https://getbootstrap.com.br/docs/4.1/getting-started/introduction/

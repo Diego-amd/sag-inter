@@ -1,71 +1,107 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
+﻿.loginback {
+  margin: 0rem;
+  padding: 0rem;    
+  background-image: url('../img/LoginBackground.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: sans-serif;
+  color: white;
+}
 
-a.navbar-brand {
-  white-space: normal;
+
+.loginbox img{
+  width: 18.75rem;
+  height: 15.625rem;
+  margin: 10.625rem 0rem 0rem 23.125rem;
+  border-left: grey;
+  border-left-width: 18.75rem;
+  border-left-style:  solid;
+  /* position: absolute; */
+}
+
+#login{
+  margin: 15.625rem 0rem 0rem 26.5625rem; 
+  /* position: absolute;  */
+  border: 0.0625rem;
+  border-color: red;
+  border-style: solid;
+  height: 1.5625rem;
+  width: 12.5rem;
+}
+
+#senha{
+  margin: 19.375rem 0rem 0rem 26.5625rem; 
+  /* position: absolute;  */
+  border: 0.0625rem;
+  border-color: red;
+  border-style: solid;
+  height: 1.5625rem;
+  width: 12.5rem;
+}
+
+.buttonlogin{
+  margin: 23.125rem 0rem 0rem 30rem;
+  height: 1.875rem;
+  width: 5rem;
   text-align: center;
-  word-break: break-all;
+  /* position: absolute; */
+  background-image: linear-gradient(to top right, rgb(133, 21, 21), red);
+  font-weight: bold;   
+  color: white;
+  border: white;
+  border-style: solid;
+  border-width: 0.0625rem;
 }
 
-/* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
+.textlogin{
+  margin: 10.3125rem 0rem 0rem 26.5625rem;
+  /* position: absolute; */
+  font-size: 0.75rem;
+  width: 13.75rem;
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+.pU{
+  margin: 14.375rem 0rem 0rem 26.5625rem;
+  /* position: absolute; */
 }
 
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+.pS{
+  margin: 18.125rem 0rem 0rem 26.5625rem;
+  /* position: absolute; */
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  font-size: 14px;
-}
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+.loginback a{
+  color: white;
+  text-decoration: none;
 }
 
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+.pE{
+  margin: 21.25rem 0rem 0rem 26.5625rem;
+  /* position: absolute; */
+  font-size: 0.75rem;    
 }
 
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
+.pE:hover{
+  color: red;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
+.pE:active{
+  color: rgb(255, 67, 67);
 }
 
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
-}
+
+/*MENU PRINCIPAL*/
+
+
+/* body {
+  margin: 0rem;
+  padding: 0rem;    
+  background-image: url(img/DefaultBackground.png);
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  font-family: sans-serif;
+} */
+
