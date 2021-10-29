@@ -27,23 +27,26 @@ namespace sag.Controllers
         [HttpPost]
         public ActionResult Login(UsuariosLoginViewModel model)
         {
-            if(!ModelState.IsValid)
+            Console.WriteLine("Oie rsrs");
+            if(!ModelState.IsValid){
+                Console.WriteLine("Oie2 rsrs");
                 return View(model);
+            }
 
             Usuarios usuario = repository.Read(model.Login,model.Senha);
-            
+            Console.WriteLine($"Entrou aqui ó {usuario}");
             if(usuario == null)
             {
+                Console.WriteLine($"Entrou aqui {usuario}");
                 ViewBag.Message = "Credenciais Incorretas";
                 return View(model);
             }
 
             HttpContext.Session.SetInt32("id", (int)usuario.Id);
             HttpContext.Session.SetString("nome", usuario.Nome);
-
-            return RedirectToAction("Login","UsuarioController");
-
             
+            Console.WriteLine("Fim do login");
+            return RedirectToAction("Index");
         }
     }
 }

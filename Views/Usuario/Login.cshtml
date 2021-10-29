@@ -1,4 +1,6 @@
-﻿@{
+﻿@model sag.Models.UsuariosLoginViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
     ViewBag.Title = "Login";
     Layout = "/Views/Shared/_Layout.cshtml";
 }
@@ -17,9 +19,9 @@
     }
     <form asp-controller="Usuario" asp-action="Login" method="POST">
         <label class="pU" for="login">Usuário</label>
-        <input type="text" id="login" name="login-senha" placeholder="Digite o usuário">
+        <input type="text" id="login" name="login" placeholder="Digite o usuário">
         <label class="pS" for="senha">Senha</l>
-        <input type="text" id="senha" name="login-senha" placeholder="Digite a senha">
+        <input type="text" id="senha" name="senha" placeholder="Digite a senha">
         <a href="#" class="pE">Esqueceu a senha?</a>
         <button type="submit" class="buttonlogin">Entrar</button>
         </a>

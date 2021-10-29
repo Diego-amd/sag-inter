@@ -9,7 +9,8 @@ namespace sag.Repositories
     {
         public Usuarios Read(string login, string senha)
         {
-            try{
+            try
+            {
 
                 Usuarios usuario = null;
 
@@ -19,28 +20,35 @@ namespace sag.Repositories
                 cmd.CommandText = "SELECT * from tb_usuarios WHERE login=@login and senha=@senha";
 
 
-                cmd.Parameters.AddWithValue("@login",login);
-                cmd.Parameters.AddWithValue("@senha",senha);
+                cmd.Parameters.AddWithValue("@login", login);
+                cmd.Parameters.AddWithValue("@senha", senha);
 
-                SqlDataReader reader=cmd.ExecuteReader();
+                SqlDataReader reader = cmd.ExecuteReader();
 
-                    if(reader.Read())
-                    {
-                        usuario =new Usuarios();
+                if (reader.Read())
+                {
+                    usuario = new Usuarios();
 
-                        usuario.Id = reader["Id"] as int?;
-                        usuario.Login = reader["login"] as string;
-                        usuario.Senha = reader["senha"] as string;
-                    }
-                    return usuario;
-
-                }catch(Exception ex){
-                    Console.WriteLine("Senha errada");
+                    usuario.Id = reader["id_usuario"] as int?;
+                    usuario.Nome = (string)reader["nome"];
+                    usuario.Login = (string)reader["login"];
+                    //usuario.Senha = (string)reader["senha"];
+                    usuario.Telefone = (string)reader["telefone"];
+                    usuario.Estado = reader["estado"] as int?;
                 }
-                finally{
-                    Dispose();
-                }
-                return null;
+                return usuario;
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+            finally
+            {
+                Dispose();
+            }
+            
+            return null;
         }
     }
 }
