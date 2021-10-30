@@ -34,11 +34,10 @@ namespace sag.Controllers
             }
 
             Usuarios usuario = repository.Read(model.Login,model.Senha);
-            Console.WriteLine($"Entrou aqui ó {usuario}");
             if(usuario == null)
             {
                 Console.WriteLine($"Entrou aqui {usuario}");
-                ViewBag.Message = "Credenciais Incorretas";
+                ViewBag.Message = "Login e/ou senha inválidos!";
                 return View(model);
             }
 

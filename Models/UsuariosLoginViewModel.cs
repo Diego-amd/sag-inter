@@ -4,11 +4,11 @@ namespace sag.Models
 {
     public class UsuariosLoginViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "O campo Login é obrigatório")]
         public string Login { get; set; }
 
-        [Required]
-        [MinLength(2)]
+        [Required(ErrorMessage = "O campo Senha é obrigatório")]
+        [MinLength(2, ErrorMessage = "O campo Senha deve ter pelo menos 2 caracteres")]
         public string Senha { get; set; }
     }
 }
