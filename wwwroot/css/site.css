@@ -1,7 +1,7 @@
 ﻿.loginback {
   margin: 0rem;
   padding: 0rem;    
-  background-image: url('../img/LoginBackground.png');
+  background: url('../img/LoginBackground.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -46,12 +46,11 @@
   height: 1.875rem;
   width: 5rem;
   text-align: center;
-  /* position: absolute; */
   background-image: linear-gradient(to top right, rgb(133, 21, 21), red);
   font-weight: bold;   
   color: white;
-  border: white;
-  border-style: solid;
+  border: none;
+  border-radius: 0.5rem;
   border-width: 0.0625rem;
 }
 
@@ -62,35 +61,27 @@
   width: 13.75rem;
 }
 
-.pU{
-  margin: 14.375rem 0rem 0rem 26.5625rem;
-  /* position: absolute; */
+.container-form{
+  border-color: red;
+  border-style: solid;
+  width: 40rem;
+  height: 25rem;
+  background-color: #656565;
+  margin-top: 13.5%;
+  margin-left: 29%;
 }
 
-.pS{
-  margin: 18.125rem 0rem 0rem 26.5625rem;
-  /* position: absolute; */
+.labels-input{
+  text-align: center;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
 }
 
-.loginback a{
-  color: white;
-  text-decoration: none;
+.imgLogo{
+  width: 18rem;
 }
-
-.pE{
-  margin: 21.25rem 0rem 0rem 26.5625rem;
-  /* position: absolute; */
-  font-size: 0.75rem;    
-}
-
-.pE:hover{
-  color: red;
-}
-
-.pE:active{
-  color: rgb(255, 67, 67);
-}
-
 
 /*MENU PRINCIPAL*/
 
