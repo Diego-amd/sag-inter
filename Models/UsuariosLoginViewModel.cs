@@ -8,7 +8,7 @@ namespace sag.Models
         public string Login { get; set; }
 
         [Required]
-        [MinLength(6)]
+        [MinLength(2)]
         public string Senha { get; set; }
     }
 }

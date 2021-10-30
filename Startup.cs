@@ -25,7 +25,7 @@ namespace sag
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IUsuarioRepository, UsuarioRepository>();
-
+            services.AddSession();//
             services.AddControllersWithViews();
         }
 
@@ -46,6 +46,8 @@ namespace sag
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseSession();//aa
 
             app.UseAuthorization();
 
