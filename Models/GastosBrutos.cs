@@ -9,7 +9,7 @@ namespace sag.Models
         public string DataPagamento { get; set; }
 
         #region Foreign Key
-        public Admin Admin { get; set; }
+        public Funcionarios Funcionario { get; set; }
         #endregion
     }
 }

@@ -34,6 +34,7 @@ namespace sag.Controllers
             if(usuario == null)
             {
                 ViewBag.Message = "Credenciais Incorretas";
+                ViewBag.Message = "Login e/ou senha inválidos!";
                 return View(model);
             }
 

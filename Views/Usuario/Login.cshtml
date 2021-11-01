@@ -4,26 +4,30 @@
     ViewBag.Title = "Login";
     Layout = "/Views/Shared/_Layout.cshtml";
 }
-
-<div class="loginback">
-    <div class="loginbox">
-        <img src="../img/SushiJuLogo.png" alt="Logo Sushi da Ju">
-    </div>   
-    <div class="textlogin">
-        <h5>Sistema Administrativo Gastronômico</h2>
-    </div>
-    @if(ViewBag.Message != null) {
-        <div class="alert alert-danger">
-            @ViewBag.Message
+</style>
+<div class="login img-background">
+    <div id="campos-login">
+        <div id="logo-tela-login">
+            <h4>Sistema Administrativo <br>Gastronômico</h4>
+            @if(ViewBag.Message != null) {
+                <p class="alert alert-danger alert-message">@ViewBag.Message</p>
+            }
         </div>
-    }
-    <form asp-controller="Usuario" asp-action="Login" method="POST">
-        <label class="pU" for="login">Usuário</label>
-        <input type="text" id="login" name="login" placeholder="Digite o usuário">
-        <label class="pS" for="senha">Senha</l>
-        <input type="text" id="senha" name="senha" placeholder="Digite a senha">
-        <a href="#" class="pE">Esqueceu a senha?</a>
-        <button type="submit" class="buttonlogin">Entrar</button>
-        </a>
-    </form>
+        <div id="formulario-login">
+            <form asp-controller="Usuario" asp-action="Login" method="POST">
+                <label>Usuário:</label>
+                <input type="text" name="login" id="login" asp-for="Login">
+                <span asp-validation-for="Login"></span>
+
+                <label>Senha:</label>
+                <input type="password" name="senha" id="senha" asp-for="Senha">
+                <span asp-validation-for="Senha"></span>
+                <br>
+
+                <a href="#">Esqueceu a senha?</a>
+                <br>
+                <button id="botao-entrar">Entrar</button>
+            </form>
+        </div>
+    </div>
 </div>
