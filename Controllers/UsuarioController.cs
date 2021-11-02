@@ -31,19 +31,17 @@ namespace sag.Controllers
                 return View(model);
 
             Usuarios usuario = repository.Read(model.Login,model.Senha);
-            
             if(usuario == null)
             {
                 ViewBag.Message = "Credenciais Incorretas";
+                ViewBag.Message = "Login e/ou senha inválidos!";
                 return View(model);
             }
 
             HttpContext.Session.SetInt32("id", (int)usuario.Id);
             HttpContext.Session.SetString("nome", usuario.Nome);
-
-            return RedirectToAction("Login","UsuarioController");
-
             
+            return RedirectToAction("Index");
         }
     }
 }

@@ -87,3 +87,11 @@ select * from tb_funcionarios
 
 select * from tb_usuarios
 
+
+
+--Views--
+-- CREATE VIEW vLogin (@login varchar(20), @senha varchar(10)) as 
+-- SELECT * 
+-- from tb_usuarios 
+-- WHERE login=@login and senha=@senha
+

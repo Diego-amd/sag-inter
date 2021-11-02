@@ -1,0 +1,95 @@
+﻿.login{
+  margin: 0;
+  padding: 0;
+  border: none;
+  text-decoration: none;
+  box-sizing: border-box;
+	font-family: "Roboto", Helvetica, sans-serif;
+  color: #FFFFFF;
+}
+
+#img-background{ 
+  background-image: url('../img/LoginBackground.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  border: 1px solid red;
+}
+
+#campos-login{
+	position: absolute;
+	/*border:1px solid #707070;*/
+	width: 45rem;
+	height: 23rem;
+	background: #656565 url('../img/SushiJuLogo.png') no-repeat right top;
+	top:45%;
+	left:50%;
+	margin-left: -20rem;
+	margin-top: -9rem;
+	border-radius: 4px;
+  /* border: 1px solid red; */
+}
+
+
+#logo-tela-login{
+	/* background: url('../img/logoSag.png'); */
+	padding-left: 1rem;
+	margin-top: 0.5rem;
+	margin-left: 0.5rem;
+	
+}
+
+#formulario-login{
+	padding: 0.3rem;
+	/*border:1px solid red;*/
+	width: 18rem;
+	margin-left: 0.62rem;
+	margin-top: 0;
+}
+
+#formulario-login label{
+	display:block;
+	margin-top: 10px; 
+}
+
+#formulario-login input[type="text"], #formulario-login input[type="password"]{
+	border:1px solid #D91717;
+	width: 278px;
+	height: 20px;
+}
+
+#formulario-login a:link, #formulario-login a:visited{
+	font-size: 0.8rem;
+	color: white;
+	
+}
+
+#botao-entrar{
+	display: block;
+	width: 5.5rem;
+	height: 2.5rem;
+	background-image: linear-gradient(to top right, rgb(133, 21, 21), red); 
+	color: white;
+	font-weight: bold;
+	border: 1px solid white;
+	padding: 0.3rem;
+	font-size: 0.8em;
+	margin: 0 auto;
+	margin-top: 30px;
+	border-radius: 1rem;
+	cursor: pointer;
+	text-decoration: none;
+  font-size: 1rem;
+  text-align: center;
+}
+#botao-entrar input[type="button"]:hover{
+	background-color: #036EC5;
+	text-decoration: none;
+}
+
+.alert-message{
+  width: 17.5rem; 
+  height: 2.5rem; 
+  text-align: center;
+  margin: 0;
+}
