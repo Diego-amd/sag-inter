@@ -1,0 +1,42 @@
+@using sag.Models
+@model List<GastosBrutos>
+@{
+    ViewBag.Title = "Lista de Gastos";
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Lista de Gastos Brutos - Teste</h1>
+
+<table class="table table-hover">
+    <tr>
+        <th>Id</th>
+        <th>Código do Usuário</th>
+        <th>Valor</th>
+        <th>Data de Vencimento</th>
+        <th>Data de pagamento</th>
+        <th>Função do usuário</th>
+        <th>&nbsp;</th>
+    </tr>
+
+    @* <img src='/images/icon.png' /> *@
+    <h1>Você tem @Model.Count gastos</h1>
+
+    @foreach(var gastos in Model)
+    {
+        <tr>
+            <td>@gastos.Id_gasto</td>
+            <td>@gastos.CodUsuario</td>
+            <td>@gastos.Valor</td>
+            <td>@gastos.DataVencimento</td>
+            <td>@gastos.DataPagamento</td>
+            <td>@gastos.Funcionario.Funcao</td>
+            <td>
+                <a href="/todo/delete/@gastos.Id_gasto" class="btn btn-sm btn-danger">Apagar</a>
+                <a href="/todo/update/@gastos.Id_gasto" class="btn btn-sm btn-primary">Editar</a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+<a href="/gastosBrutos/create" class="btn btn-primary">Adicionar</a>

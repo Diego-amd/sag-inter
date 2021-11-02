@@ -87,7 +87,51 @@ select * from tb_funcionarios
 
 select * from tb_usuarios
 
+insert into tb_gastos_brutos values (1, 290.30, GETDATE(), '2021-11-05') -- da certo
+insert into tb_gastos_brutos values (1, 290.30, GETDATE(), '06/11/2021') -- da certo tbm
+GO
 
+CREATE PROCEDURE ExcluiGasto
+	@id_gasto int
+AS
+BEGIN
+	DELETE FROM tb_gastos_brutos WHERE id_gasto = @id_gasto;
+END;
+GO
+
+CREATE PROCEDURE AtualizaGasto
+	@id_gasto int,
+	@valor float,
+	@data_pagamento date,
+	@data_vencimento date
+AS
+BEGIN
+	UPDATE tb_gastos_brutos 
+		SET valor_gasto = @valor, data_pagamento = @data_pagamento, data_vencimento = @data_vencimento
+		WHERE id_gasto = @id_gasto
+END;
+GO
+
+CREATE VIEW VGastosBrutosAll
+AS
+   SELECT * FROM tb_gastos_brutos
+GO
+
+CREATE PROCEDURE CadastroGasto
+(
+	@cod_usuario int, 
+	@valor float, 
+	@data_pagamento date,
+	@data_vencimento date
+)
+AS
+BEGIN
+	INSERT INTO tb_gastos_brutos VALUES (@cod_usuario, @valor, @data_pagamento, @data_vencimento)
+END
+GO
+
+--Cadastro de gastos pela procedure
+EXEC CadastroGasto 1, 500, '03/10/2021', '08/11/2021'
 
 --Views--
 -- CREATE VIEW vLogin (@login varchar(20), @senha varchar(10)) as 

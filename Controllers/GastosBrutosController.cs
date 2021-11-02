@@ -17,7 +17,7 @@ namespace sag.Controllers
 
         public IActionResult Index()
         {
-            List<GastosBrutos> gastos = repository.Read();
+            List<GastosBrutos> gastos = repository.ReadAll();
             return View(gastos);
         }
 
