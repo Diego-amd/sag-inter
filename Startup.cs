@@ -25,6 +25,8 @@ namespace sag
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IUsuarioRepository, UsuarioRepository>();
+            services.AddTransient<IGastosBrutosRepository, GastosBrutosRepository>();
+            
             services.AddSession();//
             services.AddControllersWithViews();
         }
