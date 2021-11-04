@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.AspNetCore.Mvc;
 using sag.Models;
 using sag.Repositories;
 using Microsoft.AspNetCore.Http;
@@ -41,7 +35,7 @@ namespace sag.Controllers
             HttpContext.Session.SetInt32("id", (int)usuario.Id);
             HttpContext.Session.SetString("nome", usuario.Nome);
             
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "GastosBrutos");
         }
     }
 }
