@@ -62,7 +62,8 @@ go
 
 CREATE TABLE tb_produtos(
 	id_produto		int primary key identity not null,
-	categoria		int not null,
+	cod_usuario		int references tb_funcionarios not null,
+	categoria		varchar(50) not null,
 	valor			float not null,
 	nome			varchar(100) not null,
 	descricao		varchar(150) not null,
@@ -81,16 +82,21 @@ CREATE TABLE tb_itens_pedidos(
 go
 
 INSERT INTO tb_usuarios VALUES ('Juliana Lins', 'juliana.lins', '123', '17992485735', 1, 'teste@teste.com.br', 'Rua teste')
+go
 INSERT INTO tb_usuarios VALUES ('Garçom Ferreira', 'garcom.ferreira', '321', '18995623564', 1, 'garcom@teste.com.br', 'Rua bla bla')
+GO
 
 INSERT INTO tb_funcionarios VALUES (1, 'Administrador', 1)
+GO
 
 select * from tb_funcionarios
+GO
 
 select * from tb_usuarios
+GO
 
-insert into tb_gastos_brutos values (1, 290.30, GETDATE(), '2021-11-05') -- da certo
-insert into tb_gastos_brutos values (1, 290.30, GETDATE(), '06/11/2021') -- da certo tbm
+insert into tb_gastos_brutos values (1, 290.30, GETDATE(), '2021-11-05','Teste1') -- da certo
+insert into tb_gastos_brutos values (1, 290.30, GETDATE(), '06/11/2021','Teste2') -- da certo tbm
 GO
 
 CREATE PROCEDURE ExcluiGasto
@@ -142,4 +148,29 @@ EXEC CadastroGasto 1, 500, '03/10/2021', '08/11/2021'
 -- SELECT * 
 -- from tb_usuarios 
 -- WHERE login=@login and senha=@senha
+
+--Heiter 05/11--
+insert into tb_produtos 
+values (1,'Bebida',8.30,'Aquele cara','tueummm',0)
+
+insert into tb_produtos 
+values (1,'Sushi',12.00,'Sushi especial da ju','Gostoso hmmm',1)
+go
+select * from tb_produtos
+
+select * from tb_gastos_brutos
+
+--Create--
+insert into tb_produtos values (cod_usuario,'Bebida',8.30,'Aquele cara','tueummm',0)
+
+--ReadAll--
+select * from tb_produtos where estado!=0
+--Read de 1 produto--
+select * from tb_produtos where id_produto=@id_produto
+--Update editar--
+update tb_produtos 
+set id_produto=@id_produto, cod_usuario=@cod_usuario, categoria=@categoria, valor=@valor, nome=@nome, descricao=@descricao, estado=1
+--Update de desabilitar--
+update tb_produtos 
+set estado=0 where id=@id
 
