@@ -17,15 +17,15 @@ namespace sag.Repositories
                SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
 
-                cmd.CommandText = "CriarProduto";
+                cmd.CommandText = "CadastroProduto";
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@id", id);
-                cmd.Parameters.AddWithValue("@id_produto", model.Id_produto);
-                cmd.Parameters.AddWithValue("@categoria", model.Categoria);
-                cmd.Parameters.AddWithValue("@valor", model.Valor);
+                cmd.Parameters.AddWithValue("@cod_usuario", id);
                 cmd.Parameters.AddWithValue("@nome", model.Nome);
+                cmd.Parameters.AddWithValue("@categoria", model.Categoria);
                 cmd.Parameters.AddWithValue("@descricao", model.Descricao);
+                cmd.Parameters.AddWithValue("@valor", model.Valor);
+                cmd.Parameters.AddWithValue("@estado", 1);
 
                 cmd.ExecuteNonQuery(); 
             }
@@ -53,12 +53,12 @@ namespace sag.Repositories
                 {
                     Produtos produto = new Produtos();
                     produto.Id_produto = reader.GetInt32(0);
-                    produto.Cod_Usuario = reader.GetInt32(1);
-                    produto.Categoria = reader.GetString(2);
-                    produto.Valor = reader.GetFloat(3);
-                    produto.Nome = reader.GetString(4);
-                    produto.Descricao = reader.GetString(5);
-                    produto.Estado = reader.GetInt32(5);
+                    produto.Cod_usuario = reader.GetInt32(1);
+                    produto.Nome = reader.GetString(2);
+                    produto.Categoria = reader.GetString(3);
+                    produto.Descricao = reader.GetString(4);
+                    produto.Valor = reader.GetDouble(5);
+                    produto.Estado = reader.GetInt32(6);
 
                     listaProdutos.Add(produto);
                 }
@@ -80,7 +80,7 @@ namespace sag.Repositories
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
 
-                cmd.CommandText = "select * from tb_produtos where id_produto=@id_produto";
+                cmd.CommandText = "SELECT id_produto,nome,categoria,descricao,valor,estado FROM tb_produtos WHERE id_produto=@id_produto";
 
                 cmd.Parameters.AddWithValue("@id_produto", id);
 
@@ -90,11 +90,10 @@ namespace sag.Repositories
                 {
                     Produtos produto = new Produtos();
                     produto.Id_produto = reader.GetInt32(0);
-                    produto.Cod_Usuario = reader.GetInt32(1);
+                    produto.Nome = reader.GetString(1);
                     produto.Categoria = reader.GetString(2);
-                    produto.Valor = reader.GetFloat(3);
-                    produto.Nome = reader.GetString(4);
-                    produto.Descricao = reader.GetString(5);
+                    produto.Descricao = reader.GetString(3);
+                    produto.Valor = reader.GetDouble(4);
                     produto.Estado = reader.GetInt32(5);
 
                     return produto;
@@ -116,15 +115,14 @@ namespace sag.Repositories
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
 
-                cmd.CommandText = "AtualizaProdutos";
+                cmd.CommandText = "UpdateProduto";
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@id", id);
                 cmd.Parameters.AddWithValue("@id_produto", model.Id_produto);
-                cmd.Parameters.AddWithValue("@categoria", model.Categoria);
-                cmd.Parameters.AddWithValue("@valor", model.Valor);
                 cmd.Parameters.AddWithValue("@nome", model.Nome);
+                cmd.Parameters.AddWithValue("@categoria", model.Categoria);
                 cmd.Parameters.AddWithValue("@descricao", model.Descricao);
+                cmd.Parameters.AddWithValue("@valor", model.Valor);
                 cmd.Parameters.AddWithValue("@estado", model.Estado);
 
                 cmd.ExecuteNonQuery();
@@ -133,6 +131,30 @@ namespace sag.Repositories
                 throw new Exception(ex.Message);
             }
             finally {
+                Dispose();
+            }
+        }
+        public void Disable(int id)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+                //Conexão com o banco
+
+                cmd.CommandText = "DesabilitaProduto";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@id_produto", id);
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
                 Dispose();
             }
         }

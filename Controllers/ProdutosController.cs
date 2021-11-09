@@ -17,12 +17,19 @@ namespace sag.Controllers
 
         public IActionResult Index()
         {
+            var id = HttpContext.Session.GetInt32("id");
+            if(id == null)
+                return RedirectToAction("Login", "Usuario");
+
             List<Produtos> produtos = repository.ReadAll();
             return View(produtos);
         }
         [HttpGet]
         public IActionResult Create()
         {
+            var id_usuario = HttpContext.Session.GetInt32("id");
+            if(id_usuario == null)
+                return RedirectToAction("Login", "Usuario");
             return View();
         }
 
@@ -42,6 +49,10 @@ namespace sag.Controllers
         [HttpGet]
         public IActionResult Update(int id)
         {
+            var id_usuario = HttpContext.Session.GetInt32("id");
+            if(id_usuario == null)
+                return RedirectToAction("Login", "Usuario");
+
             var produtos = repository.Read(id);
             return View(produtos);
         }
@@ -51,6 +62,13 @@ namespace sag.Controllers
         {
             repository.Update(id, model);
             ViewBag.Message = "Edição feita com sucesso!";
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public IActionResult Disable(int id)
+        {
+            repository.Disable(id);
+            ViewBag.Message = "Produto Desabilitado!";
             return RedirectToAction("Index");
         }
     }

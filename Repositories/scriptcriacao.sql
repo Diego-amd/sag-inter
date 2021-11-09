@@ -82,23 +82,7 @@ CREATE TABLE tb_itens_pedidos(
 )
 go
 
-INSERT INTO tb_usuarios VALUES ('Juliana Lins', 'juliana.lins', '123', '17992485735', 1, 'teste@teste.com.br', 'Rua teste')
-go
-INSERT INTO tb_usuarios VALUES ('Garçom Ferreira', 'garcom.ferreira', '321', '18995623564', 1, 'garcom@teste.com.br', 'Rua bla bla')
-GO
-
-INSERT INTO tb_funcionarios VALUES (1, 'Administrador', 1)
-GO
-
-select * from tb_funcionarios
-GO
-
-select * from tb_usuarios
-GO
-
-insert into tb_gastos_brutos values (1, 290.30, GETDATE(), '2021-11-05','Teste1') -- da certo
-insert into tb_gastos_brutos values (1, 290.30, GETDATE(), '06/11/2021','Teste2') -- da certo tbm
-GO
+--Procedures Gastos--
 
 CREATE PROCEDURE ExcluiGasto
 	@id_gasto int
@@ -130,42 +114,18 @@ GO
 CREATE PROCEDURE CadastroGasto
 (
 	@cod_usuario int,
+	@nome varchar(100),
 	@valor float, 
 	@data_pagamento date,
-	@data_vencimento date,
-	@nome varchar(100)
+	@data_vencimento date
 )
 AS
 BEGIN
-	INSERT INTO tb_gastos_brutos VALUES (@cod_usuario, @valor, @data_pagamento, @data_vencimento, @nome)
+	INSERT INTO tb_gastos_brutos VALUES (@cod_usuario,@nome, @valor, @data_pagamento, @data_vencimento)
 END
 GO
 
---Cadastro de gastos pela procedure
-EXEC CadastroGasto 1, 500, '03/10/2021', '08/11/2021'
-
---Views--
--- CREATE VIEW vLogin (@login varchar(20), @senha varchar(10)) as 
--- SELECT * 
--- from tb_usuarios 
--- WHERE login=@login and senha=@senha
-
---Heiter 05/11--
-insert into tb_produtos 
-values (1,'Bebida',8.30,'Aquele cara','tueummm',0)
-GO
-
-insert into tb_produtos 
-values (1,'Sushi',12.00,'Sushi especial da ju','Gostoso hmmm',1)
-go
-select * from tb_produtos
-
-select * from tb_gastos_brutos
-
---Create--
-INSERT INTO tb_produtos VALUES (cod_usuario,'Bebida',8.30,'Aquele cara','tueummm',0)
-GO
-
+--Procedures Produtos--
 CREATE view VProdutosAll
 AS
 	SELECT * FROM tb_produtos 
@@ -175,31 +135,31 @@ GO
 CREATE PROCEDURE CadastroProduto
 (
 	@cod_usuario int, 
-	@nome varchar(100),
 	@categoria varchar(50),
-	@descricao varchar(150),
 	@valor float,
+	@nome varchar(100),
+	@descricao varchar(150),
 	@estado int
 )
 AS
 BEGIN
-	INSERT INTO tb_produtos VALUES (@cod_usuario, @nome, @categoria, @descricao, @valor, @estado)
+	INSERT INTO tb_produtos VALUES (@cod_usuario, @categoria, @valor, @nome, @descricao, @estado)
 END
 GO
 
 CREATE PROCEDURE UpdateProduto
 (
 	@id_produto int,
-	@categoria varchar(50),
-	@valor float,
 	@nome varchar(100),
+	@categoria varchar(50),
 	@descricao varchar(150),
+	@valor float,
 	@estado int
 )
 AS
 BEGIN
 	UPDATE tb_produtos 
-	SET categoria=@categoria, valor=@valor, nome=@nome, descricao=@descricao, estado=1
+	SET nome=@nome, categoria=@categoria, descricao=@descricao,valor=@valor, estado=1
 	WHERE id_produto=@id_produto
 END
 GO

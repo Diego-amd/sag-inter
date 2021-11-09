@@ -9,5 +9,6 @@ namespace sag.Repositories
         List<Produtos> ReadAll();
         Produtos Read(int id);
         void Update(int id, Produtos model);
+        void Disable(int id);
     }
 }
