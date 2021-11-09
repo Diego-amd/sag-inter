@@ -144,12 +144,6 @@ GO
 --Cadastro de gastos pela procedure
 EXEC CadastroGasto 1, 500, '03/10/2021', '08/11/2021'
 
---Views--
--- CREATE VIEW vLogin (@login varchar(20), @senha varchar(10)) as 
--- SELECT * 
--- from tb_usuarios 
--- WHERE login=@login and senha=@senha
-
 --Heiter 05/11--
 insert into tb_produtos 
 values (1,'Bebida',8.30,'Aquele cara','tueummm',0)
