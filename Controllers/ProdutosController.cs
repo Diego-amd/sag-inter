@@ -10,6 +10,7 @@ namespace sag.Controllers
     public class ProdutosController : Controller
     {
         private IProdutosRepository repository;
+
         public ProdutosController(IProdutosRepository repository)
         {
             this.repository = repository;
@@ -20,6 +21,7 @@ namespace sag.Controllers
             List<Produtos> produtos = repository.ReadAll();
             return View(produtos);
         }
+        
         [HttpGet]
         public IActionResult Create()
         {
