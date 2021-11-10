@@ -137,7 +137,7 @@ CREATE PROCEDURE CadastroProduto
 	@cod_usuario int, 
 	@nome varchar(100),
 	@categoria varchar(50),
-	@descricao varchar(150),
+	@descricao varchar(150)='',
 	@valor float,
 	@estado int
 )
