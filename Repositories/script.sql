@@ -142,7 +142,7 @@ END
 GO
 
 --Cadastro de gastos pela procedure
-EXEC CadastroGasto 1, 500, '03/10/2021', '08/11/2021'
+EXEC CadastroGasto 1,'Teste gasto', 500, '03/10/2021', '08/11/2021'
 
 --Heiter 05/11--
 insert into tb_produtos 
