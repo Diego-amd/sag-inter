@@ -35,7 +35,7 @@ go
 CREATE TABLE tb_gastos_brutos(
 	id_gasto		int primary key identity not null,
 	cod_usuario		int references tb_funcionarios not null,
-	nome_gasto		varchar(100),
+	nome_gasto		varchar(100) not null,
 	valor_gasto		float not null,
 	data_pagamento	date,
 	data_vencimento	date
@@ -94,14 +94,14 @@ GO
 
 CREATE PROCEDURE AtualizaGasto
 	@id_gasto int,
+	@nome  varchar(100),
 	@valor float,
 	@data_pagamento date,
-	@data_vencimento date,
-	@nome  varchar(100)
+	@data_vencimento date
 AS
 BEGIN
 	UPDATE tb_gastos_brutos 
-		SET valor_gasto = @valor, data_pagamento = @data_pagamento, data_vencimento = @data_vencimento, nome_gasto = @nome
+		SET nome_gasto = @nome, valor_gasto = @valor, data_pagamento = @data_pagamento, data_vencimento = @data_vencimento 
 		WHERE id_gasto = @id_gasto
 END;
 GO
@@ -135,15 +135,15 @@ GO
 CREATE PROCEDURE CadastroProduto
 (
 	@cod_usuario int, 
-	@categoria varchar(50),
-	@valor float,
 	@nome varchar(100),
+	@categoria varchar(50),
 	@descricao varchar(150),
+	@valor float,
 	@estado int
 )
 AS
 BEGIN
-	INSERT INTO tb_produtos VALUES (@cod_usuario, @categoria, @valor, @nome, @descricao, @estado)
+	INSERT INTO tb_produtos VALUES (@cod_usuario, @nome, @categoria, @descricao, @valor, @estado)
 END
 GO
 
