@@ -1,0 +1,48 @@
+@using sag.Models
+@model List<Pedidos>
+@{
+    ViewBag.Title = "Lista de Pedidos";
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Lista de Pedidos - Teste</h1>
+
+<table class="table table-hover">
+    <tr>
+        <th>Id</th>
+        <th>Código do usuário</th>
+        <th>Data de Entrada</th>
+        <th>Hora de Entrada</th>
+        <th>Hora de Saída</th>
+        <th>Status</th>
+        <th>Tipo de Pedido</th>
+        <th>&nbsp;</th>
+    </tr>
+
+    @* <img src='/images/icon.png' /> *@
+    <h1>Você tem @Model.Count pedidos</h1>
+
+    @if(ViewBag.Message != null) {
+        <p class="alert alert-danger alert-message">@ViewBag.Message</p>
+    }
+
+    @foreach(var pedido in Model)
+    {
+        <tr>
+            <td>@pedido.Id_pedido</td>
+            <td>@pedido.CodUsuario</td>
+            <td>@pedido.DataEntrada</td>
+            <td>@pedido.HoraEntrada</td>
+            <td>@pedido.HoraSaida</td>
+            <td>@pedido.TextoStatus</td>
+            <td>@pedido.TextoTipoPedido</td>
+            <td>
+                <a href="/GastosBrutos/Delete/@pedido.Id_pedido" class="btn btn-sm btn-danger">Apagar</a>
+                <a href="/GastosBrutos/Update/@pedido.Id_pedido" class="btn btn-sm btn-primary">Editar</a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+<a href="/pedidos/create" class="btn btn-primary">Adicionar</a>

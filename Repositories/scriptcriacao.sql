@@ -52,7 +52,6 @@ CREATE TABLE tb_pedidos(
 	hora_entrada	time not null,
 	hora_saida		time not null,
 	data_entrada	date not null,
-	data_saida		date not null,
 	status			int not null,
 	tipo_pedido		int not null,
 	check(tipo_pedido in (0,1)),
@@ -174,4 +173,11 @@ BEGIN
 	SET estado=0 
 	WHERE id_produto=@id_produto
 END
+GO
+
+-- Procedures e Views Pedidos --
+
+CREATE VIEW VPedidosAll
+AS 
+	SELECT * FROM tb_pedidos
 GO
