@@ -1,17 +1,16 @@
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using sag.Models;
 using sag.Repositories;
-using System;
-using Microsoft.AspNetCore.Http;
 
 namespace sag.Controllers
 {
-    public class GastosBrutosController : Controller
+    public class PedidosController : Controller
     {
-        private IGastosBrutosRepository repository;
+        private IPedidosRepository repository;
 
-        public GastosBrutosController(IGastosBrutosRepository repository)
+        public PedidosController(IPedidosRepository repository)
         {
             this.repository = repository;
         }
@@ -19,8 +18,8 @@ namespace sag.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            List<GastosBrutos> gastos = repository.ReadAll();
-            return View(gastos);
+            List<Pedidos> pedidos = repository.ReadAll();
+            return View(pedidos);
         }
 
         [HttpGet]
@@ -30,13 +29,12 @@ namespace sag.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(GastosBrutos model)
+        public IActionResult Create(Pedidos model)
         {
             var id = HttpContext.Session.GetInt32("id");
             repository.Create((int)id, model);
-            Console.WriteLine(id);
 
-            ViewBag.Message = "Criação do gasto feita com sucesso!";
+            ViewBag.Message = "Pedido criado com sucesso!";
             return RedirectToAction("Index");
         }
 
@@ -48,19 +46,20 @@ namespace sag.Controllers
         }
 
         [HttpPost]
-        public IActionResult Update(int id, GastosBrutos model)
+        public IActionResult Update(int id, Pedidos model)
         {
             repository.Update(id, model);
             ViewBag.Message = "Edição feita com sucesso!";
-            
+
             return RedirectToAction("Index");
         }
 
         [HttpGet]
-        public ActionResult Delete(int id)
+        public IActionResult Delete(int id)
         {
             repository.Delete(id);
             ViewBag.Message = "Exclusão feita com sucesso!";
+            
             return RedirectToAction("Index");
         }
     }

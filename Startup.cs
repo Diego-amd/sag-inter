@@ -26,6 +26,8 @@ namespace sag
         {
             services.AddTransient<IUsuarioRepository, UsuarioRepository>();
             services.AddTransient<IGastosBrutosRepository, GastosBrutosRepository>();
+            services.AddTransient<IProdutosRepository, ProdutosRepository>();
+            services.AddTransient<IPedidosRepository, PedidosRepository>();
             
             services.AddSession();//
             services.AddControllersWithViews();

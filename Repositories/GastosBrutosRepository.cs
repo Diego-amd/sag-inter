@@ -20,10 +20,10 @@ namespace sag.Repositories
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@cod_usuario", id);
+                cmd.Parameters.AddWithValue("@nome", model.NomeGasto);
                 cmd.Parameters.AddWithValue("@valor", model.Valor);
                 cmd.Parameters.AddWithValue("@data_pagamento", model.DataPagamento);
                 cmd.Parameters.AddWithValue("@data_vencimento", model.DataVencimento);
-                cmd.Parameters.AddWithValue("@nome", model.NomeGasto);
 
                 cmd.ExecuteNonQuery();
 
@@ -79,10 +79,10 @@ namespace sag.Repositories
                     GastosBrutos gastos = new GastosBrutos();
                     gastos.Id_gasto = reader.GetInt32(0);
                     gastos.CodUsuario = reader.GetInt32(1);
-                    gastos.Valor = reader.GetDouble(2);
-                    gastos.DataVencimento = reader.GetDateTime(3).ToString("dd/MM/yyyy");
+                    gastos.NomeGasto = reader.GetString(2);
+                    gastos.Valor = reader.GetDouble(3);
                     gastos.DataPagamento = reader.GetDateTime(4).ToString("dd/MM/yyyy");
-                    gastos.NomeGasto = reader.GetString(5);
+                    gastos.DataVencimento = reader.GetDateTime(5).ToString("dd/MM/yyyy");
 
                     listaGastos.Add(gastos);
                 }
@@ -104,7 +104,7 @@ namespace sag.Repositories
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
 
-                cmd.CommandText = "SELECT id_gasto, valor_gasto, data_pagamento, data_vencimento, nome_gasto FROM tb_gastos_brutos WHERE id_gasto = @id";
+                cmd.CommandText = "SELECT id_gasto,  nome_gasto, valor_gasto, data_pagamento, data_vencimento FROM tb_gastos_brutos WHERE id_gasto = @id";
 
                 cmd.Parameters.AddWithValue("@id", id);
 
@@ -114,10 +114,10 @@ namespace sag.Repositories
                 {
                     GastosBrutos gastos = new GastosBrutos();
                     gastos.Id_gasto = reader.GetInt32(0);
-                    gastos.Valor = reader.GetDouble(1);
-                    gastos.DataVencimento = reader.GetDateTime(2).ToString("dd/MM/yyyy");
+                    gastos.NomeGasto = reader.GetString(1);
+                    gastos.Valor = reader.GetDouble(2);
                     gastos.DataPagamento = reader.GetDateTime(3).ToString("dd/MM/yyyy");
-                    gastos.NomeGasto = reader.GetString(4);
+                    gastos.DataVencimento = reader.GetDateTime(4).ToString("dd/MM/yyyy");
 
                     return gastos;
                 }
@@ -143,8 +143,8 @@ namespace sag.Repositories
 
                 cmd.Parameters.AddWithValue("@nome", model.NomeGasto);
                 cmd.Parameters.AddWithValue("@valor", model.Valor);
-                cmd.Parameters.AddWithValue("@data_vencimento", model.DataVencimento);
                 cmd.Parameters.AddWithValue("@data_pagamento", model.DataPagamento);
+                cmd.Parameters.AddWithValue("@data_vencimento", model.DataVencimento);
                 cmd.Parameters.AddWithValue("@id_gasto", id);
 
                 cmd.ExecuteNonQuery();

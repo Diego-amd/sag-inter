@@ -8,7 +8,6 @@ namespace sag.Models
         public string Login { get; set; }
 
         [Required(ErrorMessage = "O campo Senha é obrigatório")]
-        [MinLength(2, ErrorMessage = "O campo Senha deve ter pelo menos 2 caracteres")]
         public string Senha { get; set; }
     }
 }
