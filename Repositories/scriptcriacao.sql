@@ -64,7 +64,7 @@ CREATE TABLE tb_produtos(
 	cod_usuario		int references tb_funcionarios not null,
 	nome			varchar(100) not null,
 	categoria		varchar(50) not null,
-	descricao		varchar(150) not null,
+	descricao		varchar(150),
 	valor			float not null,
 	estado			int not null,
 	CHECK(estado in (0,1))
@@ -136,7 +136,7 @@ CREATE PROCEDURE CadastroProduto
 	@cod_usuario int, 
 	@nome varchar(100),
 	@categoria varchar(50),
-	@descricao varchar(150),
+	@descricao varchar(150)='',
 	@valor float,
 	@estado int
 )
