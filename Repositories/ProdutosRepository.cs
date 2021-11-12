@@ -57,7 +57,7 @@ namespace sag.Repositories
                     produto.Nome = reader.GetString(2);
                     produto.Categoria = reader.GetString(3);
                     produto.Descricao = reader.GetString(4);
-                    produto.Valor = reader.GetDouble(5);
+                    produto.Valor = reader.GetDecimal(5);
                     produto.Estado = reader.GetInt32(6);
 
                     listaProdutos.Add(produto);
@@ -93,7 +93,7 @@ namespace sag.Repositories
                     produto.Nome = reader.GetString(1);
                     produto.Categoria = reader.GetString(2);
                     produto.Descricao = reader.GetString(3);
-                    produto.Valor = reader.GetDouble(4);
+                    produto.Valor = reader.GetDecimal(4);
                     produto.Estado = reader.GetInt32(5);
 
                     return produto;

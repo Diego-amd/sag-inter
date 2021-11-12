@@ -65,7 +65,7 @@ CREATE TABLE tb_produtos(
 	nome			varchar(100) not null,
 	categoria		varchar(50) not null,
 	descricao		varchar(150),
-	valor			float not null,
+	valor			decimal(10,2) not null,
 	estado			int not null,
 	CHECK(estado in (0,1))
 )
@@ -137,7 +137,7 @@ CREATE PROCEDURE CadastroProduto
 	@nome varchar(100),
 	@categoria varchar(50),
 	@descricao varchar(150)='',
-	@valor float,
+	@valor decimal,
 	@estado int
 )
 AS
@@ -152,7 +152,7 @@ CREATE PROCEDURE UpdateProduto
 	@nome varchar(100),
 	@categoria varchar(50),
 	@descricao varchar(150),
-	@valor float,
+	@valor decimal,
 	@estado int
 )
 AS

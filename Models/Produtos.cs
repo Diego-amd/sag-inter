@@ -12,7 +12,7 @@ namespace sag.Models
         [Required(ErrorMessage = "O campo Categoria é obrigatório")]
         public string Categoria { get; set; }
         [Required(ErrorMessage = "O campo Valor é obrigatório")]
-        public double Valor { get; set; }
+        public decimal Valor { get; set; }
         public int Estado { get; set; }
 
         #region Foreign Key
