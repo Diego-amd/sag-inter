@@ -14,6 +14,7 @@ namespace sag.Models
         [Required(ErrorMessage = "O campo Valor é obrigatório")]
         public decimal Valor { get; set; }
         public int Estado { get; set; }
+        public string TextoEstado => Estado == 1 ? "Ativo" : "Inativo";
 
         #region Foreign Key
         public Funcionarios Funcionario { get; set; }

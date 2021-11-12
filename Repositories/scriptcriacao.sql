@@ -137,7 +137,7 @@ CREATE PROCEDURE CadastroProduto
 	@nome varchar(100),
 	@categoria varchar(50),
 	@descricao varchar(150)='',
-	@valor decimal,
+	@valor decimal(10,2),
 	@estado int
 )
 AS
@@ -151,8 +151,8 @@ CREATE PROCEDURE UpdateProduto
 	@id_produto int,
 	@nome varchar(100),
 	@categoria varchar(50),
-	@descricao varchar(150),
-	@valor decimal,
+	@descricao varchar(150)='',
+	@valor decimal(10,2),
 	@estado int
 )
 AS
