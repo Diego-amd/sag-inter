@@ -118,7 +118,7 @@ namespace sag.Repositories
                 cmd.CommandText = "UpdateProduto";
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@id_produto", model.Id_produto);
+                cmd.Parameters.AddWithValue("@id_produto", id);
                 cmd.Parameters.AddWithValue("@nome", model.Nome);
                 cmd.Parameters.AddWithValue("@categoria", model.Categoria);
                 cmd.Parameters.AddWithValue("@descricao", model.Descricao);
