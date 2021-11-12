@@ -18,6 +18,10 @@ namespace sag.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            var id_usuario = HttpContext.Session.GetInt32("id");
+            if(id_usuario == null)
+                return RedirectToAction("Login", "Usuario");
+
             List<Pedidos> pedidos = repository.ReadAll();
             return View(pedidos);
         }
@@ -31,6 +35,10 @@ namespace sag.Controllers
         [HttpPost]
         public IActionResult Create(Pedidos model)
         {
+            var id_usuario = HttpContext.Session.GetInt32("id");
+            if(id_usuario == null)
+                return RedirectToAction("Login", "Usuario");
+
             var id = HttpContext.Session.GetInt32("id");
             repository.Create((int)id, model);
 
@@ -41,6 +49,10 @@ namespace sag.Controllers
         [HttpGet]
         public IActionResult Update(int id)
         {
+            var id_usuario = HttpContext.Session.GetInt32("id");
+            if(id_usuario == null)
+                return RedirectToAction("Login", "Usuario");
+                
             var gastos = repository.Read(id);
             return View(gastos);
         }

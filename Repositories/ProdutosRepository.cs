@@ -92,7 +92,7 @@ namespace sag.Repositories
                     produto.Id_produto = reader.GetInt32(0);
                     produto.Nome = reader.GetString(1);
                     produto.Categoria = reader.GetString(2);
-                    produto.Descricao = reader.GetString(3);
+                    produto.Descricao = reader.IsDBNull(3) ? null : reader.GetString(3);
                     produto.Valor = reader.GetDecimal(4);
                     produto.Estado = reader.GetInt32(5);
 
