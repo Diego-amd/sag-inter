@@ -3,6 +3,8 @@
 -- Nome: Heiter Paganin Malagoli
 -- FATEC Rio Preto 		4ª ADS Tarde
 
+drop database db_sag
+
 CREATE DATABASE db_sag
 GO
 
@@ -49,6 +51,8 @@ go
 CREATE TABLE tb_pedidos(
 	id_pedido		int primary key identity not null,
 	cod_usuario		int references tb_funcionarios not null,
+	nome_cliente	varchar(max) not null,
+	tel_cliente		varchar(max) not null,
 	hora_entrada	time not null,
 	hora_saida		time not null,
 	data_entrada	date not null,

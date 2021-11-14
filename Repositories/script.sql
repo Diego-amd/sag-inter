@@ -3,6 +3,8 @@
 -- Nome: Heiter Paganin Malagoli
 -- FATEC Rio Preto 		4ª ADS Tarde
 
+drop database db_sag
+
 CREATE DATABASE db_sag
 GO
 
@@ -35,7 +37,7 @@ go
 CREATE TABLE tb_gastos_brutos(
 	id_gasto		int primary key identity not null,
 	cod_usuario		int references tb_funcionarios not null,
-	nome_gasto		varchar(100),
+	nome_gasto		varchar(100) not null,
 	valor_gasto		float not null,
 	data_pagamento	date,
 	data_vencimento	date
@@ -49,10 +51,11 @@ go
 CREATE TABLE tb_pedidos(
 	id_pedido		int primary key identity not null,
 	cod_usuario		int references tb_funcionarios not null,
+	nome_cliente	varchar(max) not null,
+	tel_cliente		varchar(max) not null,
 	hora_entrada	time not null,
 	hora_saida		time not null,
 	data_entrada	date not null,
-	data_saida		date not null,
 	status			int not null,
 	tipo_pedido		int not null,
 	check(tipo_pedido in (0,1)),
@@ -65,8 +68,8 @@ CREATE TABLE tb_produtos(
 	cod_usuario		int references tb_funcionarios not null,
 	nome			varchar(100) not null,
 	categoria		varchar(50) not null,
-	descricao		varchar(150) not null,
-	valor			float not null,
+	descricao		varchar(150),
+	valor			decimal(10,2) not null,
 	estado			int not null,
 	CHECK(estado in (0,1))
 )
