@@ -11,6 +11,8 @@
     <tr>
         <th>Id</th>
         <th>Código do usuário</th>
+        <th>Nome / mesa do cliente</th>
+        <th>Telefone do cliente</th>
         <th>Data de Entrada</th>
         <th>Hora de Entrada</th>
         <th>Hora de Saída</th>
@@ -22,23 +24,24 @@
     @* <img src='/images/icon.png' /> *@
     <h1>Você tem @Model.Count pedidos</h1>
 
-    @if(ViewBag.Message != null) {
-        <p class="alert alert-danger alert-message">@ViewBag.Message</p>
+    @if(ViewBag.Mensagem != null) {
+        <p class="alert alert-danger alert-message">@ViewBag.Mensagem</p>
     }
 
     @foreach(var pedido in Model)
     {
         <tr>
-            <td>@pedido.Id_pedido</td>
+            <td>@pedido.IdPedido</td>
             <td>@pedido.CodUsuario</td>
+            <td>@pedido.NomeCliente</td>
+            <td>@pedido.TelCliente</td>
             <td>@pedido.DataEntrada</td>
             <td>@pedido.HoraEntrada</td>
             <td>@pedido.HoraSaida</td>
             <td>@pedido.TextoStatus</td>
             <td>@pedido.TextoTipoPedido</td>
             <td>
-                <a href="/GastosBrutos/Delete/@pedido.Id_pedido" class="btn btn-sm btn-danger">Apagar</a>
-                <a href="/GastosBrutos/Update/@pedido.Id_pedido" class="btn btn-sm btn-primary">Editar</a>
+                <a href="/Pedidos/Update/@pedido.IdPedido" class="btn btn-sm btn-primary">Finalizar pedido</a>
             </td>
         </tr>
     }
