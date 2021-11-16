@@ -1,0 +1,35 @@
+@using sag.Models
+@model List<Pedidos>
+@{
+    ViewBag.Title = "Vendas Do Dia";
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Vendas Do Dia - Teste</h1>
+
+<table class="table table-hover">
+    <tr>
+        <th>Prdouto</th>
+        <th>Valor Unitário</th>
+        <th>Valor Total Vendido</th>
+        <th>Qtd Total em Pedidos</th>
+        <th>&nbsp;</th>
+    </tr>
+
+    @* <img src='/images/icon.png' /> *@
+    <h1>Vendas do dia</h1>
+
+    @if(ViewBag.Message != null) {
+        <p class="alert alert-danger alert-message">@ViewBag.Message</p>
+    }
+
+    @foreach(var pedido in Model)
+    {
+        <tr>
+            <td>@pedido.CodUsuario</td>
+            <td>@pedido.DataEntrada</td>
+            <td>@pedido.HoraEntrada</td>
+        </tr>
+    }
+
+</table>
