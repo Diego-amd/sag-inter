@@ -1,8 +1,8 @@
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @using sag.Models
-@model GastosBrutos
+@model Pedidos
 @{
-    ViewBag.Title = "Novo gasto";
+    ViewBag.Title = "Novo Pedido";
     Layout = "/Views/Shared/_Layout.cshtml";
 }
 
@@ -11,29 +11,25 @@
 <div>
     <form asp-controller="Pedidos" asp-action="Create" method="POST">
         <div class="form-group">
-            <label for="valor">Nome do gasto*</label>
-            <input type="text" name="nomegasto" required="true" class="form-control" asp-for="NomeGasto"/>
-            <span asp-validation-for="NomeGasto"></span>
+            <label for="NomeCliente">Nome do cliente ou mesa</label>
+            <input type="text" name="NomeCliente" class="form-control" asp-for="NomeCliente"/>
+            <span asp-validation-for="NomeCliente"></span>
         </div>
         <div class="form-group">
-            <label for="valor">Valor gasto*</label>
-            <input type="text" name="valor" required="true" class="form-control" asp-for="Valor"/>
-            <span asp-validation-for="Valor"></span>
-        </div>
-
-        <div class="form-group">
-            <label for="DataVencimento">Data de Vencimento*</label>
-            <input type="date" name="DataVencimento" id="DataVencimento" class="form-control" asp-for="DataVencimento"/>
-            <span asp-validation-for="DataVencimento"></span>
+            <label for="TelCliente">Telefone do cliente</label>
+            <input type="text" name="TelCliente" class="form-control" asp-for="TelCliente"/>
+            <span asp-validation-for="TelCliente"></span>
         </div>
 
         <div class="form-group">
-            <label for="DataPagamento">Data de Pagamento</label>
-            <input type="date" name="DataPagamento" id="DataPagamento" class="form-control" asp-for="DataPagamento"/>
-            <span asp-validation-for="DataPagamento"></span>
+            <label for="TipoPedido">Pedido presencial ou online?</label>
+            <select asp-for="TipoPedido" class="form-control">
+                <option value="0">Presencial</option>
+                <option value="1">Online</option>
+            </select>
         </div>
 
         <button class="btn btn-primary">Salvar</button>
-        <a href="/GastosBrutos/Index" class="btn btn-primary">Voltar</a>
+        <a href="/Pedidos/Index" class="btn btn-primary">Voltar</a>
     </form>
 </div>

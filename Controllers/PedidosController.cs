@@ -46,17 +46,6 @@ namespace sag.Controllers
         }
 
         [HttpGet]
-        public IActionResult Update(int id)
-        {
-            var id_usuario = HttpContext.Session.GetInt32("id");
-            if(id_usuario == null)
-                return RedirectToAction("Login", "Usuario");
-                
-            var gastos = repository.Read(id);
-            return View(gastos);
-        }
-
-        [HttpPost]
         public IActionResult Update(int id, Pedidos model)
         {
             repository.Update(id, model);

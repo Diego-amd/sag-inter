@@ -185,3 +185,15 @@ CREATE VIEW VPedidosAll
 AS 
 	SELECT * FROM tb_pedidos
 GO
+
+CREATE PROCEDURE FinalizaPedido
+(
+	@id_pedido int
+)
+AS
+BEGIN
+	UPDATE tb_pedidos 
+	SET status=1, hora_saida = GETDATE()
+	WHERE id_pedido=@id_pedido
+END
+GO
