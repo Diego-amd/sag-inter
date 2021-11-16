@@ -51,10 +51,10 @@ go
 CREATE TABLE tb_pedidos(
 	id_pedido		int primary key identity not null,
 	cod_usuario		int references tb_funcionarios not null,
-	nome_cliente	varchar(max) not null,
-	tel_cliente		varchar(max) not null,
+	nome_cliente	varchar(max),
+	tel_cliente		varchar(max),
 	hora_entrada	time not null,
-	hora_saida		time not null,
+	hora_saida		time,
 	data_entrada	date not null,
 	status			int not null,
 	tipo_pedido		int not null,
