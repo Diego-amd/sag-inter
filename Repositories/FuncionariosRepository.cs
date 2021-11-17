@@ -3,8 +3,8 @@ using sag.Models;
 using sag.Repositores;
 using System.Data.SqlClient;
 using System;
-using System.Data;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 namespace sag.Repositories
 {
@@ -13,6 +13,8 @@ namespace sag.Repositories
         public Funcionarios Read(int id)
         {
             try {
+                Funcionarios funcionario = null;
+
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
 
@@ -21,16 +23,14 @@ namespace sag.Repositories
 
                 SqlDataReader reader = cmd.ExecuteReader();
                 
-                while(reader.Read()) 
+                if(reader.Read()) 
                 {
-                    Funcionarios funcionario = new Funcionarios();
-                    funcionario.Usuarios.Id= reader.GetInt32(0);
+                    funcionario.CodUsuario= reader.GetInt32(0);
                     funcionario.Admin = reader.GetInt32(1);
                     funcionario.Funcao = reader.GetString(2);
-                    return funcionario;
-                }
 
-                return null;
+                }
+                return funcionario;
             }
             catch(Exception ex) {
                 throw new Exception(ex.Message);
