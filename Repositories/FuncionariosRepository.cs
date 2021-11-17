@@ -10,28 +10,27 @@ namespace sag.Repositories
 {
     public class FuncionariosRepository : BDContext, IFuncionariosRepository
     {
-        public List<Funcionarios> ReadAll()
+        public Funcionarios Read(int id)
         {
             try {
-                List<Funcionarios> funcionarios = new List<Funcionarios>();
-
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
 
-                cmd.CommandText = "SELECT * FROM VGastosBrutosAll";
+                cmd.CommandText = "SELECT * from tb_funcionarios where cod_usuario=@id";
+                cmd.Parameters.AddWithValue("@id", id);
 
                 SqlDataReader reader = cmd.ExecuteReader();
                 
                 while(reader.Read()) 
                 {
                     Funcionarios funcionario = new Funcionarios();
-                    funcionario.Admin = reader.GetInt32(0);
-                    funcionario.Funcao = reader.GetString(1);
-
-                    funcionarios.Add(funcionario);
+                    funcionario.Usuarios.Id= reader.GetInt32(0);
+                    funcionario.Admin = reader.GetInt32(1);
+                    funcionario.Funcao = reader.GetString(2);
+                    return funcionario;
                 }
 
-                return funcionarios;
+                return null;
             }
             catch(Exception ex) {
                 throw new Exception(ex.Message);

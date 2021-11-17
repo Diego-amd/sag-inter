@@ -17,14 +17,14 @@ namespace sag.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Home()
         {
             var id_usuario = HttpContext.Session.GetInt32("id");
             if(id_usuario == null)
                 return RedirectToAction("Login", "Usuario");
                 
-            List<Funcionarios> funcionarios = repository.ReadAll();
-            return View(funcionarios);
+            Funcionarios funcionario = repository.Read((int)id_usuario);
+            return View(funcionario);
         }
     }
 }

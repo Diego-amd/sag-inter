@@ -5,6 +5,6 @@ namespace sag.Repositories
 {
     public interface IFuncionariosRepository
     {
-        List<Funcionarios> ReadAll();
+        Funcionarios Read(int id);
     }
 }
