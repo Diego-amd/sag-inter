@@ -2,9 +2,6 @@
 -- Nome: Diego Aparecido Armindo
 -- Nome: Heiter Paganin Malagoli
 -- FATEC Rio Preto 		4ª ADS Tarde
-
-drop database db_sag
-
 CREATE DATABASE db_sag
 GO
 
