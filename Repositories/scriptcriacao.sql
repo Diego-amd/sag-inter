@@ -2,7 +2,6 @@
 -- Nome: Diego Aparecido Armindo
 -- Nome: Heiter Paganin Malagoli
 -- FATEC Rio Preto 		4ª ADS Tarde
-
 CREATE DATABASE db_sag
 GO
 
@@ -49,8 +48,10 @@ go
 CREATE TABLE tb_pedidos(
 	id_pedido		int primary key identity not null,
 	cod_usuario		int references tb_funcionarios not null,
+	nome_cliente	varchar(max),
+	tel_cliente		varchar(max),
 	hora_entrada	time not null,
-	hora_saida		time not null,
+	hora_saida		time,
 	data_entrada	date not null,
 	status			int not null,
 	tipo_pedido		int not null,
@@ -65,7 +66,7 @@ CREATE TABLE tb_produtos(
 	nome			varchar(100) not null,
 	categoria		varchar(50) not null,
 	descricao		varchar(150),
-	valor			float not null,
+	valor			decimal(10,2) not null,
 	estado			int not null,
 	CHECK(estado in (0,1))
 )
@@ -137,7 +138,7 @@ CREATE PROCEDURE CadastroProduto
 	@nome varchar(100),
 	@categoria varchar(50),
 	@descricao varchar(150)='',
-	@valor float,
+	@valor decimal(10,2),
 	@estado int
 )
 AS
@@ -151,8 +152,8 @@ CREATE PROCEDURE UpdateProduto
 	@id_produto int,
 	@nome varchar(100),
 	@categoria varchar(50),
-	@descricao varchar(150),
-	@valor float,
+	@descricao varchar(150)='',
+	@valor decimal(10,2),
 	@estado int
 )
 AS
@@ -180,4 +181,34 @@ GO
 CREATE VIEW VPedidosAll
 AS 
 	SELECT * FROM tb_pedidos
+GO
+
+CREATE PROCEDURE FinalizaPedido
+(
+	@id_pedido int
+)
+AS
+BEGIN
+	UPDATE tb_pedidos 
+	SET status=1, hora_saida = GETDATE()
+	WHERE id_pedido=@id_pedido
+END
+GO
+--View Top4 Produtos mais vendidos
+CREATE VIEW Vtop4produto AS
+SELECT TOP 4 c.nome,b.valor_unitario,sum(b.valor_total) as Valor_total,sum(b.qtde)as qtde
+	FROM tb_pedidos a
+	INNER JOIN tb_itens_pedidos b ON a.id_pedido=b.cod_pedido
+	INNER JOIN tb_produtos c ON b.cod_produto=c.id_produto
+	WHERE a.data_entrada=convert(DATE,GETDATE())
+	GROUP BY c.nome,b.valor_unitario
+	ORDER BY valor_total desc
+GO
+
+--View Media Pedidos do dia
+CREATE VIEW Vmediadiaped AS
+ select sum( b.Valor_total) / ( select count(1) from tb_pedidos where data_entrada = convert(DATE,GETDATE()) ) as Media
+	from tb_pedidos a
+	inner join tb_itens_pedidos b on a.id_pedido = b.cod_pedido
+	WHERE a.data_entrada=convert(DATE,GETDATE()) 
 GO

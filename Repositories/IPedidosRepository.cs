@@ -9,6 +9,5 @@ namespace sag.Repositories
         List<Pedidos> ReadAll();
         Pedidos Read(int id);
         void Update(int id, Pedidos model);
-        void Delete(int id);
     }
 }

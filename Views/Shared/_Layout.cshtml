@@ -4,21 +4,68 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Sistema Administrativo Gastronômico</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="~/css/login.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="../../wwwroot/css/layout.css" />
 </head>
-<body>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+<body class="layout-img-background">
+    @RenderBody()
+    <div>
+        <img src="/wwwroot/img/SushiJuLogoRec.png" alt="LogoSushiJu" class="LogoSushiJu">
     </div>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    <div>
+        <h5 class="Menu">Menu</h5>
+    </div>
+    <div>
+        <img src="/wwwroot/img/LayoutLeftBox.png" alt="LeftBox" class="left-box">
+    </div>
+
+    <!--Botões da esquerda-->
+    
+    <div>
+        <form action="">
+            <button type="submit" id="fazer-ped">Fazer pedido            
+        </form>
+        <form action="">
+            <button type="submit" id="ped-andamento">Pedido em andamento
+        </form>
+        <form action="">
+            <button type="submit" id="funcao-adm">Funções admnistrativas
+        </form>
+    </div>
+
+    <div>
+        <img src="/wwwroot/img/LayoutTopBox.png" alt="TopBox" class="top-box">
+    </div>
+    <div>
+        <img src="/wwwroot/img/LayoutBackBox.png" alt="BackBox" class="back-box">
+    </div>
+    <div>
+        <img src="/wwwroot/img/LayoutAdmIcon.png" alt="AdminIcon" class="admin-icon">
+    </div>
+
+    <!--Botão de sair-->
+
+    <div id="sair">
+        <p>Administrador</p>
+        <a href="#">Sair</a>
+    </div>
+
+    <div >
+        <a href="#" class="suporte">Suporte</a>
+    </div>
+    <div >
+        <img src="/wwwroot/img/LayoutFzrPedIcon.svg" alt="FzrPedIcon" class="fzr-ped-icon">
+    </div>
+    <div>
+        <img src="/wwwroot/img/LayoutPedAcoIcon.svg" alt="PedAcoIcon" class="ped-aco-icon">
+    </div>
+    <div>
+        <img src="/wwwroot/img/LayoutFunAdmIcon.svg" alt="FunAdmIcon" class="fun-adm-icon">
+    </div>
+    <div>
+        <img src="/wwwroot/img/LayoutSuporteIcon.svg" alt="SuportIcon" class="suport-icon">
+    </div>
 </body>
 </html>

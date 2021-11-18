@@ -30,8 +30,8 @@ namespace sag.Repositories
                 cmd.ExecuteNonQuery(); 
             }
             catch(Exception ex) {
-            // Armazenar a exceção em um log.
-            Console.WriteLine(ex.Message);
+                // Armazenar a exceção em um log.
+                Console.WriteLine(ex.Message);
             }
             finally {
                 Dispose();
@@ -57,7 +57,7 @@ namespace sag.Repositories
                     produto.Nome = reader.GetString(2);
                     produto.Categoria = reader.GetString(3);
                     produto.Descricao = reader.GetString(4);
-                    produto.Valor = reader.GetDouble(5);
+                    produto.Valor = reader.GetDecimal(5);
                     produto.Estado = reader.GetInt32(6);
 
                     listaProdutos.Add(produto);
@@ -92,8 +92,8 @@ namespace sag.Repositories
                     produto.Id_produto = reader.GetInt32(0);
                     produto.Nome = reader.GetString(1);
                     produto.Categoria = reader.GetString(2);
-                    produto.Descricao = reader.GetString(3);
-                    produto.Valor = reader.GetDouble(4);
+                    produto.Descricao = reader.IsDBNull(3) ? "" : reader.GetString(3);
+                    produto.Valor = reader.GetDecimal(4);
                     produto.Estado = reader.GetInt32(5);
 
                     return produto;
@@ -118,7 +118,7 @@ namespace sag.Repositories
                 cmd.CommandText = "UpdateProduto";
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@id_produto", model.Id_produto);
+                cmd.Parameters.AddWithValue("@id_produto", id);
                 cmd.Parameters.AddWithValue("@nome", model.Nome);
                 cmd.Parameters.AddWithValue("@categoria", model.Categoria);
                 cmd.Parameters.AddWithValue("@descricao", model.Descricao);

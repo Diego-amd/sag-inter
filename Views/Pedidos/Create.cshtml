@@ -1,0 +1,35 @@
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using sag.Models
+@model Pedidos
+@{
+    ViewBag.Title = "Novo Pedido";
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<div>
+    <form asp-controller="Pedidos" asp-action="Create" method="POST">
+        <div class="form-group">
+            <label for="NomeCliente">Nome do cliente ou mesa</label>
+            <input type="text" name="NomeCliente" class="form-control" asp-for="NomeCliente"/>
+            <span asp-validation-for="NomeCliente"></span>
+        </div>
+        <div class="form-group">
+            <label for="TelCliente">Telefone do cliente</label>
+            <input type="text" name="TelCliente" class="form-control" asp-for="TelCliente"/>
+            <span asp-validation-for="TelCliente"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="TipoPedido">Pedido presencial ou online?</label>
+            <select asp-for="TipoPedido" class="form-control">
+                <option value="0">Presencial</option>
+                <option value="1">Online</option>
+            </select>
+        </div>
+
+        <button class="btn btn-primary">Salvar</button>
+        <a href="/Pedidos/Index" class="btn btn-primary">Voltar</a>
+    </form>
+</div>
