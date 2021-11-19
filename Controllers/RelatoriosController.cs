@@ -18,8 +18,13 @@ namespace sag.Controllers
         [HttpGet]
         public IActionResult VendasDoDia()
         {
-            List<ProdutosMaisVendidos> produtosmvendidos = repository.ReadAll();
-            return RedirectToAction("VendasDoDia",produtosmvendidos);
+            var id_usuario = HttpContext.Session.GetInt32("id");
+            if(id_usuario == null)
+                return RedirectToAction("Login", "Usuario");
+                
+            List<ProdutosMaisVendidos> produtomv = repository.ReadAll();
+            return View("VendasDoDia",produtomv);
+            
         }
     }
 }

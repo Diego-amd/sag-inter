@@ -5,7 +5,7 @@ namespace sag.Repositories
 {
     public interface IRelatoriosRepository
     {
-        void VendasDoDia();
         List<ProdutosMaisVendidos> ReadAll();
+        ProdutosMaisVendidos Read();
     }
 }

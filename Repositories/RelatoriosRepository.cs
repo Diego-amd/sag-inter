@@ -10,10 +10,6 @@ namespace sag.Repositories
 {
     public class RelatoriosRepository : BDContext, IRelatoriosRepository
     {
-        public void VendasDoDia()
-        {
-
-        }
         public List<ProdutosMaisVendidos> ReadAll()
         {
             try {
@@ -22,15 +18,18 @@ namespace sag.Repositories
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
 
-                cmd.CommandText = "SELECT * FROM LIMIT 4 ";//Megaselect do heiter
+                cmd.CommandText = "SELECT * FROM Vtop4produto";//Megaselect do heiter
 
                 SqlDataReader reader = cmd.ExecuteReader();
                 
                 while(reader.Read()) 
                 {
                     ProdutosMaisVendidos produtomv = new ProdutosMaisVendidos();
-                    produtomv.Pedidos.IdPedido = reader.GetInt32(0);
-                    produtomv.Produtos.Id_produto = reader.GetInt32(1);
+                    produtomv.Produtos.Nome = reader.GetString(0);
+                    produtomv.ItensPedidos.ValorUnitario = reader.GetDecimal(1);
+                    produtomv.ItensPedidos.ValorTotal = reader.GetDecimal(2);
+                    produtomv.ItensPedidos.Qtde = reader.GetInt32(3);
+
                     produtosmvendidos.Add(produtomv);
                 }
 
@@ -41,7 +40,34 @@ namespace sag.Repositories
             }
             finally {
                 Dispose();
-            };
+            }
+        }
+        public ProdutosMaisVendidos Read()
+        {
+            try {
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+
+                cmd.CommandText = "SELECT * FROM Vtop4produto";
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                
+                while(reader.Read()) 
+                {
+                    Produtos produto = new Produtos();
+                    produto.Id_produto = reader.GetInt32(0);
+                    return null;
+                }
+
+                return null;
+            }
+            catch(Exception ex) {
+                throw new Exception(ex.Message);
+            }
+            finally {
+                Dispose();
+            }
         }
     }
 }
