@@ -11,6 +11,9 @@ namespace sag.Controllers
     {
         private IRelatoriosRepository repository;
 
+        private List<ProdutosMaisVendidos> produtomv = new List<ProdutosMaisVendidos>();
+        private ProdutosMaisVendidos mediaPedido = new ProdutosMaisVendidos();
+
         public RelatoriosController(IRelatoriosRepository repository)
         {
             this.repository = repository;
@@ -22,7 +25,9 @@ namespace sag.Controllers
             if(id_usuario == null)
                 return RedirectToAction("Login", "Usuario");
                 
-            List<ProdutosMaisVendidos> produtomv = repository.ReadAll();
+            produtomv = repository.ReadAll();
+            ViewBag.Media = repository.Read();
+            
             return View("VendasDoDia",produtomv);
             
         }

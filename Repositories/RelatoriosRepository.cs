@@ -18,49 +18,47 @@ namespace sag.Repositories
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
 
-                cmd.CommandText = "SELECT * FROM Vtop4produto";//Megaselect do heiter
+                cmd.CommandText = "SELECT * FROM Vtop10produto";//Megaselect do heiter
+
 
                 SqlDataReader reader = cmd.ExecuteReader();
                 
                 while(reader.Read()) 
                 {
                     ProdutosMaisVendidos produtomv = new ProdutosMaisVendidos();
-                    produtomv.Produtos.Nome = reader.GetString(0);
-                    produtomv.ItensPedidos.ValorUnitario = reader.GetDecimal(1);
-                    produtomv.ItensPedidos.ValorTotal = reader.GetDecimal(2);
-                    produtomv.ItensPedidos.Qtde = reader.GetInt32(3);
+                    produtomv.Nome = reader.GetString(0);
+                    produtomv.ValorUnitario = reader.GetDecimal(1);
+                    produtomv.ValorTotal = reader.GetDecimal(2);
+                    produtomv.Qtde = reader.GetInt32(3);
 
                     produtosmvendidos.Add(produtomv);
                 }
+
+                reader.Close();
 
                 return produtosmvendidos;
             }
             catch(Exception ex) {
                 throw new Exception(ex.Message);
             }
-            finally {
-                Dispose();
-            }
         }
-        public ProdutosMaisVendidos Read()
+        public decimal Read()
         {
             try {
 
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
 
-                cmd.CommandText = "SELECT * FROM Vtop4produto";
+                cmd.CommandText = "SELECT * FROM Vmediadiaped";
 
                 SqlDataReader reader = cmd.ExecuteReader();
                 
-                while(reader.Read()) 
+                if (reader.Read()) 
                 {
-                    Produtos produto = new Produtos();
-                    produto.Id_produto = reader.GetInt32(0);
-                    return null;
+                    return reader.GetDecimal(0);
                 }
 
-                return null;
+                return 0;
             }
             catch(Exception ex) {
                 throw new Exception(ex.Message);

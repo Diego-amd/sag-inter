@@ -6,6 +6,6 @@ namespace sag.Repositories
     public interface IRelatoriosRepository
     {
         List<ProdutosMaisVendidos> ReadAll();
-        ProdutosMaisVendidos Read();
+        decimal Read();
     }
 }
