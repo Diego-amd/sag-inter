@@ -4,7 +4,7 @@
   border: none;
   text-decoration: none;
   box-sizing: border-box;
-	font-family: "Roboto", Helvetica, sans-serif;
+  font-family: "Roboto", Helvetica, sans-serif;
   color: #FFFFFF;
 }
 
@@ -13,7 +13,6 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  border: 1px solid red;
 }
 
 #campos-login{
@@ -92,4 +91,8 @@
   height: 2.5rem; 
   text-align: center;
   margin: 0;
+}
+
+.validacao{
+	color:rgb(255, 128, 0);
 }

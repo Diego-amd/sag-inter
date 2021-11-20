@@ -6,19 +6,20 @@
     <title>@ViewData["Title"] - Sistema Administrativo Gastronômico</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">    
-    <link rel="stylesheet" href="~/css/layout.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />   
+    <link rel="stylesheet" href="~/css/layout.css" />
 </head>
 <body class="layout-img-background">
     @RenderBody()
     <div>
-        <img src="/wwwroot/img/SushiJuLogoRec.png" alt="LogoSushiJu" class="LogoSushiJu">
+        <img src="~/img/SushiJuLogoRec.png" alt="LogoSushiJu" class="LogoSushiJu">
     </div>
     <div>
         <h5 class="Menu">Menu</h5>
     </div>
     <div>
-        <img src="/wwwroot/img/LayoutLeftBox.png" alt="LeftBox" class="left-box">
+        <img src="~/img/LayoutLeftBox.png" alt="LeftBox" class="left-box">
     </div>
 
     <!--Botões da esquerda-->
@@ -36,13 +37,13 @@
     </div>
 
     <div>
-        <img src="/wwwroot/img/LayoutTopBox.png" alt="TopBox" class="top-box">
+        <img src="~/img/LayoutTopBox.png" alt="TopBox" class="top-box">
     </div>
     <div>
-        <img src="/wwwroot/img/LayoutBackBox.png" alt="BackBox" class="back-box">
+        <img src="~/img/LayoutBackBox.png" alt="BackBox" class="back-box">
     </div>
     <div>
-        <img src="/wwwroot/img/LayoutAdmIcon.png" alt="AdminIcon" class="admin-icon">
+        <img src="~/img/LayoutAdmIcon.png" alt="AdminIcon" class="admin-icon">
     </div>
 
     <!--Botão de sair-->
@@ -56,16 +57,20 @@
         <a href="#" class="suporte">Suporte</a>
     </div>
     <div >
-        <img src="/wwwroot/img/LayoutFzrPedIcon.svg" alt="FzrPedIcon" class="fzr-ped-icon">
+        <img src="~/img/LayoutFzrPedIcon.svg" alt="FzrPedIcon" class="fzr-ped-icon">
     </div>
     <div>
-        <img src="/wwwroot/img/LayoutPedAcoIcon.svg" alt="PedAcoIcon" class="ped-aco-icon">
+        <img src="~/img/LayoutPedAcoIcon.svg" alt="PedAcoIcon" class="ped-aco-icon">
     </div>
     <div>
-        <img src="/wwwroot/img/LayoutFunAdmIcon.svg" alt="FunAdmIcon" class="fun-adm-icon">
+        <img src="~/img/LayoutFunAdmIcon.svg" alt="FunAdmIcon" class="fun-adm-icon">
     </div>
     <div>
-        <img src="/wwwroot/img/LayoutSuporteIcon.svg" alt="SuportIcon" class="suport-icon">
+        <img src="~/img/LayoutSuporteIcon.svg" alt="SuportIcon" class="suport-icon">
     </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
