@@ -195,8 +195,8 @@ BEGIN
 END
 GO
 --View Top4 Produtos mais vendidos
-CREATE VIEW Vtop4produto AS
-SELECT TOP 4 c.nome,b.valor_unitario,sum(b.valor_total) as Valor_total,sum(b.qtde)as qtde
+CREATE VIEW Vtop10produto AS
+SELECT TOP 10 c.nome,b.valor_unitario,sum(b.valor_total) as Valor_total,sum(b.qtde)as qtde
 	FROM tb_pedidos a
 	INNER JOIN tb_itens_pedidos b ON a.id_pedido=b.cod_pedido
 	INNER JOIN tb_produtos c ON b.cod_produto=c.id_produto
