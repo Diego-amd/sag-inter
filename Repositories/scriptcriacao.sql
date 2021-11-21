@@ -212,3 +212,13 @@ CREATE VIEW Vmediadiaped AS
 	inner join tb_itens_pedidos b on a.id_pedido = b.cod_pedido
 	WHERE a.data_entrada=convert(DATE,GETDATE()) 
 GO
+
+--View monstruosa de Despesas X Receitas--
+CREATE VIEW VReceitaXDespesas 
+AS
+	SELECT SUM(a.valor_gasto) AS valor_gasto, SUM(b.valor_total) AS total_pedidos
+		FROM tb_gastos_brutos a
+		FULL OUTER JOIN tb_itens_pedidos b 
+		ON(a.id_gasto=b.cod_pedido)
+		WHERE a.id_gasto IS NULL OR b.cod_pedido IS NULL
+GO
