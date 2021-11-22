@@ -67,5 +67,36 @@ namespace sag.Repositories
                 Dispose();
             }
         }
+
+        public List<Dashboard> Dashboard()
+        {
+            try {
+                List<Dashboard> lista = new List<Dashboard>();
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+
+                cmd.CommandText = "SELECT * FROM VReceitaXDespesas";
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                
+                while (reader.Read()) 
+                {
+                    Dashboard dashboard = new Dashboard();
+                    dashboard.TotalGasto = reader.GetDecimal(0);
+                    dashboard.TotalPedidos = reader.GetDecimal(1);
+                    
+                    lista.Add(dashboard);
+                }
+
+                return lista;
+            }
+            catch(Exception ex) {
+                throw new Exception(ex.Message);
+            }
+            finally {
+                Dispose();
+            }
+        }
     }
 }

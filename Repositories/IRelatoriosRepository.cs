@@ -7,5 +7,6 @@ namespace sag.Repositories
     {
         List<ProdutosMaisVendidos> ReadAll();
         decimal Read();
+        List<Dashboard> Dashboard();
     }
 }

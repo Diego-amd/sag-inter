@@ -3,7 +3,7 @@
 @model Pedidos
 @{
     ViewBag.Title = "Novo Pedido";
-    Layout = null;
+    Layout = "/Views/Shared/_Layout.cshtml";
 }
 
 <h1>Create</h1>
@@ -23,6 +23,14 @@
 
         <div class="form-group">
             <label for="TipoPedido">Pedido presencial ou online?</label>
+            <select asp-for="TipoPedido" class="form-control">
+                <option value="0">Presencial</option>
+                <option value="1">Online</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="TipoPedido">Itens do pedido</label>
             <select asp-for="TipoPedido" class="form-control">
                 <option value="0">Presencial</option>
                 <option value="1">Online</option>

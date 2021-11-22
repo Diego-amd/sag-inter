@@ -4,6 +4,9 @@ using sag.Models;
 using sag.Repositories;
 using System;
 using Microsoft.AspNetCore.Http;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.Linq;
 
 namespace sag.Controllers
 {
@@ -12,7 +15,6 @@ namespace sag.Controllers
         private IRelatoriosRepository repository;
 
         private List<ProdutosMaisVendidos> produtomv = new List<ProdutosMaisVendidos>();
-        private ProdutosMaisVendidos mediaPedido = new ProdutosMaisVendidos();
 
         public RelatoriosController(IRelatoriosRepository repository)
         {
@@ -31,5 +33,22 @@ namespace sag.Controllers
             return View("VendasDoDia",produtomv);
             
         }
+
+        public ActionResult Dashboard()
+        {
+            List<Dashboard> dashboard = new List<Dashboard>();
+            dashboard = repository.Dashboard();
+
+            return View(dashboard);
+        }
+
+        // public JsonResult DataPizza()
+        // {
+        //     List<Dashboard> dashboard = new List<Dashboard>();
+        //     dashboard = repository.Dashboard();
+        //     ViewBag.ValorGasto = dashboard[0];
+
+        //     return Json(dashboard);
+        // }
     }
 }

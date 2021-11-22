@@ -1,0 +1,46 @@
+@using sag.Models
+@model List<Dashboard>
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+<h3>Dashboard</h3>
+@foreach(var valor in Model)
+    {
+        decimal valorGasto = @valor.TotalGasto;
+        decimal valorReceita = @valor.TotalPedidos;
+        decimal lucro = valorReceita - valorGasto;
+        
+        ViewBag.Despesas = valorGasto;
+        ViewBag.Receita = valorReceita;
+        ViewBag.Lucro = lucro;
+    }
+
+<div style="background-color: white; width:40%; margin-left: 56%; border-radius: 0.7rem;">
+    <div id="pizza"></div>
+    <p style="margin-left: 0.5rem">
+        <strong>Receita Total: @ViewBag.Receita</strong>
+        <br>
+        <strong>Despesa Total: @ViewBag.Despesas</strong>
+        <br>
+        <strong>Lucro Total: @ViewBag.Lucro</strong>
+        
+    </p>
+</div>
+
+@* <div id="barras"></div> *@
+
+@section Scripts{
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <script>
+    let despesa = '@ViewBag.Despesas'
+    let receita = '@ViewBag.Lucro'
+    despesa = parseFloat(despesa.replace(',','.'));
+    receita = parseFloat(receita.replace(',','.'));
+    </script>
+    <script src="~/js/pizza.js"></script>
+    @* <script src="~/js/Barras.js"></script> *@
+}

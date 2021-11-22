@@ -53,8 +53,9 @@
 
 #formulario-login input[type="text"], #formulario-login input[type="password"]{
 	border:1px solid #D91717;
-	width: 278px;
-	height: 20px;
+	width: 18rem;
+	/* height: 1.3rem; */
+	margin-top: 0;
 }
 
 #formulario-login a:link, #formulario-login a:visited{
