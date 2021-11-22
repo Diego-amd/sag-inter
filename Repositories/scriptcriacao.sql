@@ -35,7 +35,7 @@ CREATE TABLE tb_gastos_brutos(
 	id_gasto		int primary key identity not null,
 	cod_usuario		int references tb_funcionarios not null,
 	nome_gasto		varchar(100) not null,
-	valor_gasto		float not null,
+	valor_gasto		decimal(10,2) not null,
 	data_pagamento	date,
 	data_vencimento	date
 )
