@@ -11,7 +11,7 @@ namespace sag.Models
         public string NomeGasto { get; set; }
         
         [Required(ErrorMessage = "O campo Valor é obrigatório")]
-        public double Valor { get; set; }
+        public decimal Valor { get; set; }
 
         [Required(ErrorMessage = "O campo Data de Vencimento é obrigatório")]
         public string DataVencimento { get; set; }

@@ -80,7 +80,7 @@ namespace sag.Repositories
                     gastos.Id_gasto = reader.GetInt32(0);
                     gastos.CodUsuario = reader.GetInt32(1);
                     gastos.NomeGasto = reader.GetString(2);
-                    gastos.Valor = reader.GetDouble(3);
+                    gastos.Valor = reader.GetDecimal(3);
                     gastos.DataPagamento = reader.GetDateTime(4).ToString("dd/MM/yyyy");
                     gastos.DataVencimento = reader.GetDateTime(5).ToString("dd/MM/yyyy");
 
@@ -115,7 +115,7 @@ namespace sag.Repositories
                     GastosBrutos gastos = new GastosBrutos();
                     gastos.Id_gasto = reader.GetInt32(0);
                     gastos.NomeGasto = reader.GetString(1);
-                    gastos.Valor = reader.GetDouble(2);
+                    gastos.Valor = reader.GetDecimal(2);
                     gastos.DataPagamento = reader.GetDateTime(3).ToString("dd/MM/yyyy");
                     gastos.DataVencimento = reader.GetDateTime(4).ToString("dd/MM/yyyy");
 

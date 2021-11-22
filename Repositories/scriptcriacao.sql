@@ -95,7 +95,7 @@ GO
 CREATE PROCEDURE AtualizaGasto
 	@id_gasto int,
 	@nome  varchar(100),
-	@valor float,
+	@valor decimal(10,2),
 	@data_pagamento date,
 	@data_vencimento date
 AS
@@ -115,7 +115,7 @@ CREATE PROCEDURE CadastroGasto
 (
 	@cod_usuario int,
 	@nome varchar(100),
-	@valor float, 
+	@valor decimal(10,2), 
 	@data_pagamento date,
 	@data_vencimento date
 )
