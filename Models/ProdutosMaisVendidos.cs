@@ -7,7 +7,7 @@ namespace sag.Models
         public string Nome { get; set; }
         public decimal ValorUnitario { get; set; }
         public decimal ValorTotal { get; set; }
-        public decimal Qtde { get; set; }
+        public int Qtde { get; set; }
         public decimal Media { get; set; }
 
         #region Foreign Key
