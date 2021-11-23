@@ -1,7 +1,7 @@
 ﻿.layout-img-background{
 	margin: 0rem;
 	padding: 0rem;
-	background-image: url(../img/LayoutBackground.PNG);
+	background: rgb(255, 255, 255);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -9,21 +9,41 @@
 	font-family: 'Roboto', sans-serif;
 }
 
-.LogoSushiJu{
-	margin: 2.5rem 0rem 0rem 2.125rem;
+.layout{	
+	margin: 0rem;
+	padding: 0rem;
+	border: none;
+	text-decoration: none;
+	box-sizing: border-box;
+	font-family: "Roboto", Helvetica, sans-serif;
+	color: #FFFFFF;
+}
+.left-box {
 	width: 12rem;
+	height: 35rem;
+	top: 5%;
+	left: 3%;
+	margin-left: 0rem;
+	margin-top: 0rem;
+	position: absolute;
+	background-color: white;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+	border: 0.1px solid black;
+}
+
+.LogoSushiJu{
+	margin: 0rem;
+	width: 11.9rem;
 	height: 12rem;
-	border: 0.01rem;
-	border-style: solid;
-	border-color: rgb(97, 97, 97);
 
 }
 
-.Menu{
-	margin: -0.3rem 70.1rem 0rem 2.125rem;
+#Menu{
+	margin-top: -0.3rem;
 	color: white;
 	font-weight: bold;
-	border-right: 10.1rem;
+	border-right: 6rem;
 	border-left: 4.8rem;
 	border-style: solid;
 	border-color: rgb(61, 61, 61);
@@ -31,101 +51,167 @@
 	font-family: arial;
 }
 
-.left-box {
-	margin: 0rem 0rem 0rem 1.85em;
-	width: 12.7rem;
-	height: 21.5rem;	
+.botoes-esquerda{
+	margin-top: -1.5rem;
 }
 
-/*fazer uma borda nos botões*/
+.botoes-esquerda hr{
+	margin-top: -0.1rem;
+}
 
-#fazer-ped {
-	margin: -21.5rem 0rem 0rem 6.3em;
-	position: absolute;
-	background-color: white;
+.fazer-ped a{
+	margin-left: 3rem;
 	cursor: pointer;
-	border: 1px;
-	border: grey;
+	text-decoration: none;
+	color: black;
+	
+
 }
 
-#ped-andamento {
-	margin: -20.125rem 0rem 0rem 3.5rem;
-	position: absolute;
-	background-color: white;
+
+.ped-and a{
+	margin-left: 1.5rem;
+
 	cursor: pointer;
-	border: 1rem;
+	text-decoration: none;
+	color: black;
 }
 
-#funcao-adm {
-	margin: -18.825rem 0rem 0rem 4em;
-	position: absolute;
-	background-color: white;
+.ped-and{
+	margin-top: -0.5rem;
+}
+
+.fun-adm a{
+	margin-left: 1.3rem;
 	cursor: pointer;
-	border: 1rem;
+	text-decoration: none;
+	color: black;
 }
 
-
-.top-box {
-	margin: -33.7rem 0rem 0rem 14.2em;
-	position: absolute;
-	width: 69rem;
-	height: 8rem;
+.fun-adm{
+	margin-top: -0.5rem;
 }
 
-.back-box {
-	margin: -25.7rem 0rem 0rem 14.2em;
-	position: absolute;
-	width: 69rem;
-	height: 23.75rem;
+.icons {
+	margin-top: -4.2rem;
 }
 
-.admin-icon {
-	margin: -31.2rem 0rem 0rem 78.2em;
-	position: absolute;
-	height: 3.5rem;
-	width: 3.5rem;
+#fzr-ped-icon {
+	margin-top: 0.1rem;
+	height: 1rem;
+	width: 1.5rem;
 }
 
-#sair {
-	margin: -31.2rem 0rem 0rem 71.2em;
-	position: absolute;
-	line-height: 0.4rem;
-	text-align: right;
+#ped-aco-icon {
+	margin-top: -0.2rem;
+	height: 1rem;
+	width: 1.5rem;	
 }
 
-.suporte {
-	margin: -1.9rem 0rem 0rem 6.5rem;
-	position: absolute;
+#fun-adm-icon {
+	height: 1rem;
+	width: 1.5rem;
+}
+
+#linha{
+	margin-top: 16rem;
+}
+
+#suport-icon {
+	margin-left: 3.5rem;
+	background: url('../img/LayoutSuporteIcon.svg');
+	background-position:center;
+	background-size:cover;
+	height: 0.8rem;
+	width: 1.1rem;
+}
+
+#suporte {
+	margin-top: -1.5rem;
+	margin-left: 1rem;
 	font-size: 12px;
 	text-decoration: none;
 	color: grey;
 }
 
-.fzr-ped-icon {
-	margin: -21.4rem 0rem 0rem 2.2rem;
+
+
+.top-box {
+	top: 7%;
+	left: 17.10%;
+	background: white;
 	position: absolute;
-	height: 1rem;
-	width: 1.5rem;
+	width: 69rem;
+	height: 9rem;
+	border: 0.1px solid black;
 }
 
-.ped-aco-icon {
-	margin: -20.1rem 0rem 0rem 2.2rem;
-	position: absolute;
-	height: 1rem;
-	width: 1.5rem;	
+#top-caixa-cinza {
+	height: 1.2rem;
+	
+	background-image: linear-gradient(to bottom, rgb(83, 83, 83), rgb(36, 36, 36));
+
 }
 
-.fun-adm-icon {
-	margin: -18.8rem 0rem 0rem 2.2rem;
-	position: absolute;
-	height: 1rem;
-	width: 1.5rem;
+#sair {
+	margin-top: 1.5rem;
+	line-height: 0.4rem;
+	margin-right: 1rem;
+	width: 10rem;
+	float: right;
+	text-align: right;
 }
 
-.suport-icon {
-	margin: -1.9rem 0rem 0rem 5.3rem;
-	position: absolute;
-	height: 0.8rem;
-	width: 1.1rem;
+#sair a{
+	text-align: right;
+	text-decoration: none;
+}
 
+#sair p{
+	text-align: right;
+	color:black;
+}
+
+.admin-icon {
+	margin-top: 1.5rem;
+	margin-right: 1rem;
+	float: right;
+	height: 3.5rem;
+	width: 3.5rem;
+}
+
+#bot-caixa-cinza {
+	height: 1.2rem;
+	margin-top: 6.6rem;
+	
+	background-image: linear-gradient(to bottom, rgb(83, 83, 83), rgb(36, 36, 36));
+
+}
+
+.back-box{
+	top: 30.4%;
+	left: 17.20%;
+	background: rgb(216, 216, 216);
+	height: 24rem;
+	width: 69rem;
+	position: absolute;
+	border-right: 0.1px solid black;
+	border-bottom: 0.1px solid black;
+}
+
+#caixa-verm {
+	height: 1.2rem;
+	background-image: linear-gradient(to bottom, rgb(207, 3, 3), rgb(138, 0, 0));
+
+}
+
+.conteudo{
+	background: white;
+	height: 20rem;
+	width: 63rem;
+	border: rgb(182, 0, 0) solid;
+	border-radius: 5px;
+	margin-top: 1.2rem;
+	margin-left: 2.8rem;
+	
 }
