@@ -18,7 +18,8 @@ namespace sag.Models
 
         [Required(ErrorMessage = "O campo Data de Pagamento é obrigatório")]
         public string DataPagamento { get; set; }
-
+        public string DataVencimentoB => DataVencimento == "01/01/1900" ? "" : DataVencimento;
+        public string DataPagamentoB => DataPagamento == "01/01/1900" ? "" : DataPagamento;
 
         #region Foreign Key
         public Funcionarios Funcionario { get; set; }
