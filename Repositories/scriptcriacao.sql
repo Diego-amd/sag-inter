@@ -220,5 +220,5 @@ AS
 		FROM tb_gastos_brutos a
 		FULL OUTER JOIN tb_itens_pedidos b 
 		ON(a.id_gasto=b.cod_pedido)
-		WHERE a.id_gasto IS NULL OR b.cod_pedido IS NULL
+		WHERE a.id_gasto IS NOT NULL OR b.cod_pedido IS NOT NULL
 GO
