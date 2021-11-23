@@ -6,71 +6,80 @@
     <title>@ViewData["Title"] - Sistema Administrativo Gastronômico</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">    
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />   
-    <link rel="stylesheet" href="~/css/layout.css" />
+    <link rel="stylesheet" href="~/css/layout.css" />  
 </head>
 <body class="layout-img-background">
-    @RenderBody()
-    <div>
-        <img src="~/img/SushiJuLogoRec.png" alt="LogoSushiJu" class="LogoSushiJu">
+    <div class="layout">
+        <div class="left-box">             
+            <div>
+                <img src="~/img/SushiJuLogoRec.png" alt="LogoSushiJu" class="LogoSushiJu">
+            </div>
+            <div >
+                <h5 id="Menu">Menu</h5>
+            </div>
+            <div class="botoes-esquerda">
+                <div class="fazer-ped">
+                    <a href="">Fazer pedido</a>
+                    <hr></hr>
+                </div>
+                <div class="ped-and">
+                    <a href="">Pedido em andamento</a>
+                    <hr></hr>
+                </div>
+                <div class="fun-adm">
+                    <a href="">Funções administrativas</a>
+                    <hr></hr>
+                </div>
+            </div>            
+            <div class="icons">
+                <div >
+                    <img src="~/img/LayoutFzrPedIcon.svg" alt="FzrPedIcon" id="fzr-ped-icon">
+                </div>
+                <div>
+                    <img src="~/img/LayoutPedAcoIcon.svg" alt="PedAcoIcon" id="ped-aco-icon">
+                </div>
+                <div>
+                    <img src="~/img/LayoutFunAdmIcon.svg" alt="FunAdmIcon" id="fun-adm-icon">
+                </div>
+            </div>
+            
+            <div>
+                <hr id="linha"></hr>
+                <div id="suport-icon">
+                    <a href="#" id="suporte">Suporte</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="top-box">
+            
+            <div id="top-caixa-cinza">
+            </div>
+           
+            <div>   
+                <img src="~/img/LayoutAdmIcon.png" alt="AdminIcon" class="admin-icon">
+            </div>
+            <div id="sair">
+                <p>Administrador</p>
+                <a href="localhost:5001/">Sair</a>
+            </div>
+            
+            <div id="bot-caixa-cinza">
+            </div>
+        </div>
+        <div class="back-box">
+            <div id="caixa-verm">
+            </div>
+            <div class="conteudo">
+                @RenderBody()
+            </div>            
+        </div>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @await RenderSectionAsync("Scripts", required: false)
     </div>
-    <div>
-        <h5 class="Menu">Menu</h5>
-    </div>
-    <div>
-        <img src="~/img/LayoutLeftBox.png" alt="LeftBox" class="left-box">
-    </div>
-
-    <!--Botões da esquerda-->
-    
-    <div>
-        <form action="">
-            <button type="submit" id="fazer-ped">Fazer pedido            
-        </form>
-        <form action="">
-            <button type="submit" id="ped-andamento">Pedido em andamento
-        </form>
-        <form action="">
-            <button type="submit" id="funcao-adm">Funções admnistrativas
-        </form>
-    </div>
-
-    <div>
-        <img src="~/img/LayoutTopBox.png" alt="TopBox" class="top-box">
-    </div>
-    <div>
-        <img src="~/img/LayoutBackBox.png" alt="BackBox" class="back-box">
-    </div>
-    <div>
-        <img src="~/img/LayoutAdmIcon.png" alt="AdminIcon" class="admin-icon">
-    </div>
-
-    <!--Botão de sair-->
-
-    <div id="sair">
-        <p>Administrador</p>
-        <a href="#">Sair</a>
-    </div>
-
-    <div >
-        <a href="#" class="suporte">Suporte</a>
-    </div>
-    <div >
-        <img src="~/img/LayoutFzrPedIcon.svg" alt="FzrPedIcon" class="fzr-ped-icon">
-    </div>
-    <div>
-        <img src="~/img/LayoutPedAcoIcon.svg" alt="PedAcoIcon" class="ped-aco-icon">
-    </div>
-    <div>
-        <img src="~/img/LayoutFunAdmIcon.svg" alt="FunAdmIcon" class="fun-adm-icon">
-    </div>
-    <div>
-        <img src="~/img/LayoutSuporteIcon.svg" alt="SuportIcon" class="suport-icon">
-    </div>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @RenderSection("Scripts", required: false)
 </body>
 </html>
