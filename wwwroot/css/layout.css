@@ -1,23 +1,31 @@
 ﻿.layout-img-background{
 	margin: 0rem;
-	padding: 0rem;
+	padding: 5rem;
 	background: rgb(255, 255, 255);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
 	font-family: 'Roboto', sans-serif;
+
 }
 
 .layout{	
-	margin: 0rem;
-	padding: 0rem;
+	padding: 0;
 	border: none;
 	text-decoration: none;
 	box-sizing: border-box;
 	font-family: "Roboto", Helvetica, sans-serif;
 	color: #FFFFFF;
+	height: 36rem;
+	width: 81rem;
+	margin-left: -20rem;
+	margin-top: -9rem;
+	top: 25%;
+	left: 25%;
+	position:absolute;
 }
+
 .left-box {
 	width: 12rem;
 	height: 35rem;
@@ -25,25 +33,25 @@
 	left: 3%;
 	margin-left: 0rem;
 	margin-top: 0rem;
-	position: absolute;
 	background-color: white;
 	border-bottom-left-radius: 6px;
 	border-bottom-right-radius: 6px;
 	border: 0.1px solid black;
+	float: left;
 }
 
 .LogoSushiJu{
 	margin: 0rem;
 	width: 11.9rem;
 	height: 12rem;
-
+	border: 0.1px solid black;
 }
 
 #Menu{
 	margin-top: -0.3rem;
 	color: white;
 	font-weight: bold;
-	border-right: 6rem;
+	border-right: 4rem;
 	border-left: 4.8rem;
 	border-style: solid;
 	border-color: rgb(61, 61, 61);
@@ -52,11 +60,12 @@
 }
 
 .botoes-esquerda{
-	margin-top: -1.5rem;
+	margin-top:  -0.5rem;
+	
 }
 
 .botoes-esquerda hr{
-	margin-top: -0.1rem;
+	margin-top: -0.3rem;
 }
 
 .fazer-ped a{
@@ -64,21 +73,20 @@
 	cursor: pointer;
 	text-decoration: none;
 	color: black;
-	
-
+	font-size: 15px;
 }
 
 
 .ped-and a{
 	margin-left: 1.5rem;
-
 	cursor: pointer;
 	text-decoration: none;
 	color: black;
+	font-size: 15px;
 }
 
 .ped-and{
-	margin-top: -0.5rem;
+	margin-top: -0.9rem;
 }
 
 .fun-adm a{
@@ -86,39 +94,44 @@
 	cursor: pointer;
 	text-decoration: none;
 	color: black;
+	font-size: 15px;
 }
 
 .fun-adm{
-	margin-top: -0.5rem;
+	margin-top: -0.9rem;
 }
 
+
 .icons {
-	margin-top: -4.2rem;
+	margin-top: -4.7rem;
 }
 
 #fzr-ped-icon {
-	margin-top: 0.1rem;
+	margin-top: -1rem;
 	height: 1rem;
 	width: 1.5rem;
 }
 
 #ped-aco-icon {
-	margin-top: -0.2rem;
+	margin-top: -1.4rem;
 	height: 1rem;
 	width: 1.5rem;	
 }
 
 #fun-adm-icon {
+	margin-top: -1.7rem;
 	height: 1rem;
 	width: 1.5rem;
 }
 
 #linha{
-	margin-top: 16rem;
+	margin-top: 14.5rem;
+	color: rgb(51, 51, 51);
 }
 
 #suport-icon {
 	margin-left: 3.5rem;
+	margin-top: -0.6rem;
 	background: url('../img/LayoutSuporteIcon.svg');
 	background-position:center;
 	background-size:cover;
@@ -127,30 +140,27 @@
 }
 
 #suporte {
-	margin-top: -1.5rem;
+	margin-top: -2rem;
 	margin-left: 1rem;
 	font-size: 12px;
 	text-decoration: none;
 	color: grey;
 }
 
-
-
 .top-box {
+	margin-top: 1.1rem;
 	top: 7%;
 	left: 17.10%;
 	background: white;
-	position: absolute;
 	width: 69rem;
 	height: 9rem;
 	border: 0.1px solid black;
+	float: right;
 }
 
 #top-caixa-cinza {
 	height: 1.2rem;
-	
 	background-image: linear-gradient(to bottom, rgb(83, 83, 83), rgb(36, 36, 36));
-
 }
 
 #sair {
@@ -183,9 +193,7 @@
 #bot-caixa-cinza {
 	height: 1.2rem;
 	margin-top: 6.6rem;
-	
 	background-image: linear-gradient(to bottom, rgb(83, 83, 83), rgb(36, 36, 36));
-
 }
 
 .back-box{
@@ -194,15 +202,14 @@
 	background: rgb(216, 216, 216);
 	height: 24rem;
 	width: 69rem;
-	position: absolute;
 	border-right: 0.1px solid black;
 	border-bottom: 0.1px solid black;
+	float: right;
 }
 
 #caixa-verm {
 	height: 1.2rem;
 	background-image: linear-gradient(to bottom, rgb(207, 3, 3), rgb(138, 0, 0));
-
 }
 
 .conteudo{
@@ -213,5 +220,4 @@
 	border-radius: 5px;
 	margin-top: 1.2rem;
 	margin-left: 2.8rem;
-	
 }
