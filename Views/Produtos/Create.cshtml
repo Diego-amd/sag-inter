@@ -5,34 +5,47 @@
     ViewBag.Title = "Novo Produto";
     Layout = "/Views/Shared/_Layout.cshtml";
 }
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Sistema Administrativo Gastronômico</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />   
+    <link rel="stylesheet" href="~/css/produtos/create.css" />  
+</head>
+<body> 
+    <h1>Create</h1>
+    <div class="tabela-titulo">
+        <form asp-controller="Produtos" asp-action="Create" method="POST">
+            <div class="form-group">
+                <label for="Nome">Nome do Produto*</label>
+                <input type="text" name="Nome" required="true" class="form-control" asp-for="Nome"/>
+                <span asp-validation-for="Nome"></span>
+            </div>
+            <div class="form-group">
+                <label for="Categoria">Categoria*</label>
+                <input type="text" name="categoria" required="true" class="form-control" asp-for="Categoria"/>
+                <span asp-validation-for="Categoria"></span>
+            </div>
 
-<h1>Create</h1>
+            <div class="form-group">
+                <label for="Descricao">Descrição</label>
+                <input type="text" name="Descricao" class="form-control" asp-for="Descricao"/>
+                <span asp-validation-for="Descricao"></span>
+            </div>
+            <div class="form-group">
+                <label for="Valor">Valor*</label>
+                <input type="text" step="0.01" name="Valor" class="form-control" asp-for="Valor"/>
+                <span asp-validation-for="Valor"></span>
+            </div>
 
-<div>
-    <form asp-controller="Produtos" asp-action="Create" method="POST">
-        <div class="form-group">
-            <label for="Nome">Nome do Produto*</label>
-            <input type="text" name="Nome" required="true" class="form-control" asp-for="Nome"/>
-            <span asp-validation-for="Nome"></span>
-        </div>
-        <div class="form-group">
-            <label for="Categoria">Categoria*</label>
-            <input type="text" name="categoria" required="true" class="form-control" asp-for="Categoria"/>
-            <span asp-validation-for="Categoria"></span>
-        </div>
-
-        <div class="form-group">
-            <label for="Descricao">Descrição</label>
-            <input type="text" name="Descricao" class="form-control" asp-for="Descricao"/>
-            <span asp-validation-for="Descricao"></span>
-        </div>
-        <div class="form-group">
-            <label for="Valor">Valor*</label>
-            <input type="text" step="0.01" name="Valor" class="form-control" asp-for="Valor"/>
-            <span asp-validation-for="Valor"></span>
-        </div>
-
-        <button class="btn btn-primary">Salvar</button>
-        <a href="/Produtos/Index" class="btn btn-primary">Voltar</a>
-    </form>
-</div>
+            <button class="btn btn-primary">Salvar</button>
+            <a href="/Produtos/Index" class="btn btn-primary">Voltar</a>
+        </form>
+    </div>
+</body>
+</html>

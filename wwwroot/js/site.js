@@ -1,4 +1,18 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿/* Função de Funções Administrativas */
 
-// Write your JavaScript code.
+function funAdmLayout() {
+    document.getElementById("fun-adm-layout").classList.toggle("mostrar");
+  }
+  
+  window.onclick = function(fechar) {
+    if (!fechar.target.matches('.botao-fun-adm')) {
+      var descer = document.getElementsByClassName("fun-adm-content");
+      var i;
+      for (i = 0; i < descer.length; i++) {
+        var abrirDescer = descer[i];
+        if (abrirDescer.classList.contains('mostrar')) {
+            abrirDescer.classList.remove('mostrar');
+        }
+      }
+    }
+  }
