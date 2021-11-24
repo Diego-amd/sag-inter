@@ -222,3 +222,46 @@ AS
 		ON(a.id_gasto=b.cod_pedido)
 		WHERE a.id_gasto IS NOT NULL OR b.cod_pedido IS NOT NULL
 GO
+
+--View Tempo Medio de pedidos semanal
+CREATE VIEW TempoMedioSemanal as 
+select	a.data_entrada,
+		(DATEPART(DW,a.data_entrada )) as DiaSemana,
+		sum(DATEDIFF(MINUTE, hora_entrada, hora_saida))/ count(1) as Media
+from tb_pedidos a
+where a.data_entrada between dateadd(week, datediff(week, 0, getdate()), 0) and dateadd(week, datediff(week, 0, getdate()), 6)
+group by a.data_entrada
+go
+
+--View Vendas por mes no ano
+CREATE VIEW VendasAnoMes AS
+select year( a.data_entrada) as Ano,  MONTH(a.data_entrada) as Mes,sum( b.Valor_total) as Total
+	from tb_pedidos a
+	inner join tb_itens_pedidos b on a.id_pedido = b.cod_pedido
+	GROUP by YEAR( a.data_entrada), MONTH(a.data_entrada)
+go
+
+--?????
+select 'JANEIRO'    AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 1 ),00000000000.00 ) as Valor
+union all
+select 'FEVEREIRO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 2 ),00000000000.00 ) as Valor
+union all
+select 'MARÇO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 3 ),00000000000.00 ) as Valor
+union all
+select 'ABRIL' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 4 ),00000000000.00 ) as Valor
+union all
+select 'MAIO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 5 ),00000000000.00 ) as Valor
+union all
+select 'JUNHO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 6 ),00000000000.00 ) as Valor
+union all
+select 'JULHO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 7 ),00000000000.00 ) as Valor
+union all
+select 'AGOSTO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 8 ),00000000000.00 ) as Valor
+union all
+select 'SETEMBRO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 9 ),00000000000.00 ) as Valor
+union all
+select 'OUTUBRO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 10 ),00000000000.00 ) as Valor
+union all
+select 'NOVEMBRO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 11 ),00000000000.00 ) as Valor
+union all
+select 'DEZEMBRO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 12 ),00000000000.00 ) as Valor
