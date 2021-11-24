@@ -37,5 +37,14 @@ namespace sag.Controllers
             
             return RedirectToAction("Home", "Funcionarios");
         }
+
+        [HttpGet]
+        public ActionResult Logout()
+        {
+            HttpContext.Session.Remove("id");
+            HttpContext.Session.Remove("nome");
+            
+            return RedirectToAction("/");
+        }
     }
 }

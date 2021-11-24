@@ -18,7 +18,7 @@
 
 <div style="background-color: white; width:40%; margin-left: 56%; border-radius: 0.7rem;">
     <div id="pizza"></div>
-    <p style="margin-left: 0.5rem">
+    <p style="margin-left: 0.5rem; color: black">
         <strong>Receita Total: @ViewBag.Receita</strong>
         <br>
         <strong>Despesa Total: @ViewBag.Despesas</strong>
@@ -42,5 +42,6 @@
     receita = parseFloat(receita.replace(',','.'));
     </script>
     <script src="~/js/pizza.js"></script>
+    <script src="~/js/linha.js"></script>
     @* <script src="~/js/Barras.js"></script> *@
 }
