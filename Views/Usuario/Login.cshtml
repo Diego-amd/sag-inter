@@ -20,6 +20,7 @@
     <div class="login">
         <div id="campos-login">
             <div id="logo-tela-login">
+                
                 <h4>Sistema Administrativo <br>Gastronômico</h4>
                 @if(ViewBag.Message != null) {
                     <p class="alert alert-danger alert-message">@ViewBag.Message</p>
@@ -38,8 +39,22 @@
 
                     <a href="#" style="margin-top: 0;">Esqueceu a senha?</a>
                     <br>
-                    <button id="botao-entrar">Entrar</button>
+                    <div id="botao-pos">
+                        <button id="botao-entrar">Entrar</button>
+                    </div>
+                    
                 </form>
+            </div>
+            <div class="icons">
+                <div>
+                    <img src="~/img/LogoSag.png" alt="LogoSag" id="logo-sag">
+                </div>
+                <div>
+                    <img src="~/img/LoginUserIcon.png" alt="UserIcon" id="user-icon">
+                </div>
+                <div>
+                    <img src="~/img/LoginUserSenha.png" alt="UserSenha" id="senha-icon">
+                </div>
             </div>
         </div>
     </div>

@@ -19,10 +19,10 @@
 	color: #FFFFFF;
 	height: 36rem;
 	width: 81rem;
-	margin-left: -20rem;
-	margin-top: -9rem;
-	top: 25%;
-	left: 25%;
+	margin-left: -40.5rem;
+	margin-top: -15.5rem;
+	top: 45%;
+	left: 50%;
 	position:absolute;
 }
 
@@ -53,10 +53,15 @@
 	font-weight: bold;
 	border-right: 4rem;
 	border-left: 4.8rem;
+	border-bottom: 0rem;
 	border-style: solid;
-	border-color: rgb(61, 61, 61);
-	background-color: rgb(61, 61, 61);
+	border-image-source: linear-gradient(to bottom, rgb(83, 83, 83), rgb(36, 36, 36));
+	background-image: linear-gradient(to bottom, rgb(83, 83, 83), rgb(36, 36, 36));
 	font-family: arial;
+}
+
+#Menu h5{
+	margin-left: -0.5rem;
 }
 
 .botoes-esquerda{
@@ -66,6 +71,7 @@
 
 .botoes-esquerda hr{
 	margin-top: -0.3rem;
+	border-color: rgb(61, 61, 61);
 }
 
 .fazer-ped a{
@@ -125,13 +131,13 @@
 }
 
 #linha{
-	margin-top: 14.5rem;
-	color: rgb(51, 51, 51);
+	margin-top: 14.8rem;
+	border-color: rgb(61, 61, 61);
 }
 
 #suport-icon {
 	margin-left: 3.5rem;
-	margin-top: -0.6rem;
+	margin-top: -0.7rem;
 	background: url('../img/LayoutSuporteIcon.svg');
 	background-position:center;
 	background-size:cover;
@@ -164,7 +170,7 @@
 }
 
 #sair {
-	margin-top: 1.5rem;
+	margin-top: 1.8rem;
 	line-height: 0.4rem;
 	margin-right: 1rem;
 	width: 10rem;
