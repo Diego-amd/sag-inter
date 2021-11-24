@@ -93,7 +93,18 @@
 	font-size: 15px;
 }
 
-.fazer-ped:hover, .fazer-ped:focus{background-color: #d8d8d8;}
+.fazer-ped:hover, .fazer-ped:focus{
+	text-decoration: none; 
+	background-color: #a7a6a6;
+	color: rgb(0, 0, 0);
+}
+
+.fazer-ped a:hover{
+	text-decoration: none; 
+	background-color: #a7a6a6;
+	color: rgb(0, 0, 0);
+}
+
 
 .ped-and{
 	width: 11.9rem;
@@ -113,11 +124,22 @@
 	font-size: 15px;
 }
 
-.ped-and:hover, .ped-and:focus{background-color: #d8d8d8;}
+.ped-and:hover, .ped-and:focus{
+	text-decoration: none; 
+	background-color: #a7a6a6;
+	color: rgb(0, 0, 0);
+}
+
+.ped-and a:hover{
+	text-decoration: none; 
+	background-color: #a7a6a6;
+	color: rgb(0, 0, 0);
+}
 
 /* Função administrador  */
 
 .botao-fun-adm {
+	margin-top: -0.1rem;
 	width: 11.9rem;
 	height: 1.5rem;
 	background-color: #ffffff;
@@ -156,7 +178,11 @@
 	display: block;
 }
 
-.fun-adm-content a:hover {background-color: #a7a6a6}
+.fun-adm-content a:hover {
+	text-decoration: none; 
+	background-color: #a7a6a6;
+	color: rgb(0, 0, 0);
+}
   
 .mostrar {display:block;}
 
@@ -270,6 +296,7 @@
 }
 
 .conteudo{
+	padding: 0;
 	background: white;
 	height: 23.5rem;
 	width: 65rem;
@@ -277,4 +304,5 @@
 	border-radius: 5px;
 	margin-top: 1rem;
 	margin-left: 2rem;
+	overflow-y: auto;
 }

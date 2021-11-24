@@ -32,8 +32,8 @@
 
 #logo-tela-login{
 	/* background: url('../img/logoSag.png'); */
-	padding-left: 1rem;
-	margin-top: 0.5rem;
+	padding-left: 2.5rem;
+	margin-top: 1rem;
 	margin-left: 3rem;
 }
 
@@ -106,16 +106,16 @@
 }
 
 .icons{
-	margin-top: -20.5rem;
+	margin-top: -21.5rem;
 }
 
 #logo-sag{
-	width: 3rem;
-	margin-left: 0.5rem;
+	width: 5rem;
+	margin-left: 0.3rem;
 }
 
 #user-icon{
-	margin-top: 3.8rem;
+	margin-top: 2.5rem;
 	margin-left: 0.5rem;
 }
 
