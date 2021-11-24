@@ -1,17 +1,17 @@
 ﻿/* Função de Funções Administrativas */
 
 function funAdmLayout() {
-    document.getElementById("fun-adm-layout").classList.toggle("show");
+    document.getElementById("fun-adm-layout").classList.toggle("mostrar");
   }
   
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-      var dropdowns = document.getElementsByClassName("fun-adm-content");
+  window.onclick = function(fechar) {
+    if (!fechar.target.matches('.botao-fun-adm')) {
+      var descer = document.getElementsByClassName("fun-adm-content");
       var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
+      for (i = 0; i < descer.length; i++) {
+        var abrirDescer = descer[i];
+        if (abrirDescer.classList.contains('mostrar')) {
+            abrirDescer.classList.remove('mostrar');
         }
       }
     }
