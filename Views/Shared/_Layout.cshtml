@@ -16,21 +16,25 @@
             <div>
                 <img src="~/img/SushiJuLogoRec.png" alt="LogoSushiJu" class="LogoSushiJu">
             </div>
-            <div >
-                <h5 id="Menu">Menu</h5>
+            <div id="Menu">
+                <a href="/Funcionarios/home"><h5 >Menu</h5></a>
             </div>
             <div class="botoes-esquerda">
                 <div class="fazer-ped">
-                    <a href="">Fazer pedido</a>
-                    <hr>
+                    <a href="">Fazer pedido</a>                    
                 </div>
                 <div class="ped-and">
-                    <a href="">Pedido em andamento</a>
-                    <hr>
+                    <a href="">Pedido em andamento</a>                   
                 </div>
                 <div class="fun-adm">
-                    <a href="">Funções administrativas</a>
-                    <hr>
+                    <button onclick="funAdmLayout()" class="dropbtn">Funções Administrativas</button>
+                    <div id="fun-adm-layout" class="fun-adm-content">
+                        <a href="/Relatorios/VendasDoDia">Vendas do dia</a>
+                        <a href="/GastosBrutos/index">Gastos mensais</a>
+                        <a href="#">Lucro</a>
+                        <a href="/Produtos/index">Cad. Produto e Promoções</a>
+                        <a href="#">Relatórios</a>
+                    </div>
                 </div>
             </div>            
             <div class="icons">
