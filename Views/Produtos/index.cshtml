@@ -20,8 +20,8 @@
 </head>
 
 <body class="produtos">
-    <div>
-        <p style="color: black" ; text-weight: bold";>Lista de Produtos</p>
+    <div class="msg1">
+        <h1 id="msg1">Lista de Produtos</h1>
     </div>
     
     <table class="tabela">
@@ -33,7 +33,11 @@
                 <th >Valor</th>
                 <th >Estado</th>       
             </tr>          
-        <h4 style="color: red">Você possui @Model.Count produtos</h4>
+        <div class="msg2">
+            <h6 id="msg2">Você possui @Model.Count produtos</h6>
+        </div>
+        
+        
         @if (ViewBag.Message != null)
         {
             <p class="alert alert-danger alert-message">@ViewBag.Message</p>
@@ -83,7 +87,7 @@
         }
     </table>
     <div class="adcionar">
-        <a href="/Produtos/Create" class="btn btn-primary">Adicionar</a>
+        <a href="/Produtos/Create" class="btn btn-primary" id="adcionarC">Adicionar</a>
     </div>
     
 
