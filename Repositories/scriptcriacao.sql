@@ -312,3 +312,60 @@ select 'NOVEMBRO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano =
 union all
 select 'DEZEMBRO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 12 ),00000000000.00 ) as Valor
 go
+
+Create View TempoMDiaSemana as
+select 'Segunda' as Dia, 
+	coalesce ((
+		select	sum(DATEDIFF(MINUTE, hora_entrada, hora_saida))/ count(1) as Media
+			from tb_pedidos a
+			where a.data_entrada = dateadd(week, datediff(week, 0, getdate()), 0) 
+			group by a.data_entrada
+	), 0000000) as Media
+union all
+select 'Terça' as Dia, 
+	coalesce ((
+		select	sum(DATEDIFF(MINUTE, hora_entrada, hora_saida))/ count(1) as Media
+			from tb_pedidos a
+			where a.data_entrada = dateadd(week, datediff(week, 0, getdate()), 1) 
+			group by a.data_entrada
+	), 0000000) as Media
+union all
+select 'Quarta' as Dia, 
+	coalesce ((
+		select	sum(DATEDIFF(MINUTE, hora_entrada, hora_saida))/ count(1) as Media
+			from tb_pedidos a
+			where a.data_entrada = dateadd(week, datediff(week, 0, getdate()), 2) 
+			group by a.data_entrada
+	), 0000000) as Media
+union all
+select 'Quinta' as Dia, 
+	coalesce ((
+		select	sum(DATEDIFF(MINUTE, hora_entrada, hora_saida))/ count(1) as Media
+			from tb_pedidos a
+			where a.data_entrada = dateadd(week, datediff(week, 0, getdate()), 3) 
+			group by a.data_entrada
+	), 0000000) as Media 
+union all
+select 'Sexta' as Dia, 
+	coalesce ((
+		select	sum(DATEDIFF(MINUTE, hora_entrada, hora_saida))/ count(1) as Media
+			from tb_pedidos a
+			where a.data_entrada = dateadd(week, datediff(week, 0, getdate()), 4) 
+			group by a.data_entrada
+	), 0000000) as Media 
+union all
+select 'Sabado' as Dia, 
+	coalesce ((
+		select	sum(DATEDIFF(MINUTE, hora_entrada, hora_saida))/ count(1) as Media
+			from tb_pedidos a
+			where a.data_entrada = dateadd(week, datediff(week, 0, getdate()), 5) 
+			group by a.data_entrada
+	), 0000000) as Media 
+union all
+select 'Domingo' as Dia, 
+	coalesce ((
+		select	sum(DATEDIFF(MINUTE, hora_entrada, hora_saida))/ count(1) as Media
+			from tb_pedidos a
+			where a.data_entrada = dateadd(week, datediff(week, 0, getdate()), 6) 
+			group by a.data_entrada
+	), 0000000) as Media 
