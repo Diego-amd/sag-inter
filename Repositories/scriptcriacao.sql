@@ -275,3 +275,40 @@ union all
 select 'NOVEMBRO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 11 ),00000000000.00 ) as Valor
 union all
 select 'DEZEMBRO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 12 ),00000000000.00 ) as Valor
+GO
+
+--Diasemana
+--2=Segunda
+--3=Terca
+--4=Quarta
+--5=Quinta
+--6=Sexta
+--7=Sabado
+--1=Domingo
+
+--?????
+CREATE VIEW VendasAnoMesC as
+select 'JANEIRO'    AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 1 ),00000000000.00 ) as Valor
+union all
+select 'FEVEREIRO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 2 ),00000000000.00 ) as Valor
+union all
+select 'MARÇO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 3 ),00000000000.00 ) as Valor
+union all
+select 'ABRIL' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 4 ),00000000000.00 ) as Valor
+union all
+select 'MAIO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 5 ),00000000000.00 ) as Valor
+union all
+select 'JUNHO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 6 ),00000000000.00 ) as Valor
+union all
+select 'JULHO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 7 ),00000000000.00 ) as Valor
+union all
+select 'AGOSTO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 8 ),00000000000.00 ) as Valor
+union all
+select 'SETEMBRO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 9 ),00000000000.00 ) as Valor
+union all
+select 'OUTUBRO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 10 ),00000000000.00 ) as Valor
+union all
+select 'NOVEMBRO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 11 ),00000000000.00 ) as Valor
+union all
+select 'DEZEMBRO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 12 ),00000000000.00 ) as Valor
+go
