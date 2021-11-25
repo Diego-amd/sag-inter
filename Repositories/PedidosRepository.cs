@@ -21,7 +21,10 @@ namespace sag.Repositories
                 cmd.CommandText = "INSERT INTO tb_pedidos VALUES (@cod_usuario, @nome_cliente, @tel_cliente, GETDATE(), null, GETDATE(), @status, @tipo_pedido);" + "SELECT @@IDENTITY";
                 cmd.Parameters.AddWithValue("@cod_usuario", id);
                 cmd.Parameters.AddWithValue("@nome_cliente", model.NomeCliente);
-                cmd.Parameters.AddWithValue("@tel_cliente", model.TelCliente);
+                if(model.TelCliente == null)
+                    cmd.Parameters.AddWithValue("@tel_cliente", null);
+                else
+                    cmd.Parameters.AddWithValue("@tel_cliente", model.TelCliente);
                 cmd.Parameters.AddWithValue("@status", model.Status);
                 cmd.Parameters.AddWithValue("@tipo_pedido", model.TipoPedido);
 
@@ -80,7 +83,7 @@ namespace sag.Repositories
                     pedido.IdPedido = reader.GetInt32(0);
                     pedido.CodUsuario = reader.GetInt32(1);
                     pedido.NomeCliente = reader.GetString(2);
-                    pedido.TelCliente = reader.GetString(3);
+                    pedido.TelCliente = reader.IsDBNull(3) ? "" : reader.GetString(3);
                     pedido.HoraEntrada = reader.GetTimeSpan(4).ToString(@"hh\:mm\:ss");
                     pedido.HoraSaida = reader.IsDBNull(5) ? "" : reader.GetTimeSpan(5).ToString(@"hh\:mm\:ss");
                     pedido.DataEntrada = reader.GetDateTime(6).ToString("dd/MM/yyyy");
@@ -117,7 +120,7 @@ namespace sag.Repositories
                     Pedidos pedido = new Pedidos();
                     pedido.IdPedido = reader.GetInt32(0);
                     pedido.CodUsuario = reader.GetInt32(1);
-                    pedido.NomeCliente = reader.IsDBNull(2) ? "" : reader.GetString(2);
+                    pedido.NomeCliente = reader.GetString(2);
                     pedido.TelCliente = reader.IsDBNull(3) ? "" : reader.GetString(3);
                     pedido.HoraEntrada = reader.GetTimeSpan(4).ToString(@"hh\:mm\:ss");
                     pedido.HoraSaida = reader.IsDBNull(5) ? "" : reader.GetTimeSpan(5).ToString(@"hh\:mm\:ss");

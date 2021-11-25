@@ -13,8 +13,8 @@ namespace sag.Repositories
         public Funcionarios Read(int id)
         {
             try {
-                Funcionarios funcionario = null;
-
+                Funcionarios funcionario = new Funcionarios();
+                
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
 
@@ -26,9 +26,8 @@ namespace sag.Repositories
                 if(reader.Read()) 
                 {
                     funcionario.CodUsuario= reader.GetInt32(0);
-                    funcionario.Admin = reader.GetInt32(1);
-                    funcionario.Funcao = reader.GetString(2);
-
+                    funcionario.Funcao = reader.GetString(1);
+                    funcionario.Admin = reader.GetInt32(2);
                 }
                 return funcionario;
             }

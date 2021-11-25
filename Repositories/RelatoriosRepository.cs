@@ -10,10 +10,6 @@ namespace sag.Repositories
 {
     public class RelatoriosRepository : BDContext, IRelatoriosRepository
     {
-        public void VendasDoDia()
-        {
-
-        }
         public List<ProdutosMaisVendidos> ReadAll()
         {
             try {
@@ -22,26 +18,85 @@ namespace sag.Repositories
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
 
-                cmd.CommandText = "SELECT * FROM LIMIT 4 ";//Megaselect do heiter
+                cmd.CommandText = "SELECT * FROM Vtop10produto";//Megaselect do heiter
+
 
                 SqlDataReader reader = cmd.ExecuteReader();
                 
                 while(reader.Read()) 
                 {
                     ProdutosMaisVendidos produtomv = new ProdutosMaisVendidos();
-                    produtomv.Pedidos.IdPedido = reader.GetInt32(0);
-                    produtomv.Produtos.Id_produto = reader.GetInt32(1);
+                    produtomv.Nome = reader.GetString(0);
+                    produtomv.ValorUnitario = reader.GetDecimal(1);
+                    produtomv.ValorTotal = reader.GetDecimal(2);
+                    produtomv.Qtde = reader.GetInt32(3);
+
                     produtosmvendidos.Add(produtomv);
                 }
+
+                reader.Close();
 
                 return produtosmvendidos;
             }
             catch(Exception ex) {
                 throw new Exception(ex.Message);
             }
+        }
+        public decimal Read()
+        {
+            try {
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+
+                cmd.CommandText = "SELECT * FROM Vmediadiaped";
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                
+                if (reader.Read()) 
+                {
+                    return reader.GetDecimal(0);
+                }
+
+                return 0;
+            }
+            catch(Exception ex) {
+                throw new Exception(ex.Message);
+            }
             finally {
                 Dispose();
-            };
+            }
+        }
+
+        public List<Dashboard> Dashboard()
+        {
+            try {
+                List<Dashboard> lista = new List<Dashboard>();
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+
+                cmd.CommandText = "SELECT * FROM VReceitaXDespesas";
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                
+                while (reader.Read()) 
+                {
+                    Dashboard dashboard = new Dashboard();
+                    dashboard.TotalGasto = reader.GetDecimal(0);
+                    dashboard.TotalPedidos = reader.GetDecimal(1);
+                    
+                    lista.Add(dashboard);
+                }
+
+                return lista;
+            }
+            catch(Exception ex) {
+                throw new Exception(ex.Message);
+            }
+            finally {
+                Dispose();
+            }
         }
     }
 }

@@ -4,43 +4,93 @@
     ViewBag.Title = "Lista de produtos";
     Layout = "/Views/Shared/_Layout.cshtml";
 }
+<!DOCTYPE html>
+<html lang="pt-br">
 
-<h1>Lista de Produtos - Teste</h1>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Sistema Administrativo Gastronômico</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="~/css/produtos/index.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 
-<table class="table table-hover">
-    <tr>
-        <th>Id</th>
-        <th>Nome</th>
-        <th>Categoria</th>
-        <th>Descrição</th>
-        <th>Valor</th>
-        <th>Estado</th>
-        <th>&nbsp;</th>
-    </tr>
+</head>
 
-    @* <img src='/images/icon.png' /> *@
-    <h1>Você tem @Model.Count produtos</h1>
+<body class="produtos">
+    <div class="msg1">
+        <h1 id="msg1">Lista de Produtos</h1>
+    </div>
+    
+    <table class="tabela">
+            <tr>
+                <th>Id</th>
+                <th >Nome</th>
+                <th >Categoria</th>
+                <th >Descrição</th>
+                <th >Valor</th>
+                <th >Estado</th>       
+            </tr>          
+        <div class="msg2">
+            <h6 id="msg2">Você possui @Model.Count produtos</h6>
+        </div>
+        
+        
+        @if (ViewBag.Message != null)
+        {
+            <p class="alert alert-danger alert-message">@ViewBag.Message</p>
+        }
+        @foreach (var produtos in Model)
+        {
+            <tr>
+                <td class="tabela-info-td">@produtos.Id_produto</td>
+                <td class="tabela-info-td">@produtos.Nome</td>
+                <td class="tabela-info-td">@produtos.Categoria</td>
+                <td class="tabela-info-td">@produtos.Descricao</td>
+                <td class="tabela-info-td">@produtos.Valor</td>
+                <td class="tabela-info-td">@produtos.TextoEstado</td> 
+                <td class="botoes-cad">
+                <a href="/Produtos/Update/@produtos.Id_produto" class="btn btn-sm btn-primary" id="editar">Editar</a>
+                <a href="/Produtos/Disable/@produtos.Id_produto" class="btn btn-sm btn-danger" id="desabilitar" data-toggle="modal"
+                data-target="#exampleModal">Desabilitar</a>   
+                </td>   
+            </tr>
+                    
+                    
+            <!-- Modal de confirmação exclusão produto -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel" style="color: black;">Confirmação de exclusão</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" style="color: black";>
+                            Tem certeza que deseja excluir o produto?
+                        </div>
+                        <form asp-controller="Produtos" asp-action="Disable" method="POST">
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                <a a href="/Produtos/Disable/@produtos.Id_produto" class="btn btn-danger">Confirmar</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
-    @if(ViewBag.Message != null) {
-        <p class="alert alert-danger alert-message">@ViewBag.Message</p>
-    }
 
-    @foreach(var produtos in Model)
-    {
-        <tr>
-            <td>@produtos.Id_produto</td>
-            <td>@produtos.Nome</td>
-            <td>@produtos.Categoria</td>
-            <td>@produtos.Descricao</td>
-            <td>@produtos.Valor</td>
-            <td>@produtos.TextoEstado</td>
-            <td>
-                <a href="/Produtos/Update/@produtos.Id_produto" class="btn btn-sm btn-primary">Editar</a>
-                <a href="/Produtos/Disable/@produtos.Id_produto" class="btn btn-sm btn-danger">Desabilitar</a>
-            </td>
-        </tr>
-    }
+        }
+    </table>
+    <div class="adcionar">
+        <a href="/Produtos/Create" class="btn btn-primary" id="adcionarC">Adicionar</a>
+    </div>
+    
 
-</table>
+</body>
 
-<a href="/Produtos/Create" class="btn btn-primary">Adicionar</a>
+</html>

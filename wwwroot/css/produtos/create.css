@@ -1,0 +1,35 @@
+.tabela-titulo {
+    margin-top: 1rem;
+}
+
+.tabela-titulo label{
+    color: black;
+    margin-left: 4rem;
+    margin-top: -1rem;
+}
+
+.form-control{
+    margin-top: -0.5rem;
+    max-width: 40rem;
+    border: rgb(156, 1, 1) 1px solid;
+    margin-left: 4rem;
+}
+
+.salvar{
+    margin-left: 9rem;
+}
+
+#salvar{
+    background-color: green;
+    border: green 1px solid;
+}
+
+.voltar{
+    margin-top: -2.4rem;
+    margin-left: 4rem;
+}
+
+#voltar{
+    background-color: red;
+    border: red 1px solid;
+}

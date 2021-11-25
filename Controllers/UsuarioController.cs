@@ -35,7 +35,16 @@ namespace sag.Controllers
             HttpContext.Session.SetInt32("id", (int)usuario.Id);
             HttpContext.Session.SetString("nome", usuario.Nome);
             
-            return RedirectToAction("Index", "Produtos");
+            return RedirectToAction("Home", "Funcionarios");
+        }
+
+        [HttpGet]
+        public ActionResult Logout()
+        {
+            HttpContext.Session.Remove("id");
+            HttpContext.Session.Remove("nome");
+            
+            return RedirectToAction("/");
         }
     }
 }

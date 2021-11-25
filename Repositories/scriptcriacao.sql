@@ -23,6 +23,16 @@ CREATE TABLE tb_usuarios (
 )
 go
 
+INSERT INTO tb_funcionarios VALUES (1, 'Administrador', 1)
+GO
+
+INSERT INTO tb_usuarios VALUES ('Juliana Lins', 'juliana.lins', '123', '17992485735', 1, 'teste@teste.com.br', 'Rua teste')
+go
+
+INSERT INTO tb_produtos
+VALUES (1,'Sushi da ju 1','Sushis','Um delicioso sushi um',30.55,1)
+GO
+
 -- admin = 1 -> admin
 CREATE TABLE tb_funcionarios(
 	cod_usuario		int primary key references tb_usuarios,
@@ -35,7 +45,7 @@ CREATE TABLE tb_gastos_brutos(
 	id_gasto		int primary key identity not null,
 	cod_usuario		int references tb_funcionarios not null,
 	nome_gasto		varchar(100) not null,
-	valor_gasto		float not null,
+	valor_gasto		decimal(10,2) not null,
 	data_pagamento	date,
 	data_vencimento	date
 )
@@ -95,9 +105,9 @@ GO
 CREATE PROCEDURE AtualizaGasto
 	@id_gasto int,
 	@nome  varchar(100),
-	@valor float,
-	@data_pagamento date,
-	@data_vencimento date
+	@valor decimal(10,2),
+	@data_pagamento date='',
+	@data_vencimento date=''
 AS
 BEGIN
 	UPDATE tb_gastos_brutos 
@@ -115,9 +125,9 @@ CREATE PROCEDURE CadastroGasto
 (
 	@cod_usuario int,
 	@nome varchar(100),
-	@valor float, 
-	@data_pagamento date,
-	@data_vencimento date
+	@valor decimal(10,2), 
+	@data_pagamento date='',
+	@data_vencimento date=''
 )
 AS
 BEGIN
@@ -195,8 +205,8 @@ BEGIN
 END
 GO
 --View Top4 Produtos mais vendidos
-CREATE VIEW Vtop4produto AS
-SELECT TOP 4 c.nome,b.valor_unitario,sum(b.valor_total) as Valor_total,sum(b.qtde)as qtde
+CREATE VIEW Vtop10produto AS
+SELECT TOP 10 c.nome,b.valor_unitario,sum(b.valor_total) as Valor_total,sum(b.qtde)as qtde
 	FROM tb_pedidos a
 	INNER JOIN tb_itens_pedidos b ON a.id_pedido=b.cod_pedido
 	INNER JOIN tb_produtos c ON b.cod_produto=c.id_produto
@@ -212,3 +222,150 @@ CREATE VIEW Vmediadiaped AS
 	inner join tb_itens_pedidos b on a.id_pedido = b.cod_pedido
 	WHERE a.data_entrada=convert(DATE,GETDATE()) 
 GO
+
+--View monstruosa de Despesas X Receitas--
+CREATE VIEW VReceitaXDespesas 
+AS
+	SELECT SUM(a.valor_gasto) AS valor_gasto, SUM(b.valor_total) AS total_pedidos
+		FROM tb_gastos_brutos a
+		FULL OUTER JOIN tb_itens_pedidos b 
+		ON(a.id_gasto=b.cod_pedido)
+		WHERE a.id_gasto IS NOT NULL OR b.cod_pedido IS NOT NULL
+GO
+
+--View Tempo Medio de pedidos semanal
+CREATE VIEW TempoMedioSemanal as 
+select	a.data_entrada,
+		(DATEPART(DW,a.data_entrada )) as DiaSemana,
+		sum(DATEDIFF(MINUTE, hora_entrada, hora_saida))/ count(1) as Media
+from tb_pedidos a
+where a.data_entrada between dateadd(week, datediff(week, 0, getdate()), 0) and dateadd(week, datediff(week, 0, getdate()), 6)
+group by a.data_entrada
+go
+
+--View Vendas por mes no ano
+CREATE VIEW VendasAnoMes AS
+select year( a.data_entrada) as Ano,  MONTH(a.data_entrada) as Mes,sum( b.Valor_total) as Total
+	from tb_pedidos a
+	inner join tb_itens_pedidos b on a.id_pedido = b.cod_pedido
+	GROUP by YEAR( a.data_entrada), MONTH(a.data_entrada)
+go
+
+--?????
+select 'JANEIRO'    AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 1 ),00000000000.00 ) as Valor
+union all
+select 'FEVEREIRO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 2 ),00000000000.00 ) as Valor
+union all
+select 'MARÇO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 3 ),00000000000.00 ) as Valor
+union all
+select 'ABRIL' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 4 ),00000000000.00 ) as Valor
+union all
+select 'MAIO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 5 ),00000000000.00 ) as Valor
+union all
+select 'JUNHO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 6 ),00000000000.00 ) as Valor
+union all
+select 'JULHO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 7 ),00000000000.00 ) as Valor
+union all
+select 'AGOSTO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 8 ),00000000000.00 ) as Valor
+union all
+select 'SETEMBRO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 9 ),00000000000.00 ) as Valor
+union all
+select 'OUTUBRO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 10 ),00000000000.00 ) as Valor
+union all
+select 'NOVEMBRO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 11 ),00000000000.00 ) as Valor
+union all
+select 'DEZEMBRO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 12 ),00000000000.00 ) as Valor
+GO
+
+--Diasemana
+--2=Segunda
+--3=Terca
+--4=Quarta
+--5=Quinta
+--6=Sexta
+--7=Sabado
+--1=Domingo
+
+--?????
+CREATE VIEW VendasAnoMesC as
+select 'JANEIRO'    AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 1 ),00000000000.00 ) as Valor
+union all
+select 'FEVEREIRO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 2 ),00000000000.00 ) as Valor
+union all
+select 'MARÇO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 3 ),00000000000.00 ) as Valor
+union all
+select 'ABRIL' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 4 ),00000000000.00 ) as Valor
+union all
+select 'MAIO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 5 ),00000000000.00 ) as Valor
+union all
+select 'JUNHO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 6 ),00000000000.00 ) as Valor
+union all
+select 'JULHO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 7 ),00000000000.00 ) as Valor
+union all
+select 'AGOSTO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 8 ),00000000000.00 ) as Valor
+union all
+select 'SETEMBRO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 9 ),00000000000.00 ) as Valor
+union all
+select 'OUTUBRO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 10 ),00000000000.00 ) as Valor
+union all
+select 'NOVEMBRO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 11 ),00000000000.00 ) as Valor
+union all
+select 'DEZEMBRO' AS mes, coalesce( ( select Total from VendasAnoMes where Ano = Year(getdate()) and mes = 12 ),00000000000.00 ) as Valor
+go
+
+Create View TempoMDiaSemana as
+select 'Segunda' as Dia, 
+	coalesce ((
+		select	sum(DATEDIFF(MINUTE, hora_entrada, hora_saida))/ count(1) as Media
+			from tb_pedidos a
+			where a.data_entrada = dateadd(week, datediff(week, 0, getdate()), 0) 
+			group by a.data_entrada
+	), 0000000) as Media
+union all
+select 'Terça' as Dia, 
+	coalesce ((
+		select	sum(DATEDIFF(MINUTE, hora_entrada, hora_saida))/ count(1) as Media
+			from tb_pedidos a
+			where a.data_entrada = dateadd(week, datediff(week, 0, getdate()), 1) 
+			group by a.data_entrada
+	), 0000000) as Media
+union all
+select 'Quarta' as Dia, 
+	coalesce ((
+		select	sum(DATEDIFF(MINUTE, hora_entrada, hora_saida))/ count(1) as Media
+			from tb_pedidos a
+			where a.data_entrada = dateadd(week, datediff(week, 0, getdate()), 2) 
+			group by a.data_entrada
+	), 0000000) as Media
+union all
+select 'Quinta' as Dia, 
+	coalesce ((
+		select	sum(DATEDIFF(MINUTE, hora_entrada, hora_saida))/ count(1) as Media
+			from tb_pedidos a
+			where a.data_entrada = dateadd(week, datediff(week, 0, getdate()), 3) 
+			group by a.data_entrada
+	), 0000000) as Media 
+union all
+select 'Sexta' as Dia, 
+	coalesce ((
+		select	sum(DATEDIFF(MINUTE, hora_entrada, hora_saida))/ count(1) as Media
+			from tb_pedidos a
+			where a.data_entrada = dateadd(week, datediff(week, 0, getdate()), 4) 
+			group by a.data_entrada
+	), 0000000) as Media 
+union all
+select 'Sabado' as Dia, 
+	coalesce ((
+		select	sum(DATEDIFF(MINUTE, hora_entrada, hora_saida))/ count(1) as Media
+			from tb_pedidos a
+			where a.data_entrada = dateadd(week, datediff(week, 0, getdate()), 5) 
+			group by a.data_entrada
+	), 0000000) as Media 
+union all
+select 'Domingo' as Dia, 
+	coalesce ((
+		select	sum(DATEDIFF(MINUTE, hora_entrada, hora_saida))/ count(1) as Media
+			from tb_pedidos a
+			where a.data_entrada = dateadd(week, datediff(week, 0, getdate()), 6) 
+			group by a.data_entrada
+	), 0000000) as Media 

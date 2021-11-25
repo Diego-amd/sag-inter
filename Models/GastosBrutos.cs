@@ -11,14 +11,15 @@ namespace sag.Models
         public string NomeGasto { get; set; }
         
         [Required(ErrorMessage = "O campo Valor é obrigatório")]
-        public double Valor { get; set; }
+        public decimal Valor { get; set; }
 
         [Required(ErrorMessage = "O campo Data de Vencimento é obrigatório")]
         public string DataVencimento { get; set; }
 
         [Required(ErrorMessage = "O campo Data de Pagamento é obrigatório")]
         public string DataPagamento { get; set; }
-
+        public string DataVencimentoB => DataVencimento == "01/01/1900" ? "" : DataVencimento;
+        public string DataPagamentoB => DataPagamento == "01/01/1900" ? "" : DataPagamento;
 
         #region Foreign Key
         public Funcionarios Funcionario { get; set; }
