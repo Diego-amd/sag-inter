@@ -41,9 +41,14 @@
                 <input type="text" step="0.01" name="Valor" class="form-control" asp-for="Valor"/>
                 <span asp-validation-for="Valor"></span>
             </div>
+            <div class="salvar">
+                <button class="btn btn-primary" id="salvar">Salvar</button>
+            </div>
+            <div class="voltar">
+                <a href="/Produtos/Index" class="btn btn-primary" id="voltar">Voltar</a>
+            </div>
 
-            <button class="btn btn-primary">Salvar</button>
-            <a href="/Produtos/Index" class="btn btn-primary">Voltar</a>
+            
         </form>
     </div>
 </body>

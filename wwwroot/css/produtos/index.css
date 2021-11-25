@@ -39,9 +39,13 @@
     border: rgb(192, 0, 0) 1px solid;
 }
 
+.adcionar{
+    margin-left: 1.1rem;
+    margin-top: 0.5rem;
+}
 
 
-.adicionar a{
+#adcionarC{
     background-color: green;
     border: green 1px solid;
 }
@@ -49,4 +53,23 @@
 .tabela-info-td{
     color: black;
     font-size: 13px;
+}
+
+.msg1{
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+}
+
+#msg1{
+    color: rgb(2, 2, 2);
+    font-weight: bolder;
+}
+
+.msg2{
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+}
+
+#msg2{
+    color: rgb(165, 0, 0); 
 }
