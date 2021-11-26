@@ -5,38 +5,45 @@
     ViewBag.Title = "Novo Pedido";
     Layout = "/Views/Shared/_Layout.cshtml";
 }
+<head>
+    <link rel="stylesheet" href="~/css/pedidos/create.css">
+</head>
 
-<h1>Create</h1>
+<body>
+    <div class="tabela-titulo">
+        <form asp-controller="Pedidos" asp-action="Create" method="POST">
+            <div class="form-group">
+                <label for="NomeCliente">Nome do cliente ou mesa</label>
+                <input type="text" name="NomeCliente" class="form-control" asp-for="NomeCliente"/>
+                <span asp-validation-for="NomeCliente"></span>
+            </div>
+            <div class="form-group">
+                <label for="TelCliente">Telefone do cliente</label>
+                <input type="text" name="TelCliente" class="form-control" asp-for="TelCliente" pattern="\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4,5}"/>
+            </div>
 
-<div>
-    <form asp-controller="Pedidos" asp-action="Create" method="POST">
-        <div class="form-group">
-            <label for="NomeCliente">Nome do cliente ou mesa</label>
-            <input type="text" name="NomeCliente" class="form-control" asp-for="NomeCliente"/>
-            <span asp-validation-for="NomeCliente"></span>
-        </div>
-        <div class="form-group">
-            <label for="TelCliente">Telefone do cliente</label>
-            <input type="text" name="TelCliente" class="form-control" asp-for="TelCliente" pattern="\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4,5}"/>
-        </div>
+            <div class="form-group">
+                <label for="TipoPedido">Pedido presencial ou online?</label>
+                <select asp-for="TipoPedido" class="form-control">
+                    <option value="0">Presencial</option>
+                    <option value="1">Online</option>
+                </select>
+            </div>
 
-        <div class="form-group">
-            <label for="TipoPedido">Pedido presencial ou online?</label>
-            <select asp-for="TipoPedido" class="form-control">
-                <option value="0">Presencial</option>
-                <option value="1">Online</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label for="TipoPedido">Itens do pedido</label>
-            <select asp-for="TipoPedido" class="form-control">
-                <option value="0">Presencial</option>
-                <option value="1">Online</option>
-            </select>
-        </div>
-
-        <button class="btn btn-primary">Salvar</button>
-        <a href="/Pedidos/Index" class="btn btn-primary">Voltar</a>
-    </form>
-</div>
+            <div class="form-group">
+                <label for="TipoPedido">Itens do pedido</label>
+                <select asp-for="TipoPedido" class="form-control">
+                    <option value="0">Presencial</option>
+                    <option value="1">Online</option>
+                </select>
+            </div>
+            <div class="salvar">
+                <button class="btn btn-primary" id="salvar">Salvar</button>
+            </div>
+            <div class="voltar">
+                <a href="/Pedidos/Index" class="btn btn-primary" id="voltar">Voltar</a>
+            </div>
+            
+        </form>
+    </div>
+</body>

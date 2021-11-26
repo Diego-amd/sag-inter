@@ -1,3 +1,25 @@
-.texto h3{
-    color: black;
+.logo{
+    margin-top: 1rem;
+    margin-left: 22rem;  
 }
+
+.logo img{
+    height: 29rem;
+}
+
+.tabela{
+    margin-left: 1rem;
+    min-width: 13rem;
+
+}
+
+.tabela td{
+    color: black;
+    margin-left: 2rem;
+    font-weight: bolder;
+    min-width: 5rem;
+    text-align: center;
+    font-size: 20px;
+
+}
+

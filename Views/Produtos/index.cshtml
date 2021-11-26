@@ -4,24 +4,15 @@
     ViewBag.Title = "Lista de produtos";
     Layout = "/Views/Shared/_Layout.cshtml";
 }
-<!DOCTYPE html>
-<html lang="pt-br">
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Sistema Administrativo Gastronômico</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">    
+<head>   
     <link rel="stylesheet" href="~/css/produtos/index.css" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-
 </head>
 
 <body class="produtos">
     <div class="msg1">
-        <h1 id="msg1">Lista de Produtos</h1>
+        <h1 id="msg1">Lista de Produtos &#127843</h1>
     </div>
     
     <table class="tabela">
@@ -65,18 +56,18 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel" style="color: black;">Confirmação de exclusão</h5>
+                            <h5 class="modal-title" id="exampleModalLabel" style="color: black; ; font-size: 22px">Confirmação de exclusão</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body" style="color: black";>
-                            Tem certeza que deseja excluir o produto?
+                        <div class="modal-body" style="color: black; font-size: 22px";>
+                            Tem certeza que deseja <span style="font-weight: bolder; color: red;">excluir</span> o produto?
                         </div>
                         <form asp-controller="Produtos" asp-action="Disable" method="POST">
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                <a a href="/Produtos/Disable/@produtos.Id_produto" class="btn btn-danger">Confirmar</a>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color: rgb(45, 110, 250); border: solid 1px rgb(45, 110, 250); font-size: 22px; height: 3rem; width: 7rem;">Cancelar</button>
+                                <a a href="/Produtos/Disable/@produtos.Id_produto" class="btn btn-danger" style="background-color: rgb(192, 0, 0); border: solid 1px rgb(192, 0, 0); font-size: 22px; height: 3rem; width: 8rem;">Confirmar</a>
                             </div>
                         </form>
                     </div>
@@ -93,4 +84,3 @@
 
 </body>
 
-</html>

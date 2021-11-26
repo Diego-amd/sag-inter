@@ -20,9 +20,23 @@
 
     <div class="login">
         <div id="campos-login">
+                <div class="sushi-logo">
+                    <img src="~/img/SushiJuLogo.png" alt="sushilogo">
+                </div>
+                <div>
+                    <img src="~/img/LogoSag.png" alt="LogoSag" id="logo-sag">
+                </div>
+                <div>
+                    <img src="~/img/LoginUserIcon.png" alt="UserIcon" id="user-icon">
+                </div>
+                <div>
+                    <img src="~/img/LoginUserSenha.png" alt="UserSenha" id="senha-icon">
+                </div>
             <div id="logo-tela-login">
+                <div class="texto-top">
+                    <h3>Sistema Administrativo <br>Gastronômico</h3>
+                </div>
                 
-                <h4>Sistema Administrativo <br>Gastronômico</h4>
                 @if(ViewBag.Message != null) {
                     <p class="alert alert-danger alert-message">@ViewBag.Message</p>
                 }
@@ -37,8 +51,10 @@
                     <input type="password" name="senha" id="senha" asp-for="Senha">
                     <span asp-validation-for="Senha" class="validacao"></span>
                     <br>
-
-                    <a href="#" style="margin-top: 0;">Esqueceu a senha?</a>
+                    <div  style="margin-top: -1rem">
+                        <a href="#" style="font-size: 17px">Esqueceu a senha?</a>
+                    </div>
+                   
                     <br>
                     <div id="botao-pos">
                         <button id="botao-entrar">Entrar</button>
@@ -47,15 +63,7 @@
                 </form>
             </div>
             <div class="icons">
-                <div>
-                    <img src="~/img/LogoSag.png" alt="LogoSag" id="logo-sag">
-                </div>
-                <div>
-                    <img src="~/img/LoginUserIcon.png" alt="UserIcon" id="user-icon">
-                </div>
-                <div>
-                    <img src="~/img/LoginUserSenha.png" alt="UserSenha" id="senha-icon">
-                </div>
+
             </div>
         </div>
     </div>
