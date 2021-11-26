@@ -20,7 +20,7 @@ namespace sag.Controllers
         public IActionResult Home()
         {
             var id_usuario = HttpContext.Session.GetInt32("id");
-            if(id_usuario == null)
+            if(id_usuario == null) 
             return RedirectToAction("Login", "Usuario");
                
             Funcionarios funcionario = repository.Read((int)id_usuario);
