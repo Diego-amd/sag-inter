@@ -26,10 +26,10 @@ namespace sag.Repositories
                 while(reader.Read()) 
                 {
                     ProdutosMaisVendidos produtomv = new ProdutosMaisVendidos();
-                    produtomv.Nome = reader.GetString(0);
-                    produtomv.ValorUnitario = reader.GetDecimal(1);
-                    produtomv.ValorTotal = reader.GetDecimal(2);
-                    produtomv.Qtde = reader.GetInt32(3);
+                    produtomv.Nome = reader.IsDBNull(0) ? "" : reader.GetString(0);
+                    produtomv.ValorUnitario = reader.IsDBNull(1) ? 0 : reader.GetDecimal(1);
+                    produtomv.ValorTotal = reader.IsDBNull(2) ? 0 : reader.GetDecimal(2);
+                    produtomv.Qtde = reader.IsDBNull(1) ? 0 : reader.GetInt32(1);
 
                     produtosmvendidos.Add(produtomv);
                 }
@@ -55,7 +55,7 @@ namespace sag.Repositories
                 
                 if (reader.Read()) 
                 {
-                    return reader.GetDecimal(0);
+                    return reader.IsDBNull(0) ? 0 : reader.GetDecimal(0);
                 }
 
                 return 0;
