@@ -34,31 +34,6 @@
             <p class="alert alert-danger alert-message">@ViewBag.Mensagem</p>
         }
 
-<<<<<<< HEAD
-    @foreach(var pedido in Model)
-    {
-        <tr>
-            <td>@pedido.IdPedido</td>
-            <td>@pedido.CodUsuario</td>
-            <td>@pedido.NomeCliente</td>
-            <td>@pedido.TelCliente</td>
-            <td>@pedido.DataEntrada</td>
-            <td>@pedido.HoraEntrada</td>
-            <td>@pedido.HoraSaida</td>
-            <td>@pedido.TextoStatus</td>
-            <td>@pedido.TextoTipoPedido</td>
-            @if(@pedido.HoraSaida != "")
-            {
-                <td>
-                    <a href="/Pedidos/Update/@pedido.IdPedido" class="btn btn-sm btn-primary">Finalizar pedido</a>
-                </td>
-            }
-            <td>
-                <a href="/Pedidos/Update/@pedido.IdPedido" class="btn btn-sm btn-primary">Finalizar pedido</a>
-            </td>
-        </tr>
-    }
-=======
         @foreach(var pedido in Model)
         {
             <tr>
@@ -82,6 +57,5 @@
     </div>
    
 </body>
->>>>>>> 959f1136e088d6f2e1de12bce8fd41b089cfc96a
 
 
