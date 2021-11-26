@@ -1,10 +1,10 @@
 .logo{
-    margin-top: 1.5rem;
-    margin-left: 20rem;  
+    margin-top: 1rem;
+    margin-left: 22rem;  
 }
 
 .logo img{
-    height: 20rem;
+    height: 29rem;
 }
 
 .tabela{
@@ -19,6 +19,7 @@
     font-weight: bolder;
     min-width: 5rem;
     text-align: center;
+    font-size: 20px;
 
 }
 

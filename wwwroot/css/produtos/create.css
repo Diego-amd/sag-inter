@@ -6,30 +6,39 @@
     color: black;
     margin-left: 4rem;
     margin-top: -1rem;
+    font-size: 24px;
 }
 
 .form-control{
     margin-top: -0.5rem;
-    max-width: 40rem;
+    max-width: 60rem;
+    height: 3rem;
     border: rgb(156, 1, 1) 1px solid;
     margin-left: 4rem;
+    font-size: 22px;
 }
 
 .salvar{
-    margin-left: 9rem;
+    margin-left: 12rem;
 }
 
 #salvar{
     background-color: green;
     border: green 1px solid;
+    height: 3rem;
+    width: 6rem;
+    font-size: 22px;
 }
 
 .voltar{
-    margin-top: -2.4rem;
+    margin-top: -3rem;
     margin-left: 4rem;
 }
 
 #voltar{
     background-color: red;
     border: red 1px solid;
+    height: 3rem;
+    width: 6rem;
+    font-size: 22px;
 }

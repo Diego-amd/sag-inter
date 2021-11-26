@@ -17,18 +17,18 @@
 	box-sizing: border-box;
 	font-family: "Roboto", Helvetica, sans-serif;
 	color: #FFFFFF;
-	height: 36rem;
-	width: 81rem;
+	height: 50rem;
+	width: 105rem;
 	margin-left: -40.5rem;
 	margin-top: -15.5rem;
-	top: 45%;
-	left: 50%;
+	top: 35%;
+	left: 40%;
 	position:absolute;
 }
 
 .left-box {
-	width: 12rem;
-	height: 35rem;
+	width: 20rem;
+	height: 48rem;
 	top: 5%;
 	left: 3%;
 	margin-left: 0rem;
@@ -41,8 +41,8 @@
 
 .LogoSushiJu{
 	margin: 0rem;
-	width: 11.9rem;
-	height: 12rem;
+	width: 19.9rem;
+	height: 16rem;
 	border-top-left-radius: 6px;
 	border-top-right-radius: 6px;
 }
@@ -61,7 +61,8 @@
 
 #Menu h5{
 	color: white;
-	margin-left: -0.5rem;
+	margin-left: 3.2rem;
+	font-size: 25px;
 }
 
 #Menu a{text-decoration: none;}
@@ -76,21 +77,21 @@
 
 .fazer-ped{
 	display: inline-block;
-	width: 11.9rem;
-	height: 1.5rem;
+	width: 19.9rem;
+	height: 2rem;
 	cursor: pointer;
 	border: solid 1px grey;
 	background-color: white;
 	display: inline-block;
 	border-bottom: none;
+	text-align: center;
 }
 
 .fazer-ped a{
-	margin-left: 3rem;
 	cursor: pointer;
 	text-decoration: none;
 	color: black;
-	font-size: 15px;
+	font-size: 19px;
 }
 
 .fazer-ped:hover, .fazer-ped:focus{
@@ -107,21 +108,21 @@
 
 
 .ped-and{
-	width: 11.9rem;
-	height: 1.5rem;
+	width: 19.9rem;
+	height: 2rem;
 	margin-top: -0.1rem;
 	border: solid 1px grey;
 	background-color: white;
 	cursor: pointer;
 	border-bottom: none;
 	display: inline-block;
+	text-align: center;
 }
 
 .ped-and a{
-	margin-left: 1.5rem;
 	text-decoration: none;
 	color: black;
-	font-size: 15px;
+	font-size: 19px;
 }
 
 .ped-and:hover, .ped-and:focus{
@@ -140,11 +141,11 @@
 
 .botao-fun-adm {
 	margin-top: -0.1rem;
-	width: 11.9rem;
-	height: 1.5rem;
+	width: 19.9rem;
+	height: 2rem;
 	background-color: #ffffff;
 	color: rgb(0, 0, 0);
-	font-size: 15px;
+	font-size: 19px;
 	border: 1px solid grey;
 	cursor: pointer;
 }
@@ -154,26 +155,26 @@
 .fun-adm {display: inline-block;}
   
 .fun-adm-content {
-	margin-left: 0.4rem;
+	margin-left: 1rem;
 	border: rgb(70, 70, 70) 0.05px solid;
 	display: none;
 	position: absolute;
 	background-color: #f1f1f1;
-	min-width: 11rem;
-	min-height: 7.05rem;
+	min-width: 17.9rem;
+	min-height: 9.8rem;
 	box-shadow: 0rem 0.5rem 1rem 0rem rgba(0,0,0,0.2);
 	z-index: 1;
 	text-align: center;
 }
   
 .fun-adm-content a {
-	margin-top: 0.3rem;
+	margin-top: 0.5rem;
 	color: black;
 	background-color: rgb(212, 212, 212);
 	border: rgb(87, 87, 87) 1px solid;
 	border-right: none;
 	border-left: none;
-	font-size: 13px;
+	font-size: 17px;
 	text-decoration: none;
 	display: block;
 }
@@ -186,45 +187,42 @@
   
 .mostrar {display:block;}
 
-.icons {margin-top: -4.2rem;}
+.icons {margin-top: -4.8rem;}
 
 #fzr-ped-icon {
-	margin-top: -1rem;
-	height: 1rem;
-	width: 1rem;
+	margin-top: -1.8rem;
+	height: 1.5rem;
 }
 
 #ped-aco-icon {
 	margin-top: -1rem;
-	height: 1rem;
-	width: 1rem;	
+	height: 1.5rem;
 }
 
 #fun-adm-icon {
-	margin-top: -1rem;
-	height: 1rem;
-	width: 1rem;
+	margin-top: -0.2rem;
+	height: 1.5rem;
 }
 
 #linha{
-	margin-top: 14.8rem;
+	margin-top: 22.5rem;
 	border-color: rgb(61, 61, 61);
 }
 
 #suport-icon {
-	margin-left: 3.5rem;
+	margin-left: 7.5rem;
 	margin-top: -0.7rem;
 	background: url('../img/LayoutSuporteIcon.svg');
 	background-position:center;
 	background-size:cover;
-	height: 0.8rem;
+	height: 1.5rem;
 	width: 1.1rem;
 }
 
 #suporte {
 	margin-top: -2rem;
 	margin-left: 1rem;
-	font-size: 12px;
+	font-size: 17px;
 	text-decoration: none;
 	color: grey;
 }
@@ -234,48 +232,51 @@
 	top: 7%;
 	left: 17.10%;
 	background: white;
-	width: 69rem;
-	height: 7rem;
+	width: 85rem;
+	height: 10rem;
 	border: 0.1px solid black;
 	border-left: none;
 	float: right;
 }
 
 #top-caixa-cinza {
-	height: 1.2rem;
+	height: 1.7rem;
 	background-image: linear-gradient(to bottom, rgb(83, 83, 83), rgb(36, 36, 36));
 }
 
 #sair {
-	margin-top: 0.7rem;
+	margin-top: 1.3rem;
 	line-height: 0.4rem;
 	margin-right: 1rem;
 	width: 10rem;
 	float: right;
 	text-align: right;
+	
 }
 
 #sair a{
 	text-align: right;
 	text-decoration: none;
+	font-size: 18px;
 }
 
 #sair p{
 	text-align: right;
 	color:black;
+	font-size: 21px;
 }
 
 .admin-icon {
-	margin-top: 0.4rem;
+	margin-top: 0.9rem;
 	margin-right: 1rem;
 	float: right;
-	height: 3.5rem;
-	width: 3.5rem;
+	height: 4.5rem;
+	width: 4.5rem;
 }
 
 #bot-caixa-cinza {
-	height: 1.2rem;
-	margin-top: 4.45rem;
+	height: 1.7rem;
+	margin-top: 6.55rem;
 	background-image: linear-gradient(to bottom, rgb(83, 83, 83), rgb(36, 36, 36));
 }
 
@@ -283,23 +284,23 @@
 	top: 30.4%;
 	left: 17.20%;
 	background: rgb(216, 216, 216);
-	height: 27rem;
-	width: 69rem;
+	height: 37rem;
+	width: 85rem;
 	border-right: 0.1px solid black;
 	border-bottom: 0.1px solid black;
 	float: right;
 }
 
 #caixa-verm {
-	height: 1.2rem;
+	height: 1.7rem;
 	background-image: linear-gradient(to bottom, rgb(207, 3, 3), rgb(138, 0, 0));
 }
 
 .conteudo{
 	padding: 0;
 	background: white;
-	height: 23.5rem;
-	width: 65rem;
+	height: 33rem;
+	width: 81rem;
 	border: rgb(182, 0, 0) solid;
 	border-radius: 5px;
 	margin-top: 1rem;

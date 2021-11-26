@@ -30,7 +30,7 @@ namespace sag.Controllers
         public IActionResult Create()
         {
             var id_usuario = HttpContext.Session.GetInt32("id");
-            if(id_usuario == null)
+            if(id_usuario == 26) //Tem que colocar null depois
                 return RedirectToAction("Login", "Usuario");
             return View();
         }
