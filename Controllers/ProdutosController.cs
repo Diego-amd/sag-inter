@@ -38,6 +38,9 @@ namespace sag.Controllers
         [HttpPost]
         public IActionResult Create(Produtos model)
         {
+            if(!ModelState.IsValid)
+                return View(model);
+                
             var id = HttpContext.Session.GetInt32("id");
             repository.Create((int)id, model);
 
@@ -62,6 +65,9 @@ namespace sag.Controllers
         [HttpPost]
         public IActionResult Update(int id, Produtos model)
         {
+            if(!ModelState.IsValid)
+                return View(model);
+
             repository.Update(id, model);
             ViewBag.Message = "Edição feita com sucesso!";
             return RedirectToAction("Index");
