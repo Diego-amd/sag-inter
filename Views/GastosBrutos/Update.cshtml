@@ -5,36 +5,41 @@
     ViewBag.Title = "Editar Gasto";
     Layout = "/Views/Shared/_Layout.cshtml";
 }
+<head>
+    <link rel="stylesheet" href="~/css/gastosbrutos/update.css">
+</head>
+<body>
+    <div class="tabela-titulo">
+        <form asp-controller="GastosBrutos" asp-action="Update" method="POST">
+            <div class="form-group">
+                <label for="valor">Nome do gasto*</label>
+                <input type="text" name="NomeGasto" required="true" class="form-control" asp-for="NomeGasto"/>
+                <span asp-validation-for="NomeGasto"></span>
+            </div>
 
-<h1>Update</h1>
+            <div class="form-group">
+                <label for="valor">Valor gasto*</label>
+                <input type="text" name="valor" required="true" class="form-control" asp-for="Valor"/>
+                <span asp-validation-for="Valor"></span>
+            </div>
 
-<div>
-    <form asp-controller="GastosBrutos" asp-action="Update" method="POST">
-        <div class="form-group">
-            <label for="valor">Nome do gasto*</label>
-            <input type="text" name="NomeGasto" required="true" class="form-control" asp-for="NomeGasto"/>
-            <span asp-validation-for="NomeGasto"></span>
-        </div>
+            <div class="form-group">
+                <label for="DataVencimento">Data de Vencimento*</label>
+                <input type="date" name="DataVencimento" id="DataVencimento" class="form-control" asp-for="DataVencimento"/>
+                <span asp-validation-for="DataVencimento"></span>
+            </div>
 
-        <div class="form-group">
-            <label for="valor">Valor gasto*</label>
-            <input type="text" name="valor" required="true" class="form-control" asp-for="Valor"/>
-            <span asp-validation-for="Valor"></span>
-        </div>
-
-        <div class="form-group">
-            <label for="DataVencimento">Data de Vencimento*</label>
-            <input type="date" name="DataVencimento" id="DataVencimento" class="form-control" asp-for="DataVencimento"/>
-            <span asp-validation-for="DataVencimento"></span>
-        </div>
-
-        <div class="form-group">
-            <label for="DataPagamento">Data de Pagamento</label>
-            <input type="date" name="DataPagamento" id="DataPagamento" class="form-control" asp-for="DataPagamento"/>
-            <span asp-validation-for="DataPagamento"></span>
-        </div>
-
-        <button class="btn btn-primary">Salvar</button>
-        <a href="/GastosBrutos/Index" class="btn btn-primary">Voltar</a>
-    </form>
-</div>
+            <div class="form-group">
+                <label for="DataPagamento">Data de Pagamento</label>
+                <input type="date" name="DataPagamento" id="DataPagamento" class="form-control" asp-for="DataPagamento"/>
+                <span asp-validation-for="DataPagamento"></span>
+            </div>
+            <div class="salvar">
+                <button class="btn btn-primary" id="salvar">Salvar</button>
+            </div>
+            <div class="voltar">
+                <a href="/GastosBrutos/Index" class="btn btn-primary" id="voltar">Voltar</a>
+            </div>
+        </form>
+    </div>
+</body>

@@ -20,7 +20,7 @@ namespace sag.Controllers
         public IActionResult Index()
         {
             var id_usuario = HttpContext.Session.GetInt32("id");
-            if(id_usuario == null)
+            if(id_usuario == 26) //depois trocar para null
                 return RedirectToAction("Login", "Usuario");
             List<GastosBrutos> gastos = repository.ReadAll();
             return View(gastos);
