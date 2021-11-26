@@ -4,30 +4,37 @@
     ViewBag.Title = "Lista de Pedidos";
     Layout = "/Views/Shared/_Layout.cshtml";
 }
+<head>
+    <link rel="stylesheet" href="~/css/pedidos/index.css">
+</head>
+<body class="pedidos">
+    <div class="msg1">
+        <h1 id="msg1">Lista de Pedidos 📜</h1>
+    </div>
+    
+    <table class="tabela">
+        <tr>
+            <th>Id</th>
+            @* <th>Código do usuário</th> *@
+            <th>Nome / mesa do cliente</th>
+            <th>Telefone do cliente</th>
+            <th>Data de Entrada</th>
+            <th>Hora de Entrada</th>
+            <th>Hora de Saída</th>
+            <th>Status</th>
+            <th>Tipo de Pedido</th>
+        </tr>
 
-<h1>Lista de Pedidos - Teste</h1>
+        <div class="msg2">
+            <h1 id="msg2">Você tem @Model.Count pedidos</h1>
+        </div>
+        
 
-<table class="table table-hover">
-    <tr>
-        <th>Id</th>
-        <th>Código do usuário</th>
-        <th>Nome / mesa do cliente</th>
-        <th>Telefone do cliente</th>
-        <th>Data de Entrada</th>
-        <th>Hora de Entrada</th>
-        <th>Hora de Saída</th>
-        <th>Status</th>
-        <th>Tipo de Pedido</th>
-        <th>&nbsp;</th>
-    </tr>
+        @if(ViewBag.Mensagem != null) {
+            <p class="alert alert-danger alert-message">@ViewBag.Mensagem</p>
+        }
 
-    @* <img src='/images/icon.png' /> *@
-    <h1>Você tem @Model.Count pedidos</h1>
-
-    @if(ViewBag.Mensagem != null) {
-        <p class="alert alert-danger alert-message">@ViewBag.Mensagem</p>
-    }
-
+<<<<<<< HEAD
     @foreach(var pedido in Model)
     {
         <tr>
@@ -51,7 +58,30 @@
             </td>
         </tr>
     }
+=======
+        @foreach(var pedido in Model)
+        {
+            <tr>
+                <td class="tabela-info-td">@pedido.IdPedido</td>
+                @* <td class="tabela-info-td">@pedido.CodUsuario</td> *@
+                <td class="tabela-info-td">@pedido.NomeCliente</td>
+                <td class="tabela-info-td">@pedido.TelCliente</td>
+                <td class="tabela-info-td">@pedido.DataEntrada</td>
+                <td class="tabela-info-td">@pedido.HoraEntrada</td>
+                <td class="tabela-info-td">@pedido.HoraSaida</td>
+                <td class="tabela-info-td">@pedido.TextoStatus</td>
+                <td class="tabela-info-td">@pedido.TextoTipoPedido</td>
+                <td class="botoes-cad">
+                    <a href="/Pedidos/Update/@pedido.IdPedido" class="btn btn-sm btn-primary" id="finalizar">Finalizar</a>
+                </td>
+            </tr>
+        }
+    </table>
+    <div class="adicionarB">
+        <a href="/pedidos/create" class="btn btn-primary" id="adicionarB">Adicionar</a>
+    </div>
+   
+</body>
+>>>>>>> 959f1136e088d6f2e1de12bce8fd41b089cfc96a
 
-</table>
 
-<a href="/pedidos/create" class="btn btn-primary">Adicionar</a>

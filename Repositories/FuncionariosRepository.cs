@@ -30,6 +30,8 @@ namespace sag.Repositories
                     funcionario.Admin = reader.GetInt32(2);
                 }
                 return funcionario;
+
+
             }
             catch(Exception ex) {
                 throw new Exception(ex.Message);

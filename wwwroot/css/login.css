@@ -1,4 +1,11 @@
-﻿.login{
+﻿#img-background{ 
+  background-image: url('../img/LoginBackground.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.login{
   margin: 0;
   padding: 0;
   border: none;
@@ -8,27 +15,32 @@
   color: #FFFFFF;
 }
 
-#img-background{ 
-  background-image: url('../img/LoginBackground.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
 
 #campos-login{
 	position: absolute;
 	/*border:1px solid #707070;*/
-	width: 47rem;
-	height: 23rem;
-	background: #656565 url('../img/SushiJuLogo.png') no-repeat right top;
-	top:40%;
-	left:43%;
-	margin-left: -16rem;
-	margin-top: -9rem;
+	width: 54rem;
+	height: 27rem;
+	background-image: linear-gradient(to bottom right, rgb(141, 141, 141), rgb(112, 112, 112), rgb(51, 51, 51));
+	top:36%;
+	left:34%;
+	margin-left: -14rem;
+	margin-top: -7rem;
 	border-radius: 4px;
   /* border: 1px solid red; */
 }
 
+.sushi-logo{
+	float: right;
+}
+
+.sushi-logo img{
+	height: 27rem;
+}
+
+.texto-top{
+	margin-left: 1rem;
+}
 
 #logo-tela-login{
 	/* background: url('../img/logoSag.png'); */
@@ -46,18 +58,21 @@
 	padding: 0.3rem;
 	/*border:1px solid red;*/
 	width: 18rem;
-	margin-left: 3rem;
+	margin-left: 4rem;
 	margin-top: 0;
 }
 
 #formulario-login label{
 	display:block;
-	margin-top: 10px; 
+	margin-top: 2px;
+	font-size: 22px; 
+
 }
 
 #formulario-login input[type="text"], #formulario-login input[type="password"]{
 	border:1px solid #D91717;
-	width: 18rem;
+	width: 20rem;
+	height: 2.5rem;
 	/* height: 1.3rem; */
 	margin-top: 0;
 }
@@ -70,8 +85,8 @@
 
 #botao-entrar{
 	display: block;
-	width: 5.5rem;
-	height: 2.5rem;
+	width: 6.5rem;
+	height: 3.5rem;
 	background-image: linear-gradient(to top right, rgb(133, 21, 21), red); 
 	color: white;
 	font-weight: bold;
@@ -83,11 +98,11 @@
 	border-radius: 1rem;
 	cursor: pointer;
 	text-decoration: none;
-  font-size: 1rem;
-  text-align: center;
+  	font-size: 22px;
+ 	text-align: center;
 }
 #botao-pos{
-	margin-left: -1.5rem;
+	margin-top: -1rem;
 }
 #botao-entrar input[type="button"]:hover{
 	background-color: #036EC5;
@@ -106,20 +121,25 @@
 }
 
 .icons{
-	margin-top: -21.5rem;
+	margin-top: 0rem;
 }
 
 #logo-sag{
-	width: 5rem;
-	margin-left: 0.3rem;
+	width: 6rem;
+	margin-left: 0rem;
+	position: absolute;
 }
 
 #user-icon{
-	margin-top: 2.5rem;
-	margin-left: 0.5rem;
+	width: 3rem;
+	margin-top: 8.3rem;
+	margin-left: 0.7rem;
+	position: fixed;
 }
 
 #senha-icon{
-	margin-top: 2rem;
-	margin-left: 0.5rem;
+	width: 3rem;
+	margin-top: 13.5rem;
+	margin-left: 0.7rem;
+	position: fixed;
 }
