@@ -42,13 +42,19 @@ namespace sag.Controllers
             return View(dashboard);
         }
 
-        // public JsonResult DataPizza()
-        // {
-        //     List<Dashboard> dashboard = new List<Dashboard>();
-        //     dashboard = repository.Dashboard();
-        //     ViewBag.ValorGasto = dashboard[0];
+        public JsonResult DataLinha()
+        {
+            List<Dashboard> dashboard = new List<Dashboard>();
+            dashboard = repository.MediaReceitaMes();
 
-        //     return Json(dashboard);
-        // }
+            object[] array = dashboard.ToArray();
+
+            foreach(var s in array){
+                Console.WriteLine("\t{0}", array.Length);
+            }
+            Console.WriteLine(array.Length);
+
+            return Json(array);
+        }
     }
 }

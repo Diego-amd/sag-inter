@@ -98,5 +98,67 @@ namespace sag.Repositories
                 Dispose();
             }
         }
+
+        public List<Dashboard> MediaReceitaMes()
+        {
+            try {
+                List<Dashboard> listaLinha = new List<Dashboard>();
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+
+                cmd.CommandText = "SELECT * FROM VendasAnoMesC";
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                
+                while (reader.Read()) 
+                {
+                    Dashboard dashboard = new Dashboard();
+                    dashboard.Mes = reader.GetString(0);
+                    dashboard.ValorMes = reader.GetDecimal(1);
+                    
+                    listaLinha.Add(dashboard);
+                }
+
+                return listaLinha;
+            }
+            catch(Exception ex) {
+                throw new Exception(ex.Message);
+            }
+            finally {
+                Dispose();
+            }
+        }
+
+        public List<Dashboard> MediaPedidoDia()
+        {
+            try {
+                List<Dashboard> listaLinha = new List<Dashboard>();
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+
+                cmd.CommandText = "SELECT * FROM TempoMDiaSemana";
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                
+                while (reader.Read()) 
+                {
+                    Dashboard dashboard = new Dashboard();
+                    dashboard.Dia = reader.GetString(0);
+                    dashboard.MediaDia = reader.GetDecimal(1);
+                    
+                    listaLinha.Add(dashboard);
+                }
+
+                return listaLinha;
+            }
+            catch(Exception ex) {
+                throw new Exception(ex.Message);
+            }
+            finally {
+                Dispose();
+            }
+        }
     }
 }

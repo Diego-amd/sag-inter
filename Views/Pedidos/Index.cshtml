@@ -40,6 +40,12 @@
             <td>@pedido.HoraSaida</td>
             <td>@pedido.TextoStatus</td>
             <td>@pedido.TextoTipoPedido</td>
+            @if(@pedido.HoraSaida != "")
+            {
+                <td>
+                    <a href="/Pedidos/Update/@pedido.IdPedido" class="btn btn-sm btn-primary">Finalizar pedido</a>
+                </td>
+            }
             <td>
                 <a href="/Pedidos/Update/@pedido.IdPedido" class="btn btn-sm btn-primary">Finalizar pedido</a>
             </td>

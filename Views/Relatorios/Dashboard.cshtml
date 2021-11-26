@@ -2,19 +2,32 @@
 @model List<Dashboard>
 @{
     ViewBag.Title = "Dashboard";
-    Layout = "/Views/Shared/_Layout.cshtml";
+    Layout = "/Views/Shared/_Layout copy.cshtml";
 }
-<h3>Dashboard</h3>
+<h3 style="color: black">Dashboard</h3>
 @foreach(var valor in Model)
-    {
-        decimal valorGasto = @valor.TotalGasto;
-        decimal valorReceita = @valor.TotalPedidos;
-        decimal lucro = valorReceita - valorGasto;
-        
-        ViewBag.Despesas = valorGasto;
-        ViewBag.Receita = valorReceita;
-        ViewBag.Lucro = lucro;
-    }
+{
+    // gráfico pizza
+    decimal valorGasto = @valor.TotalGasto;
+    decimal valorReceita = @valor.TotalPedidos;
+    decimal lucro = valorReceita - valorGasto;
+    
+    ViewBag.Despesas = valorGasto;
+    ViewBag.Receita = valorReceita;
+    ViewBag.Lucro = lucro;
+}
+
+@foreach(var valor in Model)
+{
+    // gráfico linha
+    decimal valorGasto = @valor.TotalGasto;
+    decimal valorReceita = @valor.TotalPedidos;
+    decimal lucro = valorReceita - valorGasto;
+    
+    ViewBag.Despesas = valorGasto;
+    ViewBag.Receita = valorReceita;
+    ViewBag.Lucro = lucro;
+}
 
 <div style="background-color: white; width:40%; margin-left: 56%; border-radius: 0.7rem;">
     <div id="pizza"></div>
@@ -28,7 +41,8 @@
     </p>
 </div>
 
-@* <div id="barras"></div> *@
+<div id="linha"></div>
+<div id="barra"></div>
 
 @section Scripts{
     <script src="https://code.highcharts.com/highcharts.js"></script>
@@ -43,5 +57,5 @@
     </script>
     <script src="~/js/pizza.js"></script>
     <script src="~/js/linha.js"></script>
-    @* <script src="~/js/Barras.js"></script> *@
+    <script src="~/js/barra.js"></script>
 }

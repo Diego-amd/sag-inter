@@ -21,10 +21,7 @@ namespace sag.Repositories
                 cmd.CommandText = "INSERT INTO tb_pedidos VALUES (@cod_usuario, @nome_cliente, @tel_cliente, GETDATE(), null, GETDATE(), @status, @tipo_pedido);" + "SELECT @@IDENTITY";
                 cmd.Parameters.AddWithValue("@cod_usuario", id);
                 cmd.Parameters.AddWithValue("@nome_cliente", model.NomeCliente);
-                if(model.TelCliente == null)
-                    cmd.Parameters.AddWithValue("@tel_cliente", null);
-                else
-                    cmd.Parameters.AddWithValue("@tel_cliente", model.TelCliente);
+                cmd.Parameters.AddWithValue("@tel_cliente", model.TelCliente);
                 cmd.Parameters.AddWithValue("@status", model.Status);
                 cmd.Parameters.AddWithValue("@tipo_pedido", model.TipoPedido);
 

@@ -8,5 +8,7 @@ namespace sag.Repositories
         List<ProdutosMaisVendidos> ReadAll();
         decimal Read();
         List<Dashboard> Dashboard();
+        List<Dashboard> MediaReceitaMes();
+        List<Dashboard> MediaPedidoDia();
     }
 }

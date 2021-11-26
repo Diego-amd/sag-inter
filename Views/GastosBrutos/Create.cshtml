@@ -4,7 +4,17 @@
 @{
     ViewBag.Title = "Novo gasto";
     Layout = "/Views/Shared/_Layout.cshtml";
+
+    DateTime hoje = DateTime.Now;
+    ViewBag.Atual = hoje;
+    ViewBag.Hoje = "";
 }
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>
+<script>
+    var data = moment("@ViewBag.Atual", 'DD/MM/YYYY HH:mm:ss', true).format('YYYY-MM-DD');
+    @ViewBag.Hoje = data;
+    console.log("@ViewBag.Hoje");
+</script>
 
 <h1>Create</h1>
 
@@ -23,13 +33,13 @@
 
         <div class="form-group">
             <label for="DataVencimento">Data de Vencimento*</label>
-            <input type="date" name="DataVencimento" id="DataVencimento" class="form-control" asp-for="DataVencimento"/>
+            <input type="date" name="DataVencimento" id="DataVencimento" class="form-control" asp-for="DataVencimento" value="@ViewBag.Hoje" />
             <span asp-validation-for="DataVencimento"></span>
         </div>
 
         <div class="form-group">
             <label for="DataPagamento">Data de Pagamento</label>
-            <input type="date" name="DataPagamento" id="DataPagamento" class="form-control" asp-for="DataPagamento"/>
+            <input type="date" name="DataPagamento" id="DataPagamento" class="form-control" asp-for="DataPagamento" value="@ViewBag.Hoje" />
             <span asp-validation-for="DataPagamento"></span>
         </div>
 
