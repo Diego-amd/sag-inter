@@ -1,5 +1,6 @@
 .tabela-titulo {
     margin-top: 2rem;
+    margin-left: 6rem;
 }
 
 .tabela-titulo label{
@@ -18,6 +19,18 @@
     font-size: 22px;
 }
 
+.form-row .form-control{
+    width: 14rem;
+}
+
+.form-row .col2{
+    margin-left: -45rem;
+}
+
+.botoes{
+    margin-top: 1rem;
+}
+
 .salvar{
     margin-left: 12rem;
 }
@@ -30,9 +43,21 @@
     font-size: 22px;
 }
 
+.salvar{
+    margin-left: 32rem;
+}
+
+#salvar{
+    background-color: green;
+    border: green 1px solid;
+    height: 3rem;
+    width: 6rem;
+    font-size: 22px;
+}
+
 .voltar{
     margin-top: -3rem;
-    margin-left: 4rem;
+    margin-left: 24rem;
 }
 
 #voltar{

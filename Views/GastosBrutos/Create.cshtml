@@ -43,7 +43,7 @@
                     <span asp-validation-for="DataVencimento"></span>
                 </div>
 
-                <div class="col">
+                <div class="col col2">
                     <label for="DataPagamento">Data de Pagamento</label>
                     <input type="date" name="DataPagamento" id="DataPagamento" class="form-control"
                         asp-for="DataPagamento" />
@@ -53,15 +53,16 @@
 
             @* <div class="form-group">
                 <label for="DataPagamento">Data de Pagamento</label>
-                <input type="date" name="DataPagamento" id="DataPagamento" class="form-control"
-                    asp-for="DataPagamento" />
+                <input type="date" name="DataPagamento" id="DataPagamento" class="form-control" asp-for="DataPagamento"/>
                 <span asp-validation-for="DataPagamento"></span>
             </div> *@
-            <div class="salvar">
-                <button class="btn btn-primary" id="salvar">Salvar</button>
-            </div>
-            <div class="voltar">
-                <a href="/GastosBrutos/Index" class="btn btn-primary" id="voltar">Voltar</a>
+            <div class="botoes">
+                <div class="salvar">
+                    <button class="btn btn-primary" id="salvar">Salvar</button>
+                </div>
+                <div class="voltar">
+                    <a href="/GastosBrutos/Index" class="btn btn-primary" id="voltar">Voltar</a>
+                </div>
             </div>
         </form>
     </div>
