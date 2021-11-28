@@ -28,13 +28,13 @@
         {
             <tr>
                 <td class="tabela-info-td">@produtomv.Nome</td>
-                <td class="tabela-info-td">@produtomv.ValorUnitario</td>
-                <td class="tabela-info-td">@produtomv.ValorTotal</td>
+                <td class="tabela-info-td">@produtomv.ValorUnitario.ToString("C")</td>
+                <td class="tabela-info-td">@produtomv.ValorTotal.ToString("C")</td>
                 <td class="tabela-info-td">@produtomv.Qtde</td>
             </tr>
         }
         <tr>
-            <td colspan="4" class="tabela-info-td">@ViewBag.Media</td>
+            <td colspan="4" class="tabela-info-td">@ViewBag.Media.ToString("C")</td>
         </tr>
     </table>
 </body>
