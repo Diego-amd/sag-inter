@@ -21,7 +21,9 @@ namespace sag.Controllers
         {
             var id_usuario = HttpContext.Session.GetInt32("id");
             if(id_usuario == null) 
-            return RedirectToAction("Login", "Usuario");
+                return RedirectToAction("Login", "Usuario");
+
+            ViewBag.NomeUsuario = HttpContext.Session.GetString("nome");
                
             Funcionarios funcionario = repository.Read((int)id_usuario);
             return View(funcionario);

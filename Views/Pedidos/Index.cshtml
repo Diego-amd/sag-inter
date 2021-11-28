@@ -1,8 +1,6 @@
-@using sag.Models
 @model List<Pedidos>
 @{
     ViewBag.Title = "Lista de Pedidos";
-    Layout = "/Views/Shared/_Layout.cshtml";
 }
 <head>
     <link rel="stylesheet" href="~/css/pedidos/index.css">
@@ -15,7 +13,6 @@
     <table class="tabela">
         <tr>
             <th>Id</th>
-            @* <th>Código do usuário</th> *@
             <th>Nome / mesa do cliente</th>
             <th>Telefone do cliente</th>
             <th>Data de Entrada</th>
@@ -38,7 +35,6 @@
         {
             <tr>
                 <td class="tabela-info-td">@pedido.IdPedido</td>
-                @* <td class="tabela-info-td">@pedido.CodUsuario</td> *@
                 <td class="tabela-info-td">@pedido.NomeCliente</td>
                 <td class="tabela-info-td">@pedido.TelCliente</td>
                 <td class="tabela-info-td">@pedido.DataEntrada</td>
@@ -46,8 +42,16 @@
                 <td class="tabela-info-td">@pedido.HoraSaida</td>
                 <td class="tabela-info-td">@pedido.TextoStatus</td>
                 <td class="tabela-info-td">@pedido.TextoTipoPedido</td>
-                <td class="botoes-cad">
+                if(@pedido.TextoStatus != "Finalizado")
+                {
+                    <td class="botoes-cad">
                     <a href="/Pedidos/Update/@pedido.IdPedido" class="btn btn-sm btn-primary" id="finalizar">Finalizar</a>
+                }
+                else
+                {
+                    <td class="botoes-cad">
+                    <a href="/Pedidos/View/@pedido.IdPedido" class="btn btn-sm btn-primary" id="visualizar">Visualizar pedido</a>
+                }
                 </td>
             </tr>
         }

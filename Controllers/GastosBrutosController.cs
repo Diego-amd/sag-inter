@@ -22,7 +22,9 @@ namespace sag.Controllers
             var id_usuario = HttpContext.Session.GetInt32("id");
             if(id_usuario == 26) //depois trocar para null
                 return RedirectToAction("Login", "Usuario");
+
             List<GastosBrutos> gastos = repository.ReadAll();
+
             return View(gastos);
         }
 
@@ -40,9 +42,9 @@ namespace sag.Controllers
         {
             var id = HttpContext.Session.GetInt32("id");
             repository.Create((int)id, model);
-            Console.WriteLine(id);
 
             ViewBag.Message = "Criação do gasto feita com sucesso!";
+
             return RedirectToAction("Index");
         }
 

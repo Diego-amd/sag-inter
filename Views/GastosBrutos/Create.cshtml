@@ -1,9 +1,6 @@
-@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@using sag.Models
 @model GastosBrutos
 @{
     ViewBag.Title = "Novo gasto";
-    Layout = "/Views/Shared/_Layout.cshtml";
 
     DateTime hoje = DateTime.Now;
     ViewBag.Atual = hoje;
@@ -28,34 +25,20 @@
                 <span asp-validation-for="Valor"></span>
             </div>
 
-            @* <div class="form-group">
-                <label for="DataVencimento">Data de Vencimento*</label>
-                <input type="date" name="DataVencimento" id="DataVencimento" class="form-control"
-                    asp-for="DataVencimento" />
-                <span asp-validation-for="DataVencimento"></span>
-            </div> *@
-
             <div class="form-row">
                 <div class="col">
                     <label for="DataVencimento">Data de Vencimento*</label>
-                    <input type="date" name="DataVencimento" id="DataVencimento" class="form-control"
-                        asp-for="DataVencimento" />
+                    <input type="date" name="DataVencimento" id="DataVencimento" class="form-control" asp-for="DataVencimento" />
                     <span asp-validation-for="DataVencimento"></span>
                 </div>
 
                 <div class="col col2">
                     <label for="DataPagamento">Data de Pagamento</label>
-                    <input type="date" name="DataPagamento" id="DataPagamento" class="form-control"
-                        asp-for="DataPagamento" />
+                    <input type="date" name="DataPagamento" id="DataPagamento" class="form-control" asp-for="DataPagamento" />
                     <span asp-validation-for="DataPagamento"></span>
                 </div>
             </div>
 
-            @* <div class="form-group">
-                <label for="DataPagamento">Data de Pagamento</label>
-                <input type="date" name="DataPagamento" id="DataPagamento" class="form-control" asp-for="DataPagamento"/>
-                <span asp-validation-for="DataPagamento"></span>
-            </div> *@
             <div class="botoes">
                 <div class="salvar">
                     <button class="btn btn-primary" id="salvar">Salvar</button>
