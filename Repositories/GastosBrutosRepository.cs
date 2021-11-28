@@ -37,7 +37,7 @@ namespace sag.Repositories
             }
         }
 
-        public void Delete(int id)
+        public bool Delete(int id)
         {
             try
             {
@@ -50,7 +50,13 @@ namespace sag.Repositories
 
                 cmd.Parameters.AddWithValue("@id_gasto", id);
 
-                cmd.ExecuteNonQuery();
+                var retorno = cmd.ExecuteNonQuery();
+
+                if(retorno > 0){
+                    return true;
+                }
+
+                return false;
             }
             catch (Exception ex)
             {
@@ -60,6 +66,8 @@ namespace sag.Repositories
             {
                 Dispose();
             }
+            
+            return false;
         }
 
         public List<GastosBrutos> ReadAll()
@@ -116,8 +124,8 @@ namespace sag.Repositories
                     gastos.Id_gasto = reader.GetInt32(0);
                     gastos.NomeGasto = reader.GetString(1);
                     gastos.Valor = reader.GetDecimal(2);
-                    gastos.DataPagamento = reader.GetDateTime(3).ToString("dd/MM/yyyy");
-                    gastos.DataVencimento = reader.GetDateTime(4).ToString("dd/MM/yyyy");
+                    gastos.DataPagamento = reader.GetDateTime(3).ToString("yyyy-MM-dd");
+                    gastos.DataVencimento = reader.GetDateTime(4).ToString("yyyy-MM-dd");
 
                     return gastos;
                 }

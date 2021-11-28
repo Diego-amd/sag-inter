@@ -9,6 +9,6 @@ namespace sag.Repositories
         List<GastosBrutos> ReadAll();
         GastosBrutos Read(int id);
         void Update(int id, GastosBrutos model);
-        void Delete(int id);
+        bool Delete(int id);
     }
 }

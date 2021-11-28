@@ -34,6 +34,9 @@ namespace sag.Controllers
             var id_usuario = HttpContext.Session.GetInt32("id");
             if(id_usuario == 26) //Tem que colocar null depois
                 return RedirectToAction("Login", "Usuario");
+
+            ViewBag.DataAtual = DateTime.Today.ToString("yyyy-MM-dd");
+
             return View();
         }
 
@@ -42,8 +45,6 @@ namespace sag.Controllers
         {
             var id = HttpContext.Session.GetInt32("id");
             repository.Create((int)id, model);
-
-            ViewBag.Message = "Criação do gasto feita com sucesso!";
 
             return RedirectToAction("Index");
         }
@@ -70,8 +71,7 @@ namespace sag.Controllers
         [HttpGet]
         public ActionResult Delete(int id)
         {
-            repository.Delete(id);
-            ViewBag.Message = "Exclusão feita com sucesso!";
+            TempData["Excluiu"] = repository.Delete(id);
             return RedirectToAction("Index");
         }
     }

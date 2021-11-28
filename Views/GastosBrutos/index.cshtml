@@ -1,10 +1,14 @@
 @model List<GastosBrutos>
 @{
     ViewBag.Title = "Lista de Gastos";
+    var sucesso = "Gasto excluído com sucesso!";
+    var erro = "Não foi possível excluir o gasto!";
 }
+
 <head>
     <link rel="stylesheet" href="~/css/gastosbrutos/index.css">
 </head>
+
 <body class="gastobruto">
     <div class="msg1">
         <h1 id="msg1">Lista de Gastos Brutos ✏️</h1>
@@ -20,11 +24,20 @@
         <div class="msg2">
             <h1 id="msg2">Você tem @Model.Count gastos</h1>
         </div>
-        @if(ViewBag.Message != null) {
-            <p class="alert alert-danger alert-message">@ViewBag.Message</p>
+        @if (TempData.ContainsKey("Excluiu"))
+        {
+            var excluiu = (bool)TempData["Excluiu"];
+            if (excluiu)
+            {
+                <partial name="_MensagemInfo" model="@(sucesso)"></partial>
+            }
+            else
+            {
+                <partial name="_MensagemErro" model="@(erro)"></partial>
+            }
         }
 
-        @foreach(var gastos in Model)
+        @foreach (var gastos in Model)
         {
             <tr>
                 <td class="tabela-info-td">@gastos.Id_gasto</td>
@@ -33,9 +46,9 @@
                 <td class="tabela-info-td">@gastos.DataPagamentoB</td>
                 <td class="tabela-info-td">@gastos.DataVencimentoB</td>
                 <td class="botoes-cad">
-                   <a href="/GastosBrutos/Update/@gastos.Id_gasto" class="btn btn-sm btn-primary" id="editar">Editar</a>
-                   <a href="/GastosBrutos/Delete/@gastos.Id_gasto" class="btn btn-sm btn-danger" id="apagar">Apagar</a>
-                    
+                    <a href="/GastosBrutos/Update/@gastos.Id_gasto" class="btn btn-sm btn-primary" id="editar">Editar</a>
+                    <a href="/GastosBrutos/Delete/@gastos.Id_gasto" class="btn btn-sm btn-danger" id="apagar">Apagar</a>
+
                 </td>
             </tr>
             <!-- Modal de confirmação exclusão produto -->
@@ -44,18 +57,22 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel" style="color: black; ; font-size: 22px">Confirmação de exclusão</h5>
+                            <h5 class="modal-title" id="exampleModalLabel" style="color: black; ; font-size: 22px">
+                                Confirmação de exclusão</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body" style="color: black; font-size: 22px";>
-                            Tem certeza que deseja <span style="font-weight: bolder; color: red;">excluir</span> o gasto <span style="font-weight: bolder; color: red;">@gastos.NomeGasto</span>?
+                        <div class="modal-body" style="color: black; font-size: 22px" ;>
+                            Tem certeza que deseja <span style="font-weight: bolder; color: red;">excluir</span> o gasto
+                            <span style="font-weight: bolder; color: red;">@gastos.NomeGasto</span>?
                         </div>
                         <form asp-controller="GastosBrutos" asp-action="Delete" method="GET">
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color: rgb(45, 110, 250); border: solid 1px rgb(45, 110, 250); font-size: 22px; height: 3rem; width: 7rem;">Cancelar</button>
-                                <a href="/GastosBrutos/Delete/@gastos.Id_gasto" class="btn btn-danger" style="background-color: rgb(192, 0, 0); border: solid 1px rgb(192, 0, 0); font-size: 22px; height: 3rem; width: 8rem;">Confirmar</a>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                style="background-color: rgb(45, 110, 250); border: solid 1px rgb(45, 110, 250); font-size: 22px; height: 3rem; width: 7rem;">Cancelar</button>
+                                <a href="/GastosBrutos/Delete/@gastos.Id_gasto" class="btn btn-danger"
+                                style="background-color: rgb(192, 0, 0); border: solid 1px rgb(192, 0, 0); font-size: 22px; height: 3rem; width: 8rem;">Confirmar</a>
                             </div>
                         </form>
                     </div>
@@ -67,6 +84,6 @@
     <div class="adicionar">
         <a href="/gastosBrutos/create" class="btn btn-primary" id="adicionar">Adicionar</a>
     </div>
-    
-    
+
+
 </body>
