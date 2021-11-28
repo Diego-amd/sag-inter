@@ -17,6 +17,13 @@ namespace sag.Controllers
         [HttpGet]
         public ActionResult Login()
         {
+            // --- Validação se está logado ---
+            var nome = HttpContext.Session.GetString("nome");
+            if(nome != null && nome != "")
+            {
+                return RedirectToAction("Home", "Funcionarios");
+            }
+
             return View();
         }
         [HttpPost]
@@ -42,10 +49,16 @@ namespace sag.Controllers
         [HttpGet]
         public ActionResult Logout()
         {
-            HttpContext.Session.Remove("id");
-            HttpContext.Session.Remove("nome");
+            HttpContext.Session.SetInt32("id", 0);
+            HttpContext.Session.SetString("nome", "");
             
-            return RedirectToAction("/");
+            var nome = HttpContext.Session.GetString("nome");
+            if(nome != null && nome != "")
+            {
+                return RedirectToAction("Home", "Funcionarios");
+            }
+            
+            return RedirectToAction("Login", "Usuario");
         }
     }
 }

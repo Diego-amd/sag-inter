@@ -20,7 +20,7 @@ namespace sag.Controllers
         public IActionResult Home()
         {
             var id_usuario = HttpContext.Session.GetInt32("id");
-            if(id_usuario == null) 
+            if(id_usuario == null || id_usuario == 0) 
                 return RedirectToAction("Login", "Usuario");
 
             ViewBag.NomeUsuario = HttpContext.Session.GetString("nome");

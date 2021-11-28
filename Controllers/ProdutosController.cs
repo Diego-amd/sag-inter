@@ -18,8 +18,8 @@ namespace sag.Controllers
 
         public IActionResult Index()
         {
-            var id = HttpContext.Session.GetInt32("id");
-            if(id == 26) //tem q colocar null depois
+            var id_usuario = HttpContext.Session.GetInt32("id");
+            if(id_usuario == 26 || id_usuario == 0) //tem q colocar null depois em vez de 26
                 return RedirectToAction("Login", "Usuario");
 
             List<Produtos> produtos = repository.ReadAll();
@@ -33,7 +33,7 @@ namespace sag.Controllers
         public IActionResult Create()
         {
             var id_usuario = HttpContext.Session.GetInt32("id");
-            if(id_usuario == null)
+            if(id_usuario == null || id_usuario == 0)
                 return RedirectToAction("Login", "Usuario");
 
             ViewBag.NomeUsuario = HttpContext.Session.GetString("nome");
@@ -61,7 +61,7 @@ namespace sag.Controllers
         public IActionResult Update(int id)
         {
             var id_usuario = HttpContext.Session.GetInt32("id");
-            if(id_usuario == null)
+            if(id_usuario == null || id_usuario == 0)
                 return RedirectToAction("Login", "Usuario");
 
             var produtos = repository.Read(id);
@@ -88,7 +88,7 @@ namespace sag.Controllers
             ViewBag.Message = "Produto Desabilitado!"; //trocar
 
             ViewBag.NomeUsuario = HttpContext.Session.GetString("nome");
-            
+
             return RedirectToAction("Index");
         }
     }

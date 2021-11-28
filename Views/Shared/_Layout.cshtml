@@ -68,7 +68,7 @@
             </div>
             <div id="sair" style="margin-top: 2rem;">
                 <p>@ViewData["NomeUsuario"]</p>
-                <a href="/">Sair</a>
+                <a asp-controller="Usuario" asp-action="Logout" method="POST">Sair</a>
             </div>
             
             <div id="bot-caixa-cinza">
