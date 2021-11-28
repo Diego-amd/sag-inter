@@ -38,7 +38,7 @@
                 <td class="tabela-info-td">@produtos.Nome</td>
                 <td class="tabela-info-td">@produtos.Categoria</td>
                 <td class="tabela-info-td">@produtos.Descricao</td>
-                <td class="tabela-info-td">@produtos.Valor</td>
+                <td class="tabela-info-td">@produtos.Valor.ToString("C")</td>
                 <td class="tabela-info-td">@produtos.TextoEstado</td> 
                 <td class="botoes-cad">
                 <a href="/Produtos/Update/@produtos.Id_produto" class="btn btn-sm btn-primary" id="editar">Editar</a>
