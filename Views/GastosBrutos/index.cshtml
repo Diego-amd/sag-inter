@@ -3,6 +3,10 @@
     ViewBag.Title = "Lista de Gastos";
     var sucesso = "Gasto excluído com sucesso!";
     var erro = "Não foi possível excluir o gasto!";
+    var sucessocreate = "Gasto criado com sucesso";
+    var errocreate = "Não foi possivel concluir o cadastro do gasto";
+    var sucessoupdate = "Gasto atualizar com sucesso";
+    var erroupdate = "Não foi possivel atualizar o gasto";
 }
 
 <head>
@@ -34,6 +38,30 @@
             else
             {
                 <partial name="_MensagemErro" model="@(erro)"></partial>
+            }
+        }
+        @if (TempData.ContainsKey("Criou"))
+        {
+            var criou = (bool)TempData["Criou"];
+            if (criou)
+            {
+                <partial name="_MensagemInfo" model="@(sucessocreate)"></partial>
+            }
+            else
+            {
+                <partial name="_MensagemErro" model="@(errocreate)"></partial>
+            }
+        }
+        @if (TempData.ContainsKey("Atualizou"))
+        {
+            var atualizou = (bool)TempData["Atualizou"];
+            if (atualizou)
+            {
+                <partial name="_MensagemInfo" model="@(sucessoupdate)"></partial>
+            }
+            else
+            {
+                <partial name="_MensagemErro" model="@(erroupdate)"></partial>
             }
         }
 

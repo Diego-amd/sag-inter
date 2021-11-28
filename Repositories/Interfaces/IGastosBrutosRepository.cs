@@ -5,10 +5,10 @@ namespace sag.Repositories
 {
     public interface IGastosBrutosRepository
     {
-        void Create(int id, GastosBrutos model);
+        bool Create(int id, GastosBrutos model);
         List<GastosBrutos> ReadAll();
         GastosBrutos Read(int id);
-        void Update(int id, GastosBrutos model);
+        bool Update(int id, GastosBrutos model);
         bool Delete(int id);
     }
 }

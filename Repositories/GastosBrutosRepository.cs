@@ -10,7 +10,7 @@ namespace sag.Repositories
 {
     public class GastosBrutosRepository : BDContext, IGastosBrutosRepository
     {
-        public void Create(int id, GastosBrutos model)
+        public bool Create(int id, GastosBrutos model)
         {
             try {
                 SqlCommand cmd = new SqlCommand();
@@ -25,12 +25,18 @@ namespace sag.Repositories
                 cmd.Parameters.AddWithValue("@data_pagamento", model.DataPagamento);
                 cmd.Parameters.AddWithValue("@data_vencimento", model.DataVencimento);
 
-                cmd.ExecuteNonQuery();
+                var retorno = cmd.ExecuteNonQuery();
 
+                if(retorno > 0){
+                    return true;
+                }
+
+                return false;
             }
             catch(Exception ex) {
                 // Armazenar a exceção em um log.
                 Console.WriteLine(ex.Message);
+                return false;
             }
             finally {
                 Dispose();
@@ -61,13 +67,12 @@ namespace sag.Repositories
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                return false;
             }
             finally
             {
                 Dispose();
             }
-            
-            return false;
         }
 
         public List<GastosBrutos> ReadAll()
@@ -140,7 +145,7 @@ namespace sag.Repositories
             }
         }
 
-        public void Update(int id, GastosBrutos model)
+        public bool Update(int id, GastosBrutos model)
         {
             try {
                 SqlCommand cmd = new SqlCommand();
@@ -156,8 +161,17 @@ namespace sag.Repositories
                 cmd.Parameters.AddWithValue("@id_gasto", id);
 
                 cmd.ExecuteNonQuery();
+                
+                var retorno = cmd.ExecuteNonQuery();
+
+                if(retorno > 0){
+                    return true;
+                }
+
+                return false;
             }
             catch(Exception ex) {
+                return false;
                 throw new Exception(ex.Message);
             }
             finally {
