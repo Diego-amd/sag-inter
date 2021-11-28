@@ -12,10 +12,6 @@ namespace sag.Models
             {
                 return Qtde * ValorUnitario;
             }
-            set
-            {
-                this.ValorTotal = Qtde * ValorUnitario;
-            }
         }
 
         #region Foreign Key

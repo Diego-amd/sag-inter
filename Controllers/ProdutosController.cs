@@ -23,6 +23,9 @@ namespace sag.Controllers
                 return RedirectToAction("Login", "Usuario");
 
             List<Produtos> produtos = repository.ReadAll();
+
+            ViewBag.NomeUsuario = HttpContext.Session.GetString("nome");
+
             return View(produtos);
         }
         
@@ -32,6 +35,9 @@ namespace sag.Controllers
             var id_usuario = HttpContext.Session.GetInt32("id");
             if(id_usuario == null)
                 return RedirectToAction("Login", "Usuario");
+
+            ViewBag.NomeUsuario = HttpContext.Session.GetString("nome");
+
             return View();
         }
 
@@ -59,6 +65,9 @@ namespace sag.Controllers
                 return RedirectToAction("Login", "Usuario");
 
             var produtos = repository.Read(id);
+
+            ViewBag.NomeUsuario = HttpContext.Session.GetString("nome");
+            
             return View(produtos);
         }
 
@@ -76,7 +85,10 @@ namespace sag.Controllers
         public IActionResult Disable(int id)
         {
             repository.Disable(id);
-            ViewBag.Message = "Produto Desabilitado!";
+            ViewBag.Message = "Produto Desabilitado!"; //trocar
+
+            ViewBag.NomeUsuario = HttpContext.Session.GetString("nome");
+            
             return RedirectToAction("Index");
         }
     }

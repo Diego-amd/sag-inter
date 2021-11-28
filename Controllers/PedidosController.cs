@@ -23,12 +23,16 @@ namespace sag.Controllers
                 return RedirectToAction("Login", "Usuario");
 
             List<Pedidos> pedidos = repository.ReadAll();
+
+            ViewBag.NomeUsuario = HttpContext.Session.GetString("nome");
+
             return View(pedidos);
         }
 
         [HttpGet]
         public IActionResult Create()
         {
+            ViewBag.NomeUsuario = HttpContext.Session.GetString("nome");
             return View();
         }
 
@@ -49,7 +53,8 @@ namespace sag.Controllers
         public IActionResult Update(int id, Pedidos model)
         {
             repository.Update(id, model);
-            ViewBag.Mensagem = "Edição feita com sucesso!";
+            
+            ViewBag.NomeUsuario = HttpContext.Session.GetString("nome");
 
             return RedirectToAction("Index");
         }

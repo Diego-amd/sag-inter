@@ -34,23 +34,3 @@ namespace sag.Models
         #endregion
     }
 }
-
-/*
--- tipo_pedido = 0 => presencial
--- tipo_pedido = 1 => online
--- status = 0 => andamento
--- status = 1 => finalizado
-CREATE TABLE tb_pedidos(
-	id_pedido		int primary key identity not null,
-	cod_usuario		int references tb_funcionarios not null,
-	nome_cliente	varchar(max) not null,
-	tel_cliente		varchar(max) not null,
-	hora_entrada	time not null,
-	hora_saida		time not null,
-	data_entrada	date not null,
-	status			int not null,
-	tipo_pedido		int not null,
-	check(tipo_pedido in (0,1)),
-	check(status in (0,1))
-)
-go*/

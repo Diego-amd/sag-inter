@@ -25,6 +25,8 @@ namespace sag.Controllers
 
             List<GastosBrutos> gastos = repository.ReadAll();
 
+            ViewBag.NomeUsuario = HttpContext.Session.GetString("nome");
+
             return View(gastos);
         }
 
@@ -36,6 +38,7 @@ namespace sag.Controllers
                 return RedirectToAction("Login", "Usuario");
 
             ViewBag.DataAtual = DateTime.Today.ToString("yyyy-MM-dd");
+            ViewBag.NomeUsuario = HttpContext.Session.GetString("nome");
 
             return View();
         }
@@ -55,7 +58,10 @@ namespace sag.Controllers
             var id_usuario = HttpContext.Session.GetInt32("id");
             if(id_usuario == null)
                 return RedirectToAction("Login", "Usuario");
+            
             var gastos = repository.Read(id);
+            ViewBag.NomeUsuario = HttpContext.Session.GetString("nome");
+
             return View(gastos);
         }
 
@@ -71,6 +77,7 @@ namespace sag.Controllers
         [HttpGet]
         public ActionResult Delete(int id)
         {
+            ViewBag.NomeUsuario = HttpContext.Session.GetString("nome");
             TempData["Excluiu"] = repository.Delete(id);
             return RedirectToAction("Index");
         }

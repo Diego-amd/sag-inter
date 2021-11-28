@@ -28,7 +28,9 @@ namespace sag.Controllers
                 return RedirectToAction("Login", "Usuario");
                 
             produtomv = repository.ReadAll();
+
             ViewBag.Media = repository.Read();
+            ViewBag.NomeUsuario = HttpContext.Session.GetString("nome");
             
             return View("VendasDoDia",produtomv);
             
@@ -38,6 +40,8 @@ namespace sag.Controllers
         {
             List<Dashboard> dashboard = new List<Dashboard>();
             dashboard = repository.Dashboard();
+
+            ViewBag.NomeUsuario = HttpContext.Session.GetString("nome");
 
             return View(dashboard);
         }
