@@ -48,7 +48,7 @@ namespace sag.Controllers
                 return View(model);
                 
             var id = HttpContext.Session.GetInt32("id");
-            repository.Create((int)id, model);
+            TempData["Criou"] = repository.Create((int)id, model);
 
             ViewBag.Message = "Produto cadastrado";
             //Fazer validacoes
@@ -77,14 +77,14 @@ namespace sag.Controllers
             if(!ModelState.IsValid)
                 return View(model);
 
-            repository.Update(id, model);
+            TempData["Atualizou"] = repository.Update(id, model);
             ViewBag.Message = "Edição feita com sucesso!";
             return RedirectToAction("Index");
         }
         [HttpGet]
         public IActionResult Disable(int id)
         {
-            repository.Disable(id);
+            TempData["Desabilitou"] = repository.Disable(id);
             ViewBag.Message = "Produto Desabilitado!"; //trocar
 
             ViewBag.NomeUsuario = HttpContext.Session.GetString("nome");

@@ -1,6 +1,12 @@
 @model List<Produtos>
 @{
     ViewBag.Title = "Lista de produtos";
+    var sucesso = "Produto desabilitado com sucesso!";
+    var erro = "Não foi possível desabilitar o produto!";
+    var sucessocreate = "Produto criado com sucesso";
+    var errocreate = "Não foi possivel concluir o cadastro do produto";
+    var sucessoupdate = "Produto atualizar com sucesso";
+    var erroupdate = "Não foi possivel atualizar o Produto";
 }
 
 <head>   
@@ -12,7 +18,43 @@
     <div class="msg1">
         <h1 id="msg1">Lista de Produtos &#127843</h1>
     </div>
-    
+    @if (TempData.ContainsKey("Desabilitou"))
+        {
+            var desabilitou = (bool)TempData["Desabilitou"];
+            if (desabilitou)
+            {
+                <partial name="_MensagemInfo" model="@(sucesso)"></partial>
+            }
+            else
+            {
+                <partial name="_MensagemErro" model="@(erro)"></partial>
+            }
+        }
+        @if (TempData.ContainsKey("Criou"))
+        {
+            var criou = (bool)TempData["Criou"];
+            if (criou)
+            {
+                <partial name="_MensagemInfo" model="@(sucessocreate)"></partial>
+            }
+            else
+            {
+                <partial name="_MensagemErro" model="@(errocreate)"></partial>
+            }
+        }
+        @if (TempData.ContainsKey("Atualizou"))
+        {
+            var atualizou = (bool)TempData["Atualizou"];
+            if (atualizou)
+            {
+                <partial name="_MensagemInfo" model="@(sucessoupdate)"></partial>
+            }
+            else
+            {
+                <partial name="_MensagemErro" model="@(erroupdate)"></partial>
+            }
+        }
+
     <table class="tabela">
             <tr>
                 <th>Id</th>

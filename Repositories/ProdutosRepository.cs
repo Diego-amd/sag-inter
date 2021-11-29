@@ -10,7 +10,7 @@ namespace sag.Repositories
 {
     public class ProdutosRepository : BDContext, IProdutosRepository
     {
-        public void Create(int id, Produtos model)
+        public bool Create(int id, Produtos model)
         {
             try
             {
@@ -27,11 +27,18 @@ namespace sag.Repositories
                 cmd.Parameters.AddWithValue("@valor", model.Valor);
                 cmd.Parameters.AddWithValue("@estado", 1);
 
-                cmd.ExecuteNonQuery(); 
+                var retorno = cmd.ExecuteNonQuery();
+
+                if(retorno > 0){
+                    return true;
+                }
+
+                return false; 
             }
             catch(Exception ex) {
                 // Armazenar a exceção em um log.
                 Console.WriteLine(ex.Message);
+                return false; 
             }
             finally {
                 Dispose();
@@ -109,7 +116,7 @@ namespace sag.Repositories
             }
         }
 
-        public void Update(int id, Produtos model)
+        public bool Update(int id, Produtos model)
         {
             try {
                 SqlCommand cmd = new SqlCommand();
@@ -125,16 +132,23 @@ namespace sag.Repositories
                 cmd.Parameters.AddWithValue("@valor", model.Valor);
                 cmd.Parameters.AddWithValue("@estado", model.Estado);
 
-                cmd.ExecuteNonQuery();
+                var retorno = cmd.ExecuteNonQuery();
+
+                if(retorno > 0){
+                    return true;
+                }
+
+                return false;
             }
             catch(Exception ex) {
+                return false;
                 throw new Exception(ex.Message);
             }
             finally {
                 Dispose();
             }
         }
-        public void Disable(int id)
+        public bool Disable(int id)
         {
             try
             {
@@ -147,11 +161,18 @@ namespace sag.Repositories
 
                 cmd.Parameters.AddWithValue("@id_produto", id);
 
-                cmd.ExecuteNonQuery();
+                var retorno = cmd.ExecuteNonQuery();
+
+                if(retorno > 0){
+                    return true;
+                }
+
+                return false;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                return false;
             }
             finally
             {

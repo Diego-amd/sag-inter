@@ -5,10 +5,10 @@ namespace sag.Repositories
 {
     public interface IProdutosRepository
     {
-        void Create(int id, Produtos model);
+        bool Create(int id, Produtos model);
         List<Produtos> ReadAll();
         Produtos Read(int id);
-        void Update(int id, Produtos model);
-        void Disable(int id);
+        bool Update(int id, Produtos model);
+        bool Disable(int id);
     }
 }
