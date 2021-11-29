@@ -27,12 +27,12 @@
 
             <div class="form-row">
                 <div class="col">
-                    <label for="DataVencimento">Data de Vencimento*</label>
-                    <input type="date" name="DataVencimento" id="DataVencimento" class="form-control" asp-for="DataVencimento" value="@ViewBag.DataAtual" />
-                    <span asp-validation-for="DataVencimento"></span>
+                    <label for="DataPagamento">Data de Pagamento</label>
+                    <input type="date" name="DataPagamento" id="DataPagamento" class="form-control" asp-for="DataPagamento" value="@ViewBag.DataAtual" />
+                    <span asp-validation-for="DataPagamento"></span>
                 </div>
 
-                <div class="col col2">
+                <div class="col" id="pa">
                     <label for="DataPagamento">Data de Pagamento</label>
                     <input type="date" name="DataPagamento" id="DataPagamento" class="form-control" asp-for="DataPagamento" value="@ViewBag.DataAtual" />
                     <span asp-validation-for="DataPagamento"></span>

@@ -1,8 +1,12 @@
 @model List<Dashboard>
 @{
     ViewBag.Title = "Dashboard";
-    Layout = "/Views/Shared/_Layout copy.cshtml";
+    Layout = "/Views/Shared/_Layout.cshtml";
 }
+
+<head>
+    <link rel="stylesheet" href="~/css/relatorios/dashboard.css">
+</head>
 <h3 style="color: black">Dashboard</h3>
 @foreach(var valor in Model)
 {
@@ -28,20 +32,21 @@
     ViewBag.Lucro = lucro;
 }
 
-<div style="background-color: white; width:40%; margin-left: 56%; border-radius: 0.7rem;">
+<div>
     <div id="pizza"></div>
     <p style="margin-left: 0.5rem; color: black">
         <strong>Receita Total: @ViewBag.Receita</strong>
         <br>
         <strong>Despesa Total: @ViewBag.Despesas</strong>
         <br>
-        <strong>Lucro Total: @ViewBag.Lucro</strong>
-        
+        <strong>Lucro Total: @ViewBag.Lucro</strong> 
     </p>
 </div>
+<div>
+    <div id="linha"></div>
+    <div id="barra"></div>
+</div>
 
-<div id="linha"></div>
-<div id="barra"></div>
 
 @section Scripts{
     <script src="https://code.highcharts.com/highcharts.js"></script>

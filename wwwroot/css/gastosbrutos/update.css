@@ -19,12 +19,12 @@
     font-size: 22px;
 }
 
-.form-row .form-control{
-    width: 14rem;
+.form-row{
+    max-width: 37.3rem;
 }
 
-.form-row .col2{
-    margin-left: -45rem;
+.form-row .form-control{
+    width: 14rem;
 }
 
 .botoes{
