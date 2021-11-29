@@ -39,7 +39,6 @@ namespace sag.Controllers
 
             ViewBag.DataAtual = DateTime.Today.ToString("yyyy-MM-dd");
             ViewBag.NomeUsuario = HttpContext.Session.GetString("nome");
-            
 
             return View();
         }
@@ -70,7 +69,6 @@ namespace sag.Controllers
         public IActionResult Update(int id, GastosBrutos model)
         {
             TempData["Atualizou"] = repository.Update(id, model);
-            ViewBag.Message = "Edição feita com sucesso!";
             
             return RedirectToAction("Index");
         }
@@ -80,6 +78,7 @@ namespace sag.Controllers
         {
             ViewBag.NomeUsuario = HttpContext.Session.GetString("nome");
             TempData["Excluiu"] = repository.Delete(id);
+            
             return RedirectToAction("Index");
         }
     }

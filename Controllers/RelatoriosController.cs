@@ -51,14 +51,7 @@ namespace sag.Controllers
             List<Dashboard> dashboard = new List<Dashboard>();
             dashboard = repository.MediaReceitaMes();
 
-            object[] array = dashboard.ToArray();
-
-            foreach(var s in array){
-                Console.WriteLine("\t{0}", array.Length);
-            }
-            Console.WriteLine(array.Length);
-
-            return Json(array);
+            return Json(dashboard);
         }
     }
 }

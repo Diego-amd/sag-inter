@@ -50,10 +50,6 @@ namespace sag.Controllers
             var id = HttpContext.Session.GetInt32("id");
             TempData["Criou"] = repository.Create((int)id, model);
 
-            ViewBag.Message = "Produto cadastrado";
-            //Fazer validacoes
-            
-
             return RedirectToAction("Index");
         }
 
@@ -78,14 +74,13 @@ namespace sag.Controllers
                 return View(model);
 
             TempData["Atualizou"] = repository.Update(id, model);
-            ViewBag.Message = "Edição feita com sucesso!";
+
             return RedirectToAction("Index");
         }
         [HttpGet]
         public IActionResult Disable(int id)
         {
             TempData["Desabilitou"] = repository.Disable(id);
-            ViewBag.Message = "Produto Desabilitado!"; //trocar
 
             ViewBag.NomeUsuario = HttpContext.Session.GetString("nome");
 
