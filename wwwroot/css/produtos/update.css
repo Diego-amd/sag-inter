@@ -19,8 +19,8 @@
     font-size: 22px;
 }
 
-.salvar{
-    margin-left: 32rem;
+.botoes{
+    margin-left: 26rem;
 }
 
 #salvar{
@@ -31,10 +31,12 @@
     font-size: 22px;
 }
 
-.voltar{
-    margin-top: -3rem;
-    margin-left: 24rem;
+#salvar:hover{
+    height: 3.2rem;
+    width: 6.2rem;
+    font-size: 23px;
 }
+
 
 #voltar{
     background-color: red;
@@ -42,4 +44,10 @@
     height: 3rem;
     width: 6rem;
     font-size: 22px;
+}
+
+#voltar:hover{
+    height: 3.2rem;
+    width: 6.2rem;
+    font-size: 23px;
 }
