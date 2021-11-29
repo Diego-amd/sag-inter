@@ -1,6 +1,8 @@
 @model List<Produtos>
 @{
     ViewBag.Title = "Lista de produtos";
+    ViewBag.NomePagina = "Lista de produtos";
+
     var sucesso = "Produto desabilitado com sucesso!";
     var erro = "Não foi possível desabilitar o produto!";
     var sucessocreate = "Produto criado com sucesso!";
@@ -11,7 +13,6 @@
 
 <head>   
     <link rel="stylesheet" href="~/css/produtos/index.css" />
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 </head>
 
 <body class="produtos">
