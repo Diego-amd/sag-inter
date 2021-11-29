@@ -27,7 +27,7 @@
             </div>
             <div class="form-group">
                 <label for="Valor">Valor*</label>
-                <input type="text" step="0.01" name="Valor" class="form-control" asp-for="Valor"/>
+                <input type="text" step="0.01" name="Valor" class="form-control" asp-for="Valor" onKeyPress="return(MascaraMoeda(this,'.',',',event))"/>
                 <span asp-validation-for="Valor" style="color: black"></span>
             </div>
             <div class="botoes">

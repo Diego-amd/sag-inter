@@ -42,16 +42,8 @@
                 <td class="tabela-info-td">@pedido.HoraSaida</td>
                 <td class="tabela-info-td">@pedido.TextoStatus</td>
                 <td class="tabela-info-td">@pedido.TextoTipoPedido</td>
-                if(@pedido.TextoStatus != "Finalizado")
-                {
-                    <td class="botoes-cad">
+                <td class="botoes-cad">
                     <a href="/Pedidos/Update/@pedido.IdPedido" class="btn btn-sm btn-primary" id="finalizar">Finalizar</a>
-                }
-                else
-                {
-                    <td class="botoes-cad">
-                    <a href="/Pedidos/View/@pedido.IdPedido" class="btn btn-sm btn-primary" id="visualizar">Visualizar pedido</a>
-                }
                 </td>
             </tr>
         }
