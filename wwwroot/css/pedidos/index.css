@@ -10,7 +10,7 @@
 
 .tabela th, td{
     min-width: 8rem;
-    height: 3.5rem;
+    height: 3.2rem;
     border: rgb(177, 0, 0) solid 1px;
     text-align: center;
 }
@@ -25,6 +25,7 @@
 
 .botoes-cad{
     border: none;
+    margin-left: 1rem;
 }
 
 
@@ -35,11 +36,30 @@
     height: 2.5rem;
     width: 6rem;
     font-size: 18px;
-    margin-left: -1rem;
+}
+
+#finalizar:hover{
+    height: 2.7rem;
+    width: 6.2rem;
+    font-size: 20px;
+}
+
+#visualizar{
+    background-color: rgb(34, 93, 255);
+    border: rgb(34, 93, 255) 1px solid;
+    height: 2.5rem;
+    width: 9rem;
+    font-size: 16px;
+}
+
+#visualizar:hover{
+    height: 2.7rem;
+    width: 9.2rem;
+    font-size: 17px;
 }
 
 
-.adicionarB{
+.adicionar{
     margin-left: 1.8rem;
     margin-top: 0.5rem;
 }
@@ -50,10 +70,14 @@
     border: green 1px solid;
     height: 3rem;
     width: 9rem;
-    font-size: 23px;
-    
+    font-size: 23px;   
 }
 
+#adicionarB:hover{
+    height: 3.2rem;
+    width: 9.2rem;
+    font-size: 24px;   
+}
 
 .tabela-info-td{
     color: black;

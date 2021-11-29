@@ -98,10 +98,8 @@
                         </div>
                         <form asp-controller="GastosBrutos" asp-action="Delete" method="GET">
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal"
-                                style="background-color: rgb(45, 110, 250); border: solid 1px rgb(45, 110, 250); font-size: 22px; height: 3rem; width: 7rem;">Cancelar</button>
-                                <a href="/GastosBrutos/Delete/@gastos.Id_gasto" class="btn btn-danger"
-                                style="background-color: rgb(192, 0, 0); border: solid 1px rgb(192, 0, 0); font-size: 22px; height: 3rem; width: 8rem;">Confirmar</a>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                <a href="/GastosBrutos/Delete/@gastos.Id_gasto" class="btn btn-danger">Confirmar</a>
                             </div>
                         </form>
                     </div>
@@ -111,7 +109,7 @@
 
     </table>
     <div class="adicionar">
-        <a href="/gastosBrutos/create" class="btn btn-primary" id="adicionar">Adicionar</a>
+        <a href="/gastosBrutos/create" class="btn btn-primary" id="adicionarC">Adicionar</a>
     </div>
 
 
