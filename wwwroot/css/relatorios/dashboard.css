@@ -1,11 +1,15 @@
-#pizza{
-
+.dashboard{
+    background-color: grey;
 }
 
-#linha{
-
+.separacao{
+    height: 0.5rem;
+    background-color: rgb(182, 0, 0);
 }
 
-#barra{
-
+#pizza-p{
+    margin-left: 0.5rem; 
+    color: black;
+    font-size: 20px;
+    font-weight: 900;  
 }

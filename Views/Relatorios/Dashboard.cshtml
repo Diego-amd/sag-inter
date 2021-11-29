@@ -7,45 +7,49 @@
 <head>
     <link rel="stylesheet" href="~/css/relatorios/dashboard.css">
 </head>
-<h3 style="color: black">Dashboard</h3>
-@foreach(var valor in Model)
-{
-    // gráfico pizza
-    decimal valorGasto = @valor.TotalGasto;
-    decimal valorReceita = @valor.TotalPedidos;
-    decimal lucro = valorReceita - valorGasto;
-    
-    ViewBag.Despesas = valorGasto;
-    ViewBag.Receita = valorReceita;
-    ViewBag.Lucro = lucro;
-}
+<body class="dashboard">
+    @foreach(var valor in Model)
+    {
+        // gráfico pizza
+        decimal valorGasto = @valor.TotalGasto;
+        decimal valorReceita = @valor.TotalPedidos;
+        decimal lucro = valorReceita - valorGasto;
+        
+        ViewBag.Despesas = valorGasto;
+        ViewBag.Receita = valorReceita;
+        ViewBag.Lucro = lucro;
+    }
 
-@foreach(var valor in Model)
-{
-    // gráfico linha
-    decimal valorGasto = @valor.TotalGasto;
-    decimal valorReceita = @valor.TotalPedidos;
-    decimal lucro = valorReceita - valorGasto;
-    
-    ViewBag.Despesas = valorGasto;
-    ViewBag.Receita = valorReceita;
-    ViewBag.Lucro = lucro;
-}
+    @foreach(var valor in Model)
+    {
+        // gráfico linha
+        decimal valorGasto = @valor.TotalGasto;
+        decimal valorReceita = @valor.TotalPedidos;
+        decimal lucro = valorReceita - valorGasto;
+        
+        ViewBag.Despesas = valorGasto;
+        ViewBag.Receita = valorReceita;
+        ViewBag.Lucro = lucro;
+    }
 
-<div>
-    <div id="pizza"></div>
-    <p style="margin-left: 0.5rem; color: black">
-        <strong>Receita Total: @ViewBag.Receita</strong>
-        <br>
-        <strong>Despesa Total: @ViewBag.Despesas</strong>
-        <br>
-        <strong>Lucro Total: @ViewBag.Lucro</strong> 
-    </p>
-</div>
-<div>
+
+    <div>
+        <div id="pizza"></div>
+        <p id="pizza-p">
+            Receita Total: @ViewBag.Receita
+            <br>
+            Despesa Total: @ViewBag.Despesas
+            <br>
+            Lucro Total: @ViewBag.Lucro
+        </p>
+    </div>
+    <hr class="separacao">
     <div id="linha"></div>
+    <hr class="separacao">
     <div id="barra"></div>
-</div>
+</body>
+
+
 
 
 @section Scripts{
