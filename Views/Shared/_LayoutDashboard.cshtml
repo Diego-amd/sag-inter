@@ -14,79 +14,6 @@
 </head>
 <body class="layout-img-background">
     <div class="layout">
-        <div class="left-box">             
-            <div>
-                <img src="~/img/SushiJuLogoRec.png" alt="LogoSushiJu" class="LogoSushiJu">
-            </div>
-            <div id="Menu">
-                <a href="/Funcionarios/home"><h5 >Menu</h5></a>
-            </div>
-            <div class="botoes-esquerda">
-                <div class="fazer-ped">
-                    <a href="/Pedidos/Create">Fazer pedido</a>                    
-                </div>
-                <div class="ped-and">
-                    <a href="/Pedidos/Index">Pedido em andamento</a>                   
-                </div>
-
-                @if (@ViewBag.Admin == 1)
-                {
-                <div class="fun-adm">
-                    <button onclick="funAdmLayout()" class="botao-fun-adm">Funções Administrativas</button>
-                    <div id="fun-adm-layout" class="fun-adm-content">
-                        <a href="/Relatorios/VendasDoDia">Vendas do dia</a>
-                        <a href="/GastosBrutos/index">Gastos mensais</a>
-                        <a href="/Relatorios/Dashboard">Dashboard</a>
-                        <a href="/Produtos/index">Cad. Produto</a>
-                    </div>
-                </div>
-                }
-
-                @if (@ViewBag.Admin != 1)
-                {
-                <div class="fun-adm" style= "visibility:hidden">
-                    <button onclick="funAdmLayout()" class="botao-fun-adm">Funções Administrativas</button>
-                    <div id="fun-adm-layout" class="fun-adm-content">
-                        <a href="/Relatorios/VendasDoDia">Vendas do dia</a>
-                        <a href="/GastosBrutos/index">Gastos mensais</a>
-                        <a href="/Relatorios/Dashboard">Dashboard</a>
-                        <a href="/Produtos/index">Cad. Produto</a>
-                    </div>
-                </div>
-                }
-            </div>            
-            <div class="icons">
-                <div >
-                    <img src="~/img/LayoutFzrPedIcon.svg" alt="FzrPedIcon" id="fzr-ped-icon">
-                </div>
-                <div>
-                    <img src="~/img/LayoutPedAcoIcon.svg" alt="PedAcoIcon" id="ped-aco-icon">
-                </div>
-
-                @if (@ViewBag.Admin == 1)
-                {
-                <div>
-                    <img src="~/img/LayoutFunAdmIcon.svg" alt="FunAdmIcon" id="fun-adm-icon">
-                </div>
-                }
-
-                @if (@ViewBag.Admin != 1)
-                {
-                <div style= "visibility:hidden">
-                    <img src="~/img/LayoutFunAdmIcon.svg" alt="FunAdmIcon" id="fun-adm-icon">
-                </div>
-                }
-
-            </div>
-            
-            <div>
-                <hr id="linha-layout"></hr>
-                <div id="suport-icon">
-                    <a href="#" id="suporte">Suporte</a>
-                </div>
-            </div>
-        </div>
-        
         <div class="top-box">
             
             <div id="top-caixa-cinza">
@@ -106,6 +33,7 @@
         <div class="back-box">
             <div id="caixa-verm" style="text-align: center; font-size: 1.3rem;">
                 <span><strong>@ViewData["NomePagina"]</strong></span>
+                <a href="/Funcionarios/home"><img src="~/img/Exit.png" alt=""></a>
             </div>
             <div class="conteudo">
                 @RenderBody()

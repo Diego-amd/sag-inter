@@ -1,231 +1,27 @@
 ﻿.layout-img-background{
 	margin: 0rem;
-	padding: 5rem;
+	padding: 0rem;
 	background: rgb(255, 255, 255);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
 	font-family: 'Roboto', sans-serif;
-	background-image: linear-gradient(to bottom right, rgb(189, 15, 15), rgb(236, 111, 39), rgb(236, 206, 39));	
+	background-image: linear-gradient(to bottom right, rgb(11, 33, 133), rgb(14, 22, 122), rgb(41, 21, 131));	
 }
 
 .layout{	
-	padding: 0;
-	border: none;
 	text-decoration: none;
 	box-sizing: border-box;
 	font-family: "Roboto", Helvetica, sans-serif;
 	color: #FFFFFF;
-	height: 50rem;
-	width: 105rem;
-	margin-left: -40.5rem;
-	margin-top: -15.5rem;
-	top: 35%;
-	left: 40%;
-	position:absolute;
-}
-
-.left-box {
-	width: 20rem;
 	height: 48rem;
-	top: 5%;
-	left: 3%;
-	margin-left: 0rem;
-	margin-top: 0rem;
-	background-color: white;
-	border-radius: 6px;
-	border: 0.1px solid black;
-	float: left;
-}
-
-.LogoSushiJu{
-	margin: 0rem;
-	width: 19.9rem;
-	height: 16rem;
-	border-top-left-radius: 6px;
-	border-top-right-radius: 6px;
-}
-
-#Menu{
-	margin-top: -0.3rem;
-	font-weight: bold;
-	border-right: 4rem;
-	border-left: 4.8rem;
-	border-bottom: 0rem;
-	border-style: solid;
-	border-image-source: linear-gradient(to bottom, rgb(83, 83, 83), rgb(36, 36, 36));
-	background-image: linear-gradient(to bottom, rgb(83, 83, 83), rgb(36, 36, 36));
-	font-family: arial;
-}
-
-#Menu h5{
-	color: white;
-	margin-left: 3.2rem;
-	font-size: 25px;
-}
-
-#Menu a{text-decoration: none;}
-
-
-.botoes-esquerda{margin-top:  -0.5rem;}
-
-.botoes-esquerda hr{
-	margin-top: -0.3rem;
-	border-color: rgb(61, 61, 61);
-}
-
-.fazer-ped{
-	display: inline-block;
-	width: 19.9rem;
-	height: 2rem;
-	cursor: pointer;
-	border: solid 1px grey;
-	background-color: white;
-	display: inline-block;
-	border-bottom: none;
-	text-align: center;
-}
-
-.fazer-ped a{
-	cursor: pointer;
-	text-decoration: none;
-	color: black;
-	font-size: 19px;
-}
-
-.fazer-ped:hover, .fazer-ped:focus{
-	text-decoration: none; 
-	background-color: #a7a6a6;
-	color: rgb(0, 0, 0);
-}
-
-.fazer-ped a:hover{
-	text-decoration: none; 
-	background-color: #a7a6a6;
-	color: rgb(0, 0, 0);
-}
-
-
-.ped-and{
-	width: 19.9rem;
-	height: 2rem;
-	margin-top: -0.1rem;
-	border: solid 1px grey;
-	background-color: white;
-	cursor: pointer;
-	border-bottom: -0.1rem;
-	display: inline-block;
-	text-align: center;
-}
-
-.ped-and a{
-	text-decoration: none;
-	color: black;
-	font-size: 19px;
-}
-
-.ped-and:hover, .ped-and:focus{
-	text-decoration: none; 
-	background-color: #a7a6a6;
-	color: rgb(0, 0, 0);
-}
-
-.ped-and a:hover{
-	text-decoration: none; 
-	background-color: #a7a6a6;
-	color: rgb(0, 0, 0);
-}
-
-/* Função administrador  */
-
-.botao-fun-adm {
-	margin-top: -0.1rem;
-	width: 19.9rem;
-	height: 2rem;
-	background-color: #ffffff;
-	color: rgb(0, 0, 0);
-	font-size: 19px;
-	border: 1px solid grey;
-	border-top: none;
-	cursor: pointer;
-}
-  
-.botao-fun-adm:hover, .botao-fun-adm:focus {background-color: #d8d8d8;}
-  
-.fun-adm {display: inline-block;}
-  
-.fun-adm-content {
-	margin-left: 1rem;
-	border: rgb(70, 70, 70) 0.05px solid;
-	display: none;
-	position: absolute;
-	background-color: #f1f1f1;
-	min-width: 17.9rem;
-	min-height: 9.8rem;
-	box-shadow: 0rem 0.5rem 1rem 0rem rgba(0,0,0,0.2);
-	z-index: 1;
-	text-align: center;
-}
-  
-.fun-adm-content a {
-	margin-top: 0.5rem;
-	color: black;
-	background-color: rgb(212, 212, 212);
-	border: rgb(87, 87, 87) 1px solid;
-	border-right: none;
-	border-left: none;
-	font-size: 17px;
-	text-decoration: none;
-	display: block;
-}
-
-.fun-adm-content a:hover {
-	text-decoration: none; 
-	background-color: #a7a6a6;
-	color: rgb(0, 0, 0);
-}
-  
-.mostrar {display:block;}
-
-.icons {margin-top: -4.8rem;}
-
-#fzr-ped-icon {
-	margin-top: -1.8rem;
-	height: 1.5rem;
-}
-
-#ped-aco-icon {
-	margin-top: -1rem;
-	height: 1.5rem;
-}
-
-#fun-adm-icon {
-	margin-top: -0.2rem;
-	height: 1.5rem;
-}
-
-#linha-layout{
-	margin-top: 22.5rem;
-	border-color: rgb(61, 61, 61);
-}
-
-#suport-icon {
-	margin-left: 7.5rem;
-	margin-top: -0.7rem;
-	background: url('../img/LayoutSuporteIcon.svg');
-	background-position:center;
-	background-size:cover;
-	height: 1.5rem;
-	width: 1.1rem;
-}
-
-#suporte {
-	margin-top: -2rem;
-	margin-left: 1rem;
-	font-size: 17px;
-	text-decoration: none;
-	color: grey;
+	width: 100rem;
+	margin-left: -42rem;
+	margin-top: -16.5rem;
+	top: 35%;
+	left: 45%;
+	position:absolute;
 }
 
 .top-box {
@@ -233,11 +29,9 @@
 	top: 7%;
 	left: 17.10%;
 	background: white;
-	width: 85rem;
+	width: 99rem;
 	height: 10rem;
 	border: 0.1px solid black;
-	border-left: none;
-	float: right;
 }
 
 #top-caixa-cinza {
@@ -286,23 +80,34 @@
 	left: 17.20%;
 	background: rgb(216, 216, 216);
 	height: 37rem;
-	width: 85rem;
+	width: 99rem;
 	border-right: 0.1px solid black;
 	border-bottom: 0.1px solid black;
-	float: right;
+	border-left: 0.1px solid black;
 }
 
 #caixa-verm {
 	height: 1.7rem;
-	background-image: linear-gradient(to bottom, rgb(207, 3, 3), rgb(138, 0, 0));
+	background-image: linear-gradient(to bottom, rgb(3, 17, 207), rgb(0, 60, 138));
+}
+
+#caixa-verm img{
+	margin-right: 2rem;
+	margin-top: 0.05rem;
+	float: right;
+	height: 1.5rem;
+}
+
+#caixa-verm span{
+	margin-right: -2rem;
 }
 
 .conteudo{
 	padding: 0;
 	background: white;
 	height: 33rem;
-	width: 81rem;
-	border: rgb(182, 0, 0) solid;
+	width: 95rem;
+	border: rgb(0, 33, 182) solid;
 	border-radius: 5px;
 	margin-top: 1rem;
 	margin-left: 2rem;
