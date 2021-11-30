@@ -43,9 +43,12 @@
                 <td class="tabela-info-td">@pedido.HoraSaida</td>
                 <td class="tabela-info-td">@pedido.TextoStatus</td>
                 <td class="tabela-info-td">@pedido.TextoTipoPedido</td>
+                @if (@pedido.TextoStatus == "Andamento" && @pedido.HoraSaida == "")
+                {
                 <td class="botoes-cad">
                     <a href="/Pedidos/Update/@pedido.IdPedido" class="btn btn-sm btn-primary" id="finalizar">Finalizar</a>
                 </td>
+                }
             </tr>
         }
     </table>
