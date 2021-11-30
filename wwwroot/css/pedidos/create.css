@@ -1,13 +1,27 @@
-.tabela-titulo {
-    margin-top: 3rem;
-    margin-left: 6rem;
+.produtos p{
+    color: black;
+    font-weight: bolder;
+
 }
 
-.tabela-titulo label{
-    color: black;
-    margin-left: 4rem;
-    margin-top: -1rem;
-    font-size: 24px;
+.tabela{
+    margin-left: 1.7rem;
+}
+
+.tabela th, td{
+    min-width: 11rem;
+    max-width: 11rem;
+    height: 3.2rem;
+    border: rgb(177, 0, 0) solid 1px;
+    text-align: center;
+}
+
+.tabela th{
+    color: white;
+    font-weight: bolder;
+    background-color: rgb(179, 0, 0);
+    font-size: 21px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .form-control{
@@ -19,38 +33,28 @@
     font-size: 22px;
 }
 
-.botoes{
-    margin-left: 26rem;
-    margin-top: 1rem;
-}
 
-#salvar{
-    background-image: linear-gradient(to top left, rgba(0, 223, 0, 0.801), rgb(0, 173, 0));
-    border-color: linear-gradient(to top left, rgb(0, 216, 0), rgb(0, 170, 0));
-    border: 1px solid;
-    height: 3rem;
-    width: 6rem;
+
+#editar{
+    background-color: white;
+    border: white;
+    background-image: url("../img/CartIcon.png");
     font-size: 22px;
 }
 
-#salvar:hover{
-    height: 3.2rem;
-    width: 6.2rem;
-    font-size: 23px;
+
+.msg1{
+    margin-top: 0.5rem;
+    margin-left: 1.7rem;
 }
 
-
-#voltar{
-    background-image: linear-gradient(to top left, rgba(255, 16, 16, 0.801), rgb(173, 0, 0));
-    border-color: linear-gradient(to top left, rgb(255, 17, 17), rgb(170, 0, 0));
-    border: 1px solid;
-    height: 3rem;
-    width: 6rem;
-    font-size: 22px;
+#msg1{
+    color: rgb(2, 2, 2);
+    font-weight: bolder;
+    font-size: 48px;
 }
 
-#voltar:hover{
-    height: 3.2rem;
-    width: 6.2rem;
-    font-size: 23px;
+.tabela-info-td{
+    color: black;
+    font-size: 16px;
 }
