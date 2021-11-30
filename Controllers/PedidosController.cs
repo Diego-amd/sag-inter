@@ -46,6 +46,7 @@ namespace sag.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Create(Pedidos model)
         {
             var id = HttpContext.Session.GetInt32("id");
@@ -57,9 +58,9 @@ namespace sag.Controllers
 
             repository.Create((int)id, model);
 
-            ViewBag.Mensagem = "Pedido criado com sucesso!";
+            ViewBag.Mensagem = "Pedido criado com sucesso!"; //trocar
 
-            return Json(new {Resultado = model.IdPedido}, JsonRequestBehavior.AllowGet);
+            return Json(new {Resultado = model.IdPedido});
         }
 
         [HttpGet]

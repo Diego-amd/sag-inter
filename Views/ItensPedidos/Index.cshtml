@@ -1,0 +1,15 @@
+@model List<ItensPedidos>
+
+<h2>Itens do Pedido</h2>
+
+<table class="table table-hover">
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.CodPedido</td>
+            <td>@item.Qtde</td>
+            <td>@item.ValorUnitario</td>
+            <td>@item.ValorTotal</td>
+        </tr>
+    }
+</table>

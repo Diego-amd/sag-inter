@@ -1,4 +1,4 @@
-@model List<Produtos>
+@model Pedidos
 @{
     ViewBag.Title = "Novo pedido";
     ViewBag.NomePagina = "Novo pedido";
@@ -8,76 +8,44 @@
     <link rel="stylesheet" href="~/css/pedidos/create.css" />
 </head>
 
+@Html.AntiForgeryToken()
 <div class="produtos">
     <div class="msg1">
-        <h1 id="msg1">Selecione os produtos do pedido &#127843</h1>
+        <h1 id="msg1">Novo pedido</h1>
     </div>
-    @* @if (TempData.ContainsKey("Desabilitou"))
-        {
-            var desabilitou = (bool)TempData["Desabilitou"];
-            if (desabilitou)
-            {
-                <partial name="_MensagemInfo" model="@(sucesso)"></partial>
-            }
-            else
-            {
-                <partial name="_MensagemErro" model="@(erro)"></partial>
-            }
-        }
-        @if (TempData.ContainsKey("Criou"))
-        {
-            var criou = (bool)TempData["Criou"];
-            if (criou)
-            {
-                <partial name="_MensagemInfo" model="@(sucessocreate)"></partial>
-            }
-            else
-            {
-                <partial name="_MensagemErro" model="@(errocreate)"></partial>
-            }
-        }
-        @if (TempData.ContainsKey("Atualizou"))
-        {
-            var atualizou = (bool)TempData["Atualizou"];
-            if (atualizou)
-            {
-                <partial name="_MensagemInfo" model="@(sucessoupdate)"></partial>
-            }
-            else
-            {
-                <partial name="_MensagemErro" model="@(erroupdate)"></partial>
-            }
-        } *@
+    <div class="tabela-titulo">
+        <form asp-controller="Pedidos" asp-action="Create" method="POST">
+            <div class="form-group">
+                <label for="NomeCliente">Nome do cliente ou mesa</label>
+                <input type="text" name="NomeCliente" class="form-control" asp-for="NomeCliente"/>
+                <span asp-validation-for="NomeCliente"></span>
+            </div>
+            <div class="form-group">
+                <label for="TelCliente">Telefone do cliente</label>
+                <input type="text" name="TelCliente" class="form-control" asp-for="TelCliente" onkeypress="mask(this, mphone);" onblur="mask(this, mphone);"/>
+            </div>
 
-    <table class="tabela">
-            <tr>
-                <th>Id</th>
-                <th >Nome</th>
-                <th >Categoria</th>
-                <th >Descrição</th>
-                <th >Valor</th>     
-                <th >Ação</th>       
-            </tr>                  
-        
-        @if (ViewBag.Message != null)
-        {
-            <p class="alert alert-danger alert-message">@ViewBag.Message</p>
-        }
-        @foreach (var produtos in Model)
-        {
-            <tr>
-                <td class="tabela-info-td">@produtos.Id_produto</td>
-                <td class="tabela-info-td">@produtos.Nome</td>
-                <td class="tabela-info-td">@produtos.Categoria</td>
-                <td class="tabela-info-td">@produtos.Descricao</td>
-                <td class="tabela-info-td">@produtos.Valor.ToString("C")</td>
-                <td class="tabela-info-td">
-                    <a href="/Carrinho/Comprar/@produtos.Id_produto?quantidade=0" class="btn btn-sm btn-primary" id="editar"><img src="~/img/CartIcon.png" alt="Adicionar item"></a>
-                </td>   
-            </tr>
-        }
-    </table>
-    <div class="adicionar">
-        <a href="/Funcionarios/Home" class="btn btn-primary" id="adicionarC">Voltar</a>
+            <div class="form-group">
+                <label for="TipoPedido">Pedido presencial ou online?</label>
+                <select asp-for="TipoPedido" class="form-control">
+                    <option value="0">Presencial</option>
+                    <option value="1">Online</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="TipoPedido">Itens do pedido</label>
+                <select asp-for="TipoPedido" class="form-control">
+                    <option value="0">Presencial</option>
+                    <option value="1">Online</option>
+                </select>
+            </div>
+            <div class="salvar">
+                <button class="btn btn-primary" id="salvar">Salvar</button>
+            </div>
+            <div class="voltar">
+                <a href="/Pedidos/Index" class="btn btn-primary" id="voltar">Voltar</a>
+            </div>
+
+        </form>
     </div>
 </div>
