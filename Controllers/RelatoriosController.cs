@@ -35,6 +35,8 @@ namespace sag.Controllers
 
             ViewBag.Media = repository.Read();
             ViewBag.NomeUsuario = HttpContext.Session.GetString("nome");
+
+            ViewBag.Admin = admin;
             
             return View("VendasDoDia",produtomv);
             
@@ -55,6 +57,8 @@ namespace sag.Controllers
             dashboard = repository.Dashboard();
 
             ViewBag.NomeUsuario = HttpContext.Session.GetString("nome");
+
+            ViewBag.Admin = admin;
 
             return View(dashboard);
         }

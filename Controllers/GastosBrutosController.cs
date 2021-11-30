@@ -30,6 +30,9 @@ namespace sag.Controllers
             List<GastosBrutos> gastos = repository.ReadAll();
 
             ViewBag.NomeUsuario = HttpContext.Session.GetString("nome");
+            
+
+            ViewBag.Admin = admin;
 
             return View(gastos);
         }
@@ -48,6 +51,8 @@ namespace sag.Controllers
 
             ViewBag.DataAtual = DateTime.Today.ToString("yyyy-MM-dd");
             ViewBag.NomeUsuario = HttpContext.Session.GetString("nome");
+
+            ViewBag.Admin = admin;
 
             return View();
         }
@@ -78,6 +83,8 @@ namespace sag.Controllers
             var gastos = repository.Read(id);
             ViewBag.NomeUsuario = HttpContext.Session.GetString("nome");
 
+            ViewBag.Admin = admin;
+            
             return View(gastos);
         }
 

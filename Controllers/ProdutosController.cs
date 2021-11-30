@@ -24,7 +24,9 @@ namespace sag.Controllers
 
             List<Produtos> produtos = repository.ReadAll();
 
-            ViewBag.NomeUsuario = HttpContext.Session.GetString("nome");
+            ViewBag.Admin = HttpContext.Session.GetInt32("admin");
+            var Admin = HttpContext.Session.GetInt32("admin");
+            
 
             return View(produtos);
         }
@@ -41,6 +43,8 @@ namespace sag.Controllers
                 return RedirectToAction("home","Funcionarios");
 
             ViewBag.NomeUsuario = HttpContext.Session.GetString("nome");
+
+                ViewBag.Admin = admin;
 
             return View();
         }
@@ -72,6 +76,8 @@ namespace sag.Controllers
 
             ViewBag.NomeUsuario = HttpContext.Session.GetString("nome");
             
+            ViewBag.Admin = admin;
+
             return View(produtos);
         }
 

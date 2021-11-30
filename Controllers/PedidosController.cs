@@ -62,7 +62,7 @@ namespace sag.Controllers
 
             return Json(new {Resultado = model.IdPedido});
         }
-
+        
         [HttpGet]
         public IActionResult Update(int id, Pedidos model)
         {
