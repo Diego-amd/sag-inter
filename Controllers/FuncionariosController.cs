@@ -26,6 +26,10 @@ namespace sag.Controllers
             ViewBag.NomeUsuario = HttpContext.Session.GetString("nome");
                
             Funcionarios funcionario = repository.Read((int)id_usuario);
+
+            HttpContext.Session.SetInt32("admin",funcionario.Admin);
+            ViewBag.Admin = HttpContext.Session.GetInt32("admin");
+
             return View(funcionario);
         }
     }

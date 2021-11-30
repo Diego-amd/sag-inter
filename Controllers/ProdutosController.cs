@@ -35,6 +35,10 @@ namespace sag.Controllers
             var id_usuario = HttpContext.Session.GetInt32("id");
             if(id_usuario == null || id_usuario == 0)
                 return RedirectToAction("Login", "Usuario");
+            
+            var admin = HttpContext.Session.GetInt32("admin");
+            if (admin != 1 )
+                return RedirectToAction("home","Funcionarios");
 
             ViewBag.NomeUsuario = HttpContext.Session.GetString("nome");
 
@@ -59,6 +63,10 @@ namespace sag.Controllers
             var id_usuario = HttpContext.Session.GetInt32("id");
             if(id_usuario == null || id_usuario == 0)
                 return RedirectToAction("Login", "Usuario");
+
+            var admin = HttpContext.Session.GetInt32("admin");
+            if (admin != 1 )
+                return RedirectToAction("home","Funcionarios");
 
             var produtos = repository.Read(id);
 

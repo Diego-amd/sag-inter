@@ -26,6 +26,10 @@ namespace sag.Controllers
             var id_usuario = HttpContext.Session.GetInt32("id");
             if(id_usuario == null || id_usuario == 0)
                 return RedirectToAction("Login", "Usuario");
+
+            var admin = HttpContext.Session.GetInt32("admin");
+            if (admin != 1 )
+                return RedirectToAction("home","Funcionarios");
                 
             produtomv = repository.ReadAll();
 
@@ -38,6 +42,15 @@ namespace sag.Controllers
 
         public ActionResult Dashboard()
         {
+            var id_usuario = HttpContext.Session.GetInt32("id");
+            if(id_usuario == null || id_usuario == 0)
+                return RedirectToAction("Login", "Usuario");
+
+            var admin = HttpContext.Session.GetInt32("admin");
+            if (admin != 1 )
+                return RedirectToAction("home","Funcionarios");
+
+            
             List<Dashboard> dashboard = new List<Dashboard>();
             dashboard = repository.Dashboard();
 

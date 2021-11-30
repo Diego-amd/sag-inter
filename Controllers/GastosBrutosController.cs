@@ -23,6 +23,10 @@ namespace sag.Controllers
             if(id_usuario == 26 || id_usuario == 0) //depois trocar para null em vez de 26
                 return RedirectToAction("Login", "Usuario");
 
+            var admin = HttpContext.Session.GetInt32("admin");
+            if (admin != 1 )
+                return RedirectToAction("home","Funcionarios");
+
             List<GastosBrutos> gastos = repository.ReadAll();
 
             ViewBag.NomeUsuario = HttpContext.Session.GetString("nome");
@@ -36,6 +40,11 @@ namespace sag.Controllers
             var id_usuario = HttpContext.Session.GetInt32("id");
             if(id_usuario == 26 || id_usuario == 0) //Tem que colocar null depois em vez de 26
                 return RedirectToAction("Login", "Usuario");
+
+            var admin = HttpContext.Session.GetInt32("admin");
+            if (admin != 1 )
+                return RedirectToAction("home","Funcionarios");
+            
 
             ViewBag.DataAtual = DateTime.Today.ToString("yyyy-MM-dd");
             ViewBag.NomeUsuario = HttpContext.Session.GetString("nome");
@@ -61,6 +70,10 @@ namespace sag.Controllers
             var id_usuario = HttpContext.Session.GetInt32("id");
             if(id_usuario == null || id_usuario == 0)
                 return RedirectToAction("Login", "Usuario");
+
+            var admin = HttpContext.Session.GetInt32("admin");
+            if (admin != 1 )
+                return RedirectToAction("home","Funcionarios");
             
             var gastos = repository.Read(id);
             ViewBag.NomeUsuario = HttpContext.Session.GetString("nome");
