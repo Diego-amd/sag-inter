@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Sistema Administrativo Gastronômico</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link rel="icon" href="~/img/logoSag.png">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />   
+    <link rel="stylesheet" href="~/css/layoutdashboard.css">  
+</head>
+<body class="layout-img-background">
+    <div class="layout">
+        <div class="left-box">             
+            <div>
+                <img src="~/img/SushiJuLogoRec.png" alt="LogoSushiJu" class="LogoSushiJu">
+            </div>
+            <div id="Menu">
+                <a href="/Funcionarios/home"><h5 >Menu</h5></a>
+            </div>
+            <div class="botoes-esquerda">
+                <div class="fazer-ped">
+                    <a href="/Pedidos/Create">Fazer pedido</a>                    
+                </div>
+                <div class="ped-and">
+                    <a href="/Pedidos/Index">Pedido em andamento</a>                   
+                </div>
+
+                @if (@ViewBag.Admin == 1)
+                {
+                <div class="fun-adm">
+                    <button onclick="funAdmLayout()" class="botao-fun-adm">Funções Administrativas</button>
+                    <div id="fun-adm-layout" class="fun-adm-content">
+                        <a href="/Relatorios/VendasDoDia">Vendas do dia</a>
+                        <a href="/GastosBrutos/index">Gastos mensais</a>
+                        <a href="/Relatorios/Dashboard">Dashboard</a>
+                        <a href="/Produtos/index">Cad. Produto</a>
+                    </div>
+                </div>
+                }
+
+                @if (@ViewBag.Admin != 1)
+                {
+                <div class="fun-adm" style= "visibility:hidden">
+                    <button onclick="funAdmLayout()" class="botao-fun-adm">Funções Administrativas</button>
+                    <div id="fun-adm-layout" class="fun-adm-content">
+                        <a href="/Relatorios/VendasDoDia">Vendas do dia</a>
+                        <a href="/GastosBrutos/index">Gastos mensais</a>
+                        <a href="/Relatorios/Dashboard">Dashboard</a>
+                        <a href="/Produtos/index">Cad. Produto</a>
+                    </div>
+                </div>
+                }
+            </div>            
+            <div class="icons">
+                <div >
+                    <img src="~/img/LayoutFzrPedIcon.svg" alt="FzrPedIcon" id="fzr-ped-icon">
+                </div>
+                <div>
+                    <img src="~/img/LayoutPedAcoIcon.svg" alt="PedAcoIcon" id="ped-aco-icon">
+                </div>
+
+                @if (@ViewBag.Admin == 1)
+                {
+                <div>
+                    <img src="~/img/LayoutFunAdmIcon.svg" alt="FunAdmIcon" id="fun-adm-icon">
+                </div>
+                }
+
+                @if (@ViewBag.Admin != 1)
+                {
+                <div style= "visibility:hidden">
+                    <img src="~/img/LayoutFunAdmIcon.svg" alt="FunAdmIcon" id="fun-adm-icon">
+                </div>
+                }
+
+            </div>
+            
+            <div>
+                <hr id="linha-layout"></hr>
+                <div id="suport-icon">
+                    <a href="#" id="suporte">Suporte</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="top-box">
+            
+            <div id="top-caixa-cinza">
+            </div>
+           
+            <div>   
+                <img src="~/img/LayoutAdmIcon.png" alt="AdminIcon" class="admin-icon">
+            </div>
+            <div id="sair" style="margin-top: 2rem;">
+                <p>@ViewData["NomeUsuario"]</p>
+                <a asp-controller="Usuario" asp-action="Logout" method="POST">Sair</a>
+            </div>
+            
+            <div id="bot-caixa-cinza">
+            </div>
+        </div>
+        <div class="back-box">
+            <div id="caixa-verm" style="text-align: center; font-size: 1.3rem;">
+                <span><strong>@ViewData["NomePagina"]</strong></span>
+            </div>
+            <div class="conteudo">
+                @RenderBody()
+            </div>            
+        </div>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src="~/js/mascaraTel.js" asp-append-version="true"></script>
+        <script src="~/js/mascaraDinheiro.js" asp-append-version="true"></script>
+        @await RenderSectionAsync("Scripts", required: false)
+    </div>
+</body>
+</html>
