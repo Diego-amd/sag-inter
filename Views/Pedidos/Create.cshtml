@@ -16,36 +16,31 @@
     <div class="tabela-titulo">
         <form asp-controller="Pedidos" asp-action="Create" method="POST">
             <div class="form-group">
-                <label for="NomeCliente">Nome do cliente ou mesa</label>
+                <label for="NomeCliente" style="color: black">Nome do cliente ou mesa</label>
                 <input type="text" name="NomeCliente" class="form-control" asp-for="NomeCliente"/>
                 <span asp-validation-for="NomeCliente"></span>
             </div>
             <div class="form-group">
-                <label for="TelCliente">Telefone do cliente</label>
+                <label for="TelCliente" style="color: black">Telefone do cliente</label>
                 <input type="text" name="TelCliente" class="form-control" asp-for="TelCliente" onkeypress="mask(this, mphone);" onblur="mask(this, mphone);"/>
             </div>
 
             <div class="form-group">
-                <label for="TipoPedido">Pedido presencial ou online?</label>
+                <label for="TipoPedido" style="color: black">Pedido presencial ou online?</label>
                 <select asp-for="TipoPedido" class="form-control">
                     <option value="0">Presencial</option>
                     <option value="1">Online</option>
                 </select>
-            </div>
-            <div class="form-group">
-                <label for="TipoPedido">Itens do pedido</label>
-                <select asp-for="TipoPedido" class="form-control">
-                    <option value="0">Presencial</option>
-                    <option value="1">Online</option>
-                </select>
-            </div>
-            <div class="salvar">
-                <button class="btn btn-primary" id="salvar">Salvar</button>
-            </div>
-            <div class="voltar">
-                <a href="/Pedidos/Index" class="btn btn-primary" id="voltar">Voltar</a>
             </div>
 
+            <div class="botoes">
+                <div class="salvar">
+                    <button class="btn btn-primary" id="salvar">Salvar</button>
+                </div>
+                <div class="voltar">
+                    <a href="/Pedidos/Index" class="btn btn-primary" id="voltar">Voltar</a>
+                </div>
+            </div>
         </form>
     </div>
 </div>

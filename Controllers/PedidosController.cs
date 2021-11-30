@@ -38,11 +38,9 @@ namespace sag.Controllers
             if(id_usuario == 26 || id_usuario == 0) //tem q colocar null depois em vez de 26
                 return RedirectToAction("Login", "Usuario");
 
-            List<Produtos> produtos = repositoryProdutos.ReadAll();
-
             ViewBag.NomeUsuario = HttpContext.Session.GetString("nome");
 
-            return View(produtos);
+            return View();
         }
 
         [HttpPost]
@@ -62,7 +60,7 @@ namespace sag.Controllers
 
             return Json(new {Resultado = model.IdPedido});
         }
-        
+
         [HttpGet]
         public IActionResult Update(int id, Pedidos model)
         {

@@ -58,3 +58,39 @@
     color: black;
     font-size: 16px;
 }
+
+.botoes{
+    margin-left: 26rem;
+    margin-top: 1rem;
+}
+
+#salvar{
+    background-image: linear-gradient(to top left, rgba(0, 223, 0, 0.801), rgb(0, 173, 0));
+    border-color: linear-gradient(to top left, rgb(0, 216, 0), rgb(0, 170, 0));
+    border: 1px solid;
+    height: 3rem;
+    width: 6rem;
+    font-size: 22px;
+}
+
+#salvar:hover{
+    height: 3.2rem;
+    width: 6.2rem;
+    font-size: 23px;
+}
+
+
+#voltar{
+    background-image: linear-gradient(to top left, rgba(255, 16, 16, 0.801), rgb(173, 0, 0));
+    border-color: linear-gradient(to top left, rgb(255, 17, 17), rgb(170, 0, 0));
+    border: 1px solid;
+    height: 3rem;
+    width: 6rem;
+    font-size: 22px;
+}
+
+#voltar:hover{
+    height: 3.2rem;
+    width: 6.2rem;
+    font-size: 23px;
+}
