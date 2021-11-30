@@ -28,6 +28,12 @@ namespace sag.Controllers
 
             ViewBag.NomeUsuario = HttpContext.Session.GetString("nome");
 
+            ViewBag.Admin = HttpContext.Session.GetInt32("admin");
+            var admin = HttpContext.Session.GetInt32("admin");
+
+            ViewBag.Status = HttpContext.Session.GetInt32("status");
+            var status = HttpContext.Session.GetInt32("status");
+
             return View(pedidos);
         }
 
@@ -39,6 +45,8 @@ namespace sag.Controllers
                 return RedirectToAction("Login", "Usuario");
 
             ViewBag.NomeUsuario = HttpContext.Session.GetString("nome");
+            ViewBag.Admin = HttpContext.Session.GetInt32("admin");
+            var admin = HttpContext.Session.GetInt32("admin");
 
             return View();
         }
@@ -71,6 +79,9 @@ namespace sag.Controllers
             repository.Update(id, model);
 
             ViewBag.NomeUsuario = HttpContext.Session.GetString("nome");
+
+            ViewBag.Admin = HttpContext.Session.GetInt32("admin");
+            var admin = HttpContext.Session.GetInt32("admin");
 
             return RedirectToAction("Index");
         }
