@@ -46,21 +46,21 @@ namespace sag.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Pedidos model)
-        {
-            var id = HttpContext.Session.GetInt32("id");
+        // public IActionResult Create(Pedidos model)
+        // {
+        //     var id = HttpContext.Session.GetInt32("id");
 
-            if(!ModelState.IsValid)
-            {
-                return View(model);
-            }
+        //     if(!ModelState.IsValid)
+        //     {
+        //         return View(model);
+        //     }
 
-            repository.Create((int)id, model);
+        //     repository.Create((int)id, model);
 
-            ViewBag.Mensagem = "Pedido criado com sucesso!";
+        //     ViewBag.Mensagem = "Pedido criado com sucesso!";
 
-            return Json(new {Resultado = model.IdPedido}, JsonRequestBehavior.AllowGet);
-        }
+        //     return Json(new {Resultado = model.IdPedido}, JsonRequestBehavior.AllowGet);
+        // }
 
         [HttpGet]
         public IActionResult Update(int id, Pedidos model)

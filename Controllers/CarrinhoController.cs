@@ -27,28 +27,28 @@ namespace sag.Controllers
                 pedido = new Pedidos();
             }
 
-            using (var data = new ProdutosRepository())
-            {
-                Produtos produto = data.Read(id);
+            // using (var data = new ProdutosRepository())
+            // {
+            //     Produtos produto = data.Read(id);
 
-                ItensPedidos item = pedido.Itens.SingleOrDefault(i => i.Produto.Id_produto == id);
+            //     ItensPedidos item = pedido.Itens.SingleOrDefault(i => i.Produto.Id_produto == id);
 
-                if (item == null)
-                {
-                    pedido.Itens.Add(new ItensPedidos
-                    {
-                        Produto = produto,
-                        Pedido = pedido,
-                        Qtde = quantidade,
-                        ValorUnitario = produto.Valor
-                    });
-                }
-                else
-                {
-                    item.Qtde++;
-                }
+            //     if (item == null)
+            //     {
+            //         pedido.Itens.Add(new ItensPedidos
+            //         {
+            //             Produto = produto,
+            //             Pedido = pedido,
+            //             Qtde = quantidade,
+            //             ValorUnitario = produto.Valor
+            //         });
+            //     }
+            //     else
+            //     {
+            //         item.Qtde++;
+            //     }
 
-            }
+            // }
 
             HttpContext.Session.SetString("carrinho", JsonConvert.SerializeObject(pedido));
 
