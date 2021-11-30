@@ -31,8 +31,9 @@
 
 
 #finalizar{
-    background-color: green;
-    border: green 1px solid;
+    background-image: linear-gradient(to top left, rgba(0, 223, 0, 0.801), rgb(0, 173, 0));
+    border-color: linear-gradient(to top left, rgb(0, 216, 0), rgb(0, 170, 0));
+    border: 1px solid;
     height: 2.5rem;
     width: 6rem;
     font-size: 18px;
@@ -66,8 +67,9 @@
 
 
 #adicionarB{
-    background-color: green;
-    border: green 1px solid;
+    background-image: linear-gradient(to top left, rgba(0, 223, 0, 0.801), rgb(0, 173, 0));
+    border-color: linear-gradient(to top left, rgb(0, 216, 0), rgb(0, 170, 0));
+    border: 1px solid;
     height: 3rem;
     width: 9rem;
     font-size: 23px;   

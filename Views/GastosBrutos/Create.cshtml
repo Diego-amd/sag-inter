@@ -14,12 +14,12 @@
             <div class="form-group">
                 <label for="valor">Nome do gasto*</label>
                 <input type="text" name="nomegasto" class="form-control" asp-for="NomeGasto" />
-                <span asp-validation-for="NomeGasto"></span>
+                <span asp-validation-for="NomeGasto" style="color: black;"></span>
             </div>
             <div class="form-group">
                 <label for="valor">Valor gasto*</label>
                 <input type="text" name="valor" class="form-control" asp-for="Valor" onKeyPress="return(MascaraMoeda(this,'.',',',event))"/>
-                <span asp-validation-for="Valor"></span>
+                <span asp-validation-for="Valor" style="color: black;"></span>
             </div>
 
             <div class="form-row">
@@ -27,7 +27,7 @@
                     <label for="DataVencimento">Data de Vencimento*</label>
                     <input type="date" name="DataVencimento" id="DataVencimento" class="form-control"
                         asp-for="DataVencimento" value="@ViewBag.DataAtual" />
-                    <span asp-validation-for="DataVencimento"></span>
+                    <span asp-validation-for="DataVencimento" style="color: black;"></span>
                 </div>
 
                 <div class="col">
