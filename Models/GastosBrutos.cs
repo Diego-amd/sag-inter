@@ -16,7 +16,6 @@ namespace sag.Models
         [Required(ErrorMessage = "O campo Data de Vencimento é obrigatório")]
         public string DataVencimento { get; set; }
 
-        [Required(ErrorMessage = "O campo Data de Pagamento é obrigatório")]
         public string DataPagamento { get; set; }
         public string DataVencimentoB => DataVencimento == "01/01/1900" ? "" : DataVencimento;
         public string DataPagamentoB => DataPagamento == "01/01/1900" ? "" : DataPagamento;

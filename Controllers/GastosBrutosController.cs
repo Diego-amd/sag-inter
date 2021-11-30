@@ -46,6 +46,9 @@ namespace sag.Controllers
         [HttpPost]
         public IActionResult Create(GastosBrutos model)
         {
+            if(!ModelState.IsValid)
+                return View(model);
+
             var id = HttpContext.Session.GetInt32("id");
             TempData["Criou"] = repository.Create((int)id, model);
 
@@ -68,6 +71,9 @@ namespace sag.Controllers
         [HttpPost]
         public IActionResult Update(int id, GastosBrutos model)
         {
+            if(!ModelState.IsValid)
+                return View(model);
+                
             TempData["Atualizou"] = repository.Update(id, model);
             
             return RedirectToAction("Index");
