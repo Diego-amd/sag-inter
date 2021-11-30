@@ -87,7 +87,7 @@ namespace sag.Repositories
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
 
-                cmd.CommandText = "SELECT id_produto,nome,categoria,descricao,valor,estado FROM tb_produtos WHERE id_produto=@id_produto";
+                cmd.CommandText = "SELECT id_produto, nome, categoria, descricao, valor, estado FROM tb_produtos WHERE id_produto=@id_produto";
 
                 cmd.Parameters.AddWithValue("@id_produto", id);
 

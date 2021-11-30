@@ -72,12 +72,12 @@
                 <td class="tabela-info-td">@produtos.Descricao</td>
                 <td class="tabela-info-td">@produtos.Valor.ToString("C")</td>
                 <td class="tabela-info-td">
-                    <a href="/Produtos/Update/@produtos.Id_produto" class="btn btn-sm btn-primary" id="editar">Comprar</a>
+                    <a href="/Carrinho/Comprar/@produtos.Id_produto?quantidade=0" class="btn btn-sm btn-primary" id="editar">Comprar</a>
                 </td>   
             </tr>
         }
     </table>
     <div class="adicionar">
-        <a href="/Produtos/Create" class="btn btn-primary" id="adicionarC">Adicionar</a>
+        <a href="/Funcionarios/Home" class="btn btn-primary" id="adicionarC">Voltar</a>
     </div>
 </div>
