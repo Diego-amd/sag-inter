@@ -9,10 +9,12 @@ namespace sag.Controllers
     public class PedidosController : Controller
     {
         private IPedidosRepository repository;
+        private IProdutosRepository repositoryProdutos;
 
-        public PedidosController(IPedidosRepository repository)
+        public PedidosController(IPedidosRepository repository, IProdutosRepository repositoryProdutos)
         {
             this.repository = repository;
+            this.repositoryProdutos = repositoryProdutos;
         }
 
         [HttpGet]
@@ -33,11 +35,14 @@ namespace sag.Controllers
         public IActionResult Create()
         {
             var id_usuario = HttpContext.Session.GetInt32("id");
-            if(id_usuario == 26 || id_usuario == 0) //Colocar null depois em vez de 26
+            if(id_usuario == 26 || id_usuario == 0) //tem q colocar null depois em vez de 26
                 return RedirectToAction("Login", "Usuario");
 
+            List<Produtos> produtos = repositoryProdutos.ReadAll();
+
             ViewBag.NomeUsuario = HttpContext.Session.GetString("nome");
-            return View();
+
+            return View(produtos);
         }
 
         [HttpPost]

@@ -19,7 +19,6 @@ namespace sag.Repositories
                 //Conexão com o banco
                 cmd.CommandText = "SELECT * from tb_usuarios WHERE login=@login and senha=@senha";
 
-
                 cmd.Parameters.AddWithValue("@login", login);
                 cmd.Parameters.AddWithValue("@senha", senha);
 

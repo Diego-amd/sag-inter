@@ -77,11 +77,12 @@
                 <td class="tabela-info-td">@gastos.DataVencimentoB</td>
                 <td class="botoes-cad">
                     <a href="/GastosBrutos/Update/@gastos.Id_gasto" class="btn btn-sm btn-primary" id="editar">Editar</a>
-                    <a href="/GastosBrutos/Delete/@gastos.Id_gasto" class="btn btn-sm btn-danger" id="apagar">Apagar</a>
+                    <a href="/GastosBrutos/Delete/@gastos.Id_gasto" class="btn btn-sm btn-danger" id="apagar" data-toggle="modal"
+                data-target="#exampleModal">Apagar</a>
 
                 </td>
             </tr>
-            <!-- Modal de confirmação exclusão produto -->
+            <!-- Modal de confirmação exclusão gasto -->
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -94,7 +95,7 @@
                             </button>
                         </div>
                         <div class="modal-body" style="color: black; font-size: 22px" ;>
-                            Tem certeza que deseja <span style="font-weight: bolder; color: red;">excluir</span> o gasto?
+                            Tem certeza que deseja <span style="font-weight: bolder; color: red;">excluir</span> o gasto
                             <span style="font-weight: bolder; color: red;">@gastos.NomeGasto</span>?
                         </div>
                         <form asp-controller="GastosBrutos" asp-action="Delete" method="GET">
