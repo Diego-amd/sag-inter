@@ -50,10 +50,16 @@ namespace sag.Controllers
         {
             var id = HttpContext.Session.GetInt32("id");
 
+            if(!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
             repository.Create((int)id, model);
 
             ViewBag.Mensagem = "Pedido criado com sucesso!";
-            return RedirectToAction("Index");
+
+            return Json(new {Resultado = model.IdPedido}, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
