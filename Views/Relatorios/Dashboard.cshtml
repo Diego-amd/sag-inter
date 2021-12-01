@@ -12,8 +12,8 @@
     @foreach(var valor in Model)
     {
         // gráfico pizza
-        decimal valorGasto = @valor.TotalGasto;
-        decimal valorReceita = @valor.TotalPedidos;
+        decimal valorGasto = (decimal)@valor.TotalGasto;
+        decimal valorReceita = (decimal)@valor.TotalPedidos;
         decimal lucro = valorReceita - valorGasto;
         
         ViewBag.Despesas = valorGasto;
@@ -21,17 +21,13 @@
         ViewBag.Lucro = lucro;
     }
 
-    @foreach(var valor in Model)
+    @* @foreach(var graficoLinha in ViewBag.Linha)
     {
         // gráfico linha
-        decimal valorGasto = @valor.TotalGasto;
-        decimal valorReceita = @valor.TotalPedidos;
-        decimal lucro = valorReceita - valorGasto;
-        
-        ViewBag.Despesas = valorGasto;
-        ViewBag.Receita = valorReceita;
-        ViewBag.Lucro = lucro;
-    }
+        decimal valorMes = graficoLinha.ValorMes;
+        Console.WriteLine(valorMes);
+        ViewBag.GraficoLinha = valorMes;
+    } *@
 
 
     <div>
@@ -45,8 +41,11 @@
         </p>
     </div>
     <hr class="separacao">
+
     <div id="linha"></div>
+
     <hr class="separacao">
+
     <div id="barra"></div>
 </body>
 
@@ -61,8 +60,12 @@
     <script>
     let despesa = '@ViewBag.Despesas'
     let receita = '@ViewBag.Receita'
+
+    let linha = '@ViewBag.GraficoLinha'
+
     despesa = parseFloat(despesa.replace(',','.'));
     receita = parseFloat(receita.replace(',','.'));
+    linha = parseFloat(linha.replace(',','.'));
     </script>
     <script src="~/js/pizza.js"></script>
     <script src="~/js/linha.js"></script>
