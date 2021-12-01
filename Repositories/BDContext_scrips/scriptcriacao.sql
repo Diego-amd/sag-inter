@@ -23,16 +23,6 @@ CREATE TABLE tb_usuarios (
 )
 go
 
-INSERT INTO tb_funcionarios VALUES (1, 'Administrador', 1)
-GO
-
-INSERT INTO tb_usuarios VALUES ('Juliana Lins', 'juliana.lins', '123', '17992485735', 1, 'teste@teste.com.br', 'Rua teste')
-go
-
-INSERT INTO tb_produtos
-VALUES (1,'Sushi da ju 1','Sushis','Um delicioso sushi um',30.55,1)
-GO
-
 -- admin = 1 -> admin
 CREATE TABLE tb_funcionarios(
 	cod_usuario		int primary key references tb_usuarios,
