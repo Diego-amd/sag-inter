@@ -24,6 +24,10 @@ namespace sag.Controllers
             var id_usuario = HttpContext.Session.GetInt32("id");
             if(id_usuario == null || id_usuario == 0) //tem q colocar null depois em vez de 26
                 return RedirectToAction("Login", "Usuario");
+            
+            var admin = HttpContext.Session.GetInt32("admin");
+            if (admin != 1 )
+                return RedirectToAction("home","Funcionarios");
 
             List<ItensPedidos> itens = repositoryItens.Read(id);
 
@@ -34,6 +38,14 @@ namespace sag.Controllers
         [HttpGet]
         public ActionResult addProduto(int id)
         {
+            var id_usuario = HttpContext.Session.GetInt32("id");
+            if(id_usuario == null || id_usuario == 0) //tem q colocar null depois em vez de 26
+                return RedirectToAction("Login", "Usuario");
+            
+            var admin = HttpContext.Session.GetInt32("admin");
+            if (admin != 1 )
+                return RedirectToAction("home","Funcionarios");
+
             List<Produtos> produtos = repositoryProdutos.ReadAll();
             ViewBag.IdPedido = HttpContext.Session.GetInt32("id_pedido");
             // Console.WriteLine("===========");
