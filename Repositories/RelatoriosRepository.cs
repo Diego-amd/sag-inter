@@ -133,7 +133,7 @@ namespace sag.Repositories
         public List<Dashboard> MediaPedidoDia()
         {
             try {
-                List<Dashboard> listaLinha = new List<Dashboard>();
+                List<Dashboard> listaBarra = new List<Dashboard>();
 
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
@@ -146,12 +146,12 @@ namespace sag.Repositories
                 {
                     Dashboard dashboard = new Dashboard();
                     dashboard.Dia = reader.GetString(0);
-                    dashboard.MediaDia = reader.GetDecimal(1);
+                    dashboard.MediaDia = reader.GetInt32(1);
                     
-                    listaLinha.Add(dashboard);
+                    listaBarra.Add(dashboard);
                 }
 
-                return listaLinha;
+                return listaBarra;
             }
             catch(Exception ex) {
                 throw new Exception(ex.Message);

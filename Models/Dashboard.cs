@@ -12,7 +12,7 @@ namespace sag.Models
 
         // usado para a Terceira View do banco e gráfico de Barra do Dashboard
         public string Dia { get; set; }
-        public decimal MediaDia { get; set; }
+        public int MediaDia { get; set; }
 
         //  #region Foreign Key
         // public GastosBrutos Gastos { get; set; }

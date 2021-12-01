@@ -3,6 +3,7 @@ using sag.Models;
 using sag.Repositores;
 using System.Data.SqlClient;
 using System.Collections.Generic;
+using System.Data;
 
 namespace sag.Repositories
 {
@@ -37,6 +38,42 @@ namespace sag.Repositories
                 lista.Add(item);
             }
             return lista;
+        }
+        public bool addProduto(int id, ItensPedidos model)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = "InsertItenspedido";
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@cod_pedido", id);
+                cmd.Parameters.AddWithValue("@cod_produto", model.Produto.Id_produto);
+                cmd.Parameters.AddWithValue("@qtde", model.Qtde);
+                cmd.Parameters.AddWithValue("@valor_unitario", model.ValorUnitario);
+                cmd.Parameters.AddWithValue("@valor_total", model.ValorTotal);
+
+                var retorno = cmd.ExecuteNonQuery();
+
+                Console.WriteLine("OI");
+                Console.WriteLine(model.Produto.Id_produto);
+
+                Console.WriteLine(retorno > 0 ? "Sim" : "Não");
+                
+                if(retorno > 0){
+                    return true;
+                }
+
+                return false;
+            }catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally{
+                Dispose();
+            }
         }
     }
 }

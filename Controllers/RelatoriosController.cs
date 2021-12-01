@@ -63,10 +63,20 @@ namespace sag.Controllers
             return View(dashboard);
         }
 
+        [HttpGet]
         public JsonResult DataLinha()
         {
             List<Dashboard> dashboard = new List<Dashboard>();
             dashboard = repository.MediaReceitaMes();
+
+            return Json(dashboard);
+        }
+
+        [HttpGet]
+        public JsonResult DataBarra()
+        {
+            List<Dashboard> dashboard = new List<Dashboard>();
+            dashboard = repository.MediaPedidoDia();
 
             return Json(dashboard);
         }

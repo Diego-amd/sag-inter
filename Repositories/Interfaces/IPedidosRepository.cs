@@ -5,7 +5,7 @@ namespace sag.Repositories
 {
     public interface IPedidosRepository
     {
-        void Create(int id, Pedidos model);
+        int Create(int id, Pedidos model);
         List<Pedidos> ReadAll();
         Pedidos Read(int id);
         void Update(int id, Pedidos model);

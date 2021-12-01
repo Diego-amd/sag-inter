@@ -9,7 +9,7 @@ namespace sag.Repositories
 {
     public class PedidosRepository : BDContext, IPedidosRepository
     {
-        public void Create(int id, Pedidos model)
+        public int Create(int id, Pedidos model)
         {
             SqlTransaction transaction = this.connection.BeginTransaction();
 
@@ -50,6 +50,8 @@ namespace sag.Repositories
 
                 //Executa as inserções da transação nas tabelas
                 transaction.Commit();
+
+                return idPedido;
             }
             catch(Exception ex)
             {
@@ -158,5 +160,6 @@ namespace sag.Repositories
                 Dispose();
             }
         }
+        
     }
 }
