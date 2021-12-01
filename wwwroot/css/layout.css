@@ -308,3 +308,16 @@
 	margin-left: 2rem;
 	overflow-y: auto;
 }
+
+.conteudo::-webkit-scrollbar{
+	width: 1rem;
+}
+
+.conteudo::-webkit-scrollbar-track {
+	background: rgb(255, 150, 150);        
+}
+  
+.conteudo::-webkit-scrollbar-thumb {
+	background-color: rgb(255, 0, 0);    
+	border-radius: 20px;       
+}

@@ -7,7 +7,7 @@ Highcharts.chart('pizza', {
         type: 'pie'
     },
     title: {
-        text: 'Lucro mensal'
+        text: 'Receita X Despesa'
     },
     tooltip: {
         pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -34,7 +34,7 @@ Highcharts.chart('pizza', {
             name: 'Despesas',
             y: despesa
         }, {
-            name: 'Lucro',
+            name: 'Receitas',
             y: receita
         }]
     }]
