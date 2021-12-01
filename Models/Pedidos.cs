@@ -8,7 +8,10 @@ namespace sag.Models
     {
         public int IdPedido { get; set; }
         public int CodUsuario { get; set; }
+
+        [Required(ErrorMessage = "O campo Nome do Cliente é obrigatório")]
         public string NomeCliente { get; set; }
+
         public string TelCliente { get; set; }
         public string HoraEntrada { get; set; }
         public string HoraSaida { get; set; }

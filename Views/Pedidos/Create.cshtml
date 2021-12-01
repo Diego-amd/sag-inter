@@ -17,9 +17,9 @@
     <div class="tabela-titulo">
         <form asp-controller="Pedidos" asp-action="Create" method="POST">
             <div class="form-group">
-                <label for="NomeCliente">Nome do cliente ou mesa</label>
+                <label for="NomeCliente">Nome do cliente ou mesa*</label>
                 <input type="text" name="NomeCliente" class="form-control" asp-for="NomeCliente"/>
-                <span asp-validation-for="NomeCliente"></span>
+                <span asp-validation-for="NomeCliente" style="color: black;"></span>
             </div>
             <div class="form-group">
                 <label for="TelCliente">Telefone do cliente</label>

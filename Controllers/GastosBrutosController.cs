@@ -60,6 +60,13 @@ namespace sag.Controllers
         [HttpPost]
         public IActionResult Create(GastosBrutos model)
         {
+            var admin = HttpContext.Session.GetInt32("admin");
+            if (admin != 1 )
+                return RedirectToAction("home","Funcionarios");
+            ViewBag.Admin = admin;
+
+            ViewBag.NomeUsuario = HttpContext.Session.GetString("nome");
+
             if(!ModelState.IsValid)
                 return View(model);
 
@@ -91,6 +98,13 @@ namespace sag.Controllers
         [HttpPost]
         public IActionResult Update(int id, GastosBrutos model)
         {
+            var admin = HttpContext.Session.GetInt32("admin");
+            if (admin != 1 )
+                return RedirectToAction("home","Funcionarios");
+            ViewBag.Admin = admin;
+
+            ViewBag.NomeUsuario = HttpContext.Session.GetString("nome");
+            
             if(!ModelState.IsValid)
                 return View(model);
                 
