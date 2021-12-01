@@ -19,7 +19,7 @@ namespace sag.Controllers
         public ActionResult Index(int id)
         {
             var id_usuario = HttpContext.Session.GetInt32("id");
-            if(id_usuario == 26 || id_usuario == 0) //tem q colocar null depois em vez de 26
+            if(id_usuario == null || id_usuario == 0) //tem q colocar null depois em vez de 26
                 return RedirectToAction("Login", "Usuario");
 
             List<ItensPedidos> itens = repository.Read(id);

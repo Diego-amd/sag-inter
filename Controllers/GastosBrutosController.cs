@@ -20,7 +20,7 @@ namespace sag.Controllers
         public IActionResult Index()
         {
             var id_usuario = HttpContext.Session.GetInt32("id");
-            if(id_usuario == 26 || id_usuario == 0) //depois trocar para null em vez de 26
+            if(id_usuario == null || id_usuario == 0) //depois trocar para null em vez de 26
                 return RedirectToAction("Login", "Usuario");
 
             var admin = HttpContext.Session.GetInt32("admin");
@@ -41,7 +41,7 @@ namespace sag.Controllers
         public IActionResult Create()
         {
             var id_usuario = HttpContext.Session.GetInt32("id");
-            if(id_usuario == 26 || id_usuario == 0) //Tem que colocar null depois em vez de 26
+            if(id_usuario == null || id_usuario == 0) //Tem que colocar null depois em vez de 26
                 return RedirectToAction("Login", "Usuario");
 
             var admin = HttpContext.Session.GetInt32("admin");
