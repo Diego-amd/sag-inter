@@ -44,7 +44,7 @@ Highcharts.chart('linha', {
     },
     series: [{
         name: 'Linha',
-        data: [data]
+        data: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,0.0, 0.0, 216.1, 621.61]
     }]
 });
 }

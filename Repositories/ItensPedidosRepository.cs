@@ -57,7 +57,7 @@ namespace sag.Repositories
 
                 var retorno = cmd.ExecuteNonQuery();
 
-                Console.WriteLine(id);
+                Console.WriteLine("OI");
                 Console.WriteLine(model.Produto.Id_produto);
 
                 Console.WriteLine(retorno > 0 ? "Sim" : "Não");

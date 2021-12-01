@@ -13,6 +13,7 @@
         <h1 id="msg1">Lista de Produtos &#127843</h1>
     </div>
     <table class="tabela">
+        <form asp-controller="ItensPedidos" asp-action="addProduto" method="POST">
             <tr>
                 <th>Id</th>
                 <th >Nome</th>
@@ -34,9 +35,10 @@
                 <td class="tabela-info-td">@produtos.Descricao</td>
                 <td class="tabela-info-td">@produtos.Valor.ToString("C")</td> 
                 <td class="botoes-cad">
-                    <a href="/ItensPedidos/addProduto/@produtos.Id_produto?quantidade=2" class="btn btn-sm btn-primary" id="editar">Adicionar</a>
+                    <a href="/ItensPedidos/addProduto/@ViewBag.IdPedido" class="btn btn-sm btn-primary" id="editar">Adicionar</a>
                 </td>   
             </tr>
         }
+        </form>
     </table>
 </body>

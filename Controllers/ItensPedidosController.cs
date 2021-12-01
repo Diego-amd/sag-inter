@@ -36,6 +36,7 @@ namespace sag.Controllers
         {
             List<Produtos> produtos = repositoryProdutos.ReadAll();
             ViewBag.IdPedido = HttpContext.Session.GetInt32("id_pedido");
+            // Console.WriteLine("===========");
 
             return View(produtos);
         }
@@ -43,6 +44,7 @@ namespace sag.Controllers
         [HttpPost]
         public IActionResult addProduto(int id_pedido, ItensPedidos model)
         {
+            Console.WriteLine("===========");
             var id = HttpContext.Session.GetInt32("id_pedido");
             var id2 = HttpContext.Session.GetInt32("id_produto");
 
