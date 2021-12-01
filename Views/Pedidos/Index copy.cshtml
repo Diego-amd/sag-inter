@@ -20,29 +20,27 @@
         @if(ViewBag.Mensagem != null) {
             <p class="alert alert-danger alert-message">@ViewBag.Mensagem</p>
         }
-        <div class="pedido-tudo">
-            @foreach(var pedido in Model)
+
+        @foreach(var pedido in Model)
         {
             <div class="pedido-quadrado">
-                @pedido.IdPedido
-                @pedido.NomeCliente
-                @pedido.TelCliente
-                @pedido.DataEntrada
-                @pedido.HoraEntrada
-                @pedido.HoraSaida
-                @pedido.TextoStatus
-                @pedido.TextoTipoPedido
-                    
-                @if (@pedido.TextoStatus == "Andamento" && @pedido.HoraSaida == "")
-                {
-                <div class="botoes-cad">
-                    <a href="/Pedidos/Update/@pedido.IdPedido" class="btn btn-sm btn-primary" id="finalizar">Finalizar</a>
-                </div>
-                }
+            @pedido.IdPedido
+            @pedido.NomeCliente
+            @pedido.TelCliente
+            @pedido.DataEntrada
+            @pedido.HoraEntrada
+            @pedido.HoraSaida
+            @pedido.TextoStatus
+            @pedido.TextoTipoPedido
+                
+            @if (@pedido.TextoStatus == "Andamento" && @pedido.HoraSaida == "")
+            {
+            <div class="botoes-cad">
+                <a href="/Pedidos/Update/@pedido.IdPedido" class="btn btn-sm btn-primary" id="finalizar">Finalizar</a>
             </div>
-        } 
-        </div>
-       
+            }
+            </div>
+        }
 
     <div class="adicionar">
         <a href="/pedidos/create" class="btn btn-primary" id="adicionarB">Adicionar</a>
