@@ -30,6 +30,7 @@ namespace sag
             services.AddTransient<IProdutosRepository, ProdutosRepository>();
             services.AddTransient<IPedidosRepository, PedidosRepository>();
             services.AddTransient<IRelatoriosRepository, RelatoriosRepository>();
+            services.AddTransient<IItensPedidosRepository, ItensPedidosRepository>();
             
             
             services.AddSession();//
