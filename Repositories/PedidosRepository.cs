@@ -108,7 +108,7 @@ namespace sag.Repositories
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
 
-                cmd.CommandText = "SELECT * FROM VPedidosAll order by status asc, hora_saida asc";
+                cmd.CommandText = "SELECT * FROM VPedidosAll order by status asc, hora_saida asc, hora_entrada asc";
 
                 SqlDataReader reader = cmd.ExecuteReader();
                 
