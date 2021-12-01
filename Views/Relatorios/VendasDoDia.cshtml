@@ -18,7 +18,6 @@
             <th>Valor Unitário</th>
             <th>Valor Total Vendido</th>
             <th>Qtd Total em Pedidos</th>
-            <th>Valor médio por pedido</th>
         </tr>
 
         @if(ViewBag.Mensagem != null) {
@@ -35,8 +34,9 @@
             </tr>
         }
         <tr>
-            <td colspan="4" class="tabela-info-td">@ViewBag.Media.ToString("C")</td>
+            <td colspan="4" class="tabela-info-td">Valor médio por pedido</td>
         </tr>
+        <tr><td colspan="4" class="tabela-info-td"> @ViewBag.Media.ToString("C")</td></tr>
     </table>
 </body>
 

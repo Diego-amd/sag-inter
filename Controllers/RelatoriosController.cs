@@ -83,5 +83,14 @@ namespace sag.Controllers
 
             return Json(dashboard);
         }
+
+        [HttpGet]
+        public JsonResult DataBarra()
+        {
+            List<Dashboard> dashboard = new List<Dashboard>();
+            dashboard = repository.MediaPedidoDia();
+
+            return Json(dashboard);
+        }
     }
 }

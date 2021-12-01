@@ -20,25 +20,47 @@
         @if(ViewBag.Mensagem != null) {
             <p class="alert alert-danger alert-message">@ViewBag.Mensagem</p>
         }
-
+        <div class="pedido-tudo">
         @foreach(var pedido in Model)
         {
-                @pedido.IdPedido
-                @pedido.NomeCliente
-                @pedido.TelCliente
-                @pedido.DataEntrada
-                @pedido.HoraEntrada
+            <div class="pedido-quadrado">
+                <div class="pedido-top">
+                    <p class="p1">
+                        @pedido.IdPedido
+                    </p>
+                    <p class="p2">
+                        @pedido.NomeCliente
+                        @pedido.TelCliente
+                    </p>
+                    <p class="p3">
+                        @pedido.DataEntrada
+                        @pedido.HoraEntrada
+                    </p>
+                </div>
+                <div class="pedido-item">   
+                    <p>Total: </p>
+                </div>
+
                 @pedido.HoraSaida
                 @pedido.TextoStatus
                 @pedido.TextoTipoPedido
-                
+                    
                 @if (@pedido.TextoStatus == "Andamento" && @pedido.HoraSaida == "")
                 {
                 <div class="botoes-cad">
                     <a href="/Pedidos/Update/@pedido.IdPedido" class="btn btn-sm btn-primary" id="finalizar">Finalizar</a>
                 </div>
                 }
+                <div class="botoes-cad">
+                    <a href="/ItensPedidos/Index/@pedido.IdPedido" class="btn btn-sm btn-primary" id="excluir">excluir</a>
+                </div>
+                <div class="botoes-cad">
+                    <a href="/ItensPedidos/Index/@pedido.IdPedido" class="btn btn-sm btn-primary" id="item">Itens</a>
+                </div>
+            </div>
         }
+        </div>
+        
 
     <div class="adicionar">
         <a href="/pedidos/create" class="btn btn-primary" id="adicionarB">Adicionar</a>

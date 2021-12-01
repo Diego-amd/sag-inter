@@ -3,6 +3,13 @@
 <h2>Itens do Pedido</h2>
 
 <table class="table table-hover">
+            <tr>
+                <th>CodPedido</th>
+                <th >Qtde</th>
+                <th >ValorUnitario</th>
+                <th >ValorTotal</th>
+                <th >Nome</th>    
+            </tr>
     @foreach (var item in Model)
     {
         <tr>
@@ -10,6 +17,8 @@
             <td>@item.Qtde</td>
             <td>@item.ValorUnitario</td>
             <td>@item.ValorTotal</td>
+            <td>@item.Produto.Nome</td>
         </tr>
     }
+    <a href="/ItensPedidos/addProduto/@ViewBag.IdPedido" class="btn btn-sm btn-primary" id="editar">Adicionar Produto</a>
 </table>

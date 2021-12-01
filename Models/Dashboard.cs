@@ -11,8 +11,8 @@ namespace sag.Models
         public decimal? ValorMes { get; set; }
 
         // usado para a Terceira View do banco e gráfico de Barra do Dashboard
-        public string? Dia { get; set; }
-        public decimal? MediaDia { get; set; }
+        public string Dia { get; set; }
+        public int MediaDia { get; set; }
 
         //  #region Foreign Key
         // public GastosBrutos Gastos { get; set; }

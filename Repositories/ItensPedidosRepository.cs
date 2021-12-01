@@ -3,6 +3,7 @@ using sag.Models;
 using sag.Repositores;
 using System.Data.SqlClient;
 using System.Collections.Generic;
+using System.Data;
 
 namespace sag.Repositories
 {
@@ -21,20 +22,58 @@ namespace sag.Repositories
             while (reader.Read())
             {
                 ItensPedidos item = new ItensPedidos();
-                item.CodPedido = (int)reader["IdPedido"];
+                item.CodPedido = reader.GetInt32(0);
+                
+                item.Qtde = reader.GetInt32(2);
+                item.ValorUnitario = reader.GetDecimal(3);
+                item.ValorTotal = reader.GetDecimal(4);
 
                 item.Produto = new Produtos
                 {
-                    Id_produto = (int)reader["IdPedido"],
-                    Nome = (string)reader["Nome"]
+                    Id_produto = reader.GetInt32(1),
+                    Nome = reader.GetString(5)
                 };
 
-                item.Qtde = (int)reader["Quantidade"];
-                item.ValorUnitario = (decimal)reader["Preco"];
 
                 lista.Add(item);
             }
             return lista;
+        }
+        public bool addProduto(int id, ItensPedidos model)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = "InsertItenspedido";
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@cod_pedido", id);
+                cmd.Parameters.AddWithValue("@cod_produto", model.Produto.Id_produto);
+                cmd.Parameters.AddWithValue("@qtde", model.Qtde);
+                cmd.Parameters.AddWithValue("@valor_unitario", model.ValorUnitario);
+                cmd.Parameters.AddWithValue("@valor_total", model.ValorTotal);
+
+                var retorno = cmd.ExecuteNonQuery();
+
+                Console.WriteLine("OI");
+                Console.WriteLine(model.Produto.Id_produto);
+
+                Console.WriteLine(retorno > 0 ? "Sim" : "Não");
+                
+                if(retorno > 0){
+                    return true;
+                }
+
+                return false;
+            }catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally{
+                Dispose();
+            }
         }
     }
 }

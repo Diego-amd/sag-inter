@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -21,7 +22,7 @@ namespace sag.Controllers
         public IActionResult Index()
         {
             var id_usuario = HttpContext.Session.GetInt32("id");
-            if(id_usuario == null || id_usuario == 0) //Colocar null depois em vez de 26
+            if(id_usuario == 26 || id_usuario == 0) //Colocar null depois em vez de 26
                 return RedirectToAction("Login", "Usuario");
 
             List<Pedidos> pedidos = repository.ReadAll();
@@ -68,9 +69,13 @@ namespace sag.Controllers
                 return View(model);
             }
 
-            repository.Create((int)id, model);
+            var id_pedido = repository.Create((int)id, model);
 
-            return Json(new {Resultado = model.IdPedido});
+            HttpContext.Session.SetInt32("id_pedido", (int)id_pedido);
+
+            ViewBag.IdPedido = id_pedido;
+
+            return RedirectToAction("addProduto", "ItensPedidos");
         }
 
         [HttpGet]

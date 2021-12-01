@@ -23,16 +23,6 @@ CREATE TABLE tb_usuarios (
 )
 go
 
-INSERT INTO tb_funcionarios VALUES (1, 'Administrador', 1)
-GO
-
-INSERT INTO tb_usuarios VALUES ('Juliana Lins', 'juliana.lins', '123', '17992485735', 1, 'teste@teste.com.br', 'Rua teste')
-go
-
-INSERT INTO tb_produtos
-VALUES (1,'Sushi da ju 1','Sushis','Um delicioso sushi um',30.55,1)
-GO
-
 -- admin = 1 -> admin
 CREATE TABLE tb_funcionarios(
 	cod_usuario		int primary key references tb_usuarios,
@@ -369,3 +359,19 @@ select 'Domingo' as Dia,
 			where a.data_entrada = dateadd(week, datediff(week, 0, getdate()), 6) 
 			group by a.data_entrada
 	), 0000000) as Media 
+go
+	--Procedure Itenspedido
+CREATE PROCEDURE InsertItenspedido
+(
+	@cod_pedido int,
+	@cod_produto int,
+	@qtde int,
+	@valor_unitario decimal(10,2),
+	@valor_total decimal(10,2)
+)
+as
+BEGIN
+insert into tb_itens_pedidos  
+Values(@cod_pedido,@cod_produto,@qtde,@valor_unitario,@valor_total)
+END
+go

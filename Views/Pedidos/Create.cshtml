@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="~/css/pedidos/create.css" />
 </head>
 
-@Html.AntiForgeryToken()
+
 <div class="produtos">
     <div class="msg1">
         <h1 id="msg1">Novo pedido</h1>
@@ -36,7 +36,7 @@
 
             <div class="botoes">
                 <div class="salvar">
-                    <button class="btn btn-primary" id="salvar" onclick="SalvarPedido();">Salvar</button>
+                    <button class="btn btn-primary" id="salvar"">Salvar</button>
                 </div>
                 <div class="voltar">
                     <a href="/Pedidos/Index" class="btn btn-primary" id="voltar">Voltar</a>
@@ -46,13 +46,3 @@
     </div>
 </div>
 
-<div id="divItens" style="display:none;">
-</div>
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
-@section Scripts {
-    <script src="~/Scripts/Pedido.js"></script>
-}

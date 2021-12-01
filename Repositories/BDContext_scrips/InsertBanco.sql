@@ -18,7 +18,7 @@ INSERT INTO tb_gastos_brutos
 VALUES (1,'Cadeira',30, GETDATE(),GETDATE())
 GO
 INSERT INTO tb_gastos_brutos
-VALUES(2,'Mesa',50,'03/11/2021','04/11/2021')
+VALUES(2,'Mesa',50,'30/11/2021','04/11/2021')
 GO
 
 INSERT INTO tb_gastos_brutos
@@ -31,11 +31,19 @@ VALUES (1,'Mesa 2','179888888','13:00','14:00', GETDATE(),1,0)
 GO
 
 INSERT INTO tb_pedidos
-VALUES (2,'Pedro','17232323','14:00','15:00','08/11/2021',1,0)
+VALUES (2,'Pedro','17232323','14:00','15:00','29/11/2021',1,0)
 GO
 
 INSERT INTO tb_pedidos
-VALUES (1,'Marcelo','174444444','16:00','17:00','09/11/2021',0,0)
+VALUES (1,'Marcelo','174444444','16:00','17:00','30/12/2021',0,0)
+GO
+
+INSERT INTO tb_pedidos
+VALUES (1,'Mesa 3','179888887','13:00','14:00', GETDATE(),1,0)
+GO
+
+INSERT INTO tb_pedidos
+VALUES (1,'Mesa 4','179888886','13:00','14:00', GETDATE(),1,0)
 GO
 
 --Produtos:
@@ -53,9 +61,19 @@ GO
 INSERT INTO tb_itens_pedidos
 VALUES (1,1,10,30.55,10*30.55)
 GO
+
 INSERT INTO tb_itens_pedidos
 VALUES (2,1,5,30.55,5*30.55)
 GO
+
 INSERT INTO tb_itens_pedidos
 VALUES (2,2,6,10.56,6*10.56)
+GO
+
+INSERT INTO tb_itens_pedidos
+VALUES (5,1,5,30.55,5*30.55)
+GO
+
+INSERT INTO tb_itens_pedidos
+VALUES (4,2,6,10.56,6*10.56)
 GO
