@@ -6,17 +6,33 @@
 
 .pedido-tudo {
     margin-left: 1.5rem;
-    width: 60;
+    width: 75rem;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.pedido-top{
+    font-size: 20px;
+}
+
+.pedido-item{
+    height: 10rem;
+    width: 19.7rem;
+    background: rgb(196, 196, 196);
+}
+
+.pedido-item p{
+    float: right;
+    margin-top: 8.7rem;
 }
 
 .pedido-quadrado{
     margin-top: 1rem;
-    margin-left: 5.7rem;
-    width: 18rem;
+    margin-left: 3.7rem;
+    width: 20rem;
     height: 20rem;
-    border: 1px rgb(170, 0, 0) solid;
+    border: 2px rgb(170, 0, 0) solid;
     color: black;
     font-size: 16px;
 }

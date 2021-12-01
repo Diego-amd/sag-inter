@@ -15,32 +15,46 @@
     <div class="msg2">
         <h1 id="msg2">Você tem @Model.Count pedidos</h1>
     </div>
-        
-
         @if(ViewBag.Mensagem != null) {
             <p class="alert alert-danger alert-message">@ViewBag.Mensagem</p>
-        }
+        }        
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+            One of three columns
+            </div>
+            <div class="col-sm">
+            One of three columns
+            </div>
+            <div class="col-sm">
+            One of three columns
+            </div>
+        </div>
+    </div>
 
-        @foreach(var pedido in Model)
+        <div class="pedido-tudo">
+            @foreach(var pedido in Model)
         {
             <div class="pedido-quadrado">
-            @pedido.IdPedido
-            @pedido.NomeCliente
-            @pedido.TelCliente
-            @pedido.DataEntrada
-            @pedido.HoraEntrada
-            @pedido.HoraSaida
-            @pedido.TextoStatus
-            @pedido.TextoTipoPedido
-                
-            @if (@pedido.TextoStatus == "Andamento" && @pedido.HoraSaida == "")
-            {
-            <div class="botoes-cad">
-                <a href="/Pedidos/Update/@pedido.IdPedido" class="btn btn-sm btn-primary" id="finalizar">Finalizar</a>
+                @pedido.IdPedido
+                @pedido.NomeCliente
+                @pedido.TelCliente
+                @pedido.DataEntrada
+                @pedido.HoraEntrada
+                @pedido.HoraSaida
+                @pedido.TextoStatus
+                @pedido.TextoTipoPedido
+                    
+                @if (@pedido.TextoStatus == "Andamento" && @pedido.HoraSaida == "")
+                {
+                <div class="botoes-cad">
+                    <a href="/Pedidos/Update/@pedido.IdPedido" class="btn btn-sm btn-primary" id="finalizar">Finalizar</a>
+                </div>
+                }
             </div>
-            }
-            </div>
-        }
+        } 
+        </div>
+       
 
     <div class="adicionar">
         <a href="/pedidos/create" class="btn btn-primary" id="adicionarB">Adicionar</a>

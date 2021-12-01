@@ -24,11 +24,20 @@
             @foreach(var pedido in Model)
         {
             <div class="pedido-quadrado">
-                @pedido.IdPedido
-                @pedido.NomeCliente
-                @pedido.TelCliente
-                @pedido.DataEntrada
-                @pedido.HoraEntrada
+                <div class="pedido-top">
+                    @pedido.IdPedido
+                    @pedido.NomeCliente
+                    @pedido.TelCliente
+                </div>
+                <div>
+                    @pedido.DataEntrada
+                    @pedido.HoraEntrada                    
+                </div>
+                <div class="pedido-item">
+                    
+                    <p>Total: </p>
+                </div>
+
                 @pedido.HoraSaida
                 @pedido.TextoStatus
                 @pedido.TextoTipoPedido
