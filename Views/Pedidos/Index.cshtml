@@ -25,16 +25,19 @@
         {
             <div class="pedido-quadrado">
                 <div class="pedido-top">
-                    @pedido.IdPedido
-                    @pedido.NomeCliente
-                    @pedido.TelCliente
+                    <p class="p1">
+                        @pedido.IdPedido
+                    </p>
+                    <p class="p2">
+                        @pedido.NomeCliente
+                        @pedido.TelCliente
+                    </p>
+                    <p class="p3">
+                        @pedido.DataEntrada
+                        @pedido.HoraEntrada
+                    </p>
                 </div>
-                <div>
-                    @pedido.DataEntrada
-                    @pedido.HoraEntrada                    
-                </div>
-                <div class="pedido-item">
-                    
+                <div class="pedido-item">   
                     <p>Total: </p>
                 </div>
 
@@ -48,7 +51,10 @@
                     <a href="/Pedidos/Update/@pedido.IdPedido" class="btn btn-sm btn-primary" id="finalizar">Finalizar</a>
                 </div>
                 <div class="botoes-cad">
-                    <a href="/ItensPedidos/Index/@pedido.IdPedido" class="btn btn-sm btn-primary" id="ItensPedido">Itens</a>
+                    <a href="/ItensPedidos/Index/@pedido.IdPedido" class="btn btn-sm btn-primary" id="excluir">excluir</a>
+                </div>
+                <div class="botoes-cad">
+                    <a href="/ItensPedidos/Index/@pedido.IdPedido" class="btn btn-sm btn-primary" id="item">Itens</a>
                 </div>
                 }
             </div>

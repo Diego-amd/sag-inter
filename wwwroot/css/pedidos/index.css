@@ -10,10 +10,33 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    
 }
 
 .pedido-top{
     font-size: 20px;
+    background-color: rgb(255, 95, 95);
+    height: 4rem;
+}
+
+.p1{
+    margin-left: 0.5rem;
+    width: 1.8rem;
+    color: red;
+    font-weight: 900;
+    font-size: 25px;
+}
+
+.p2 {
+    float: right;
+    margin-top: -3.2rem;
+    margin-right: 1.5rem;
+}
+
+.p3 {
+    float: right;
+    margin-top: -2rem;
+    margin-right: 1.5rem;
 }
 
 .pedido-item{
@@ -24,7 +47,9 @@
 
 .pedido-item p{
     float: right;
-    margin-top: 8.7rem;
+    margin-top: 7.7rem;
+    margin-right: -10rem;
+    font-size: 25px;
 }
 
 .pedido-quadrado{
@@ -39,7 +64,42 @@
 
 .botoes-cad{
     border: none;
-    margin-left: 1rem;
+    margin-left: -1.2rem;
+    margin-top: 1rem;
+    width: 20rem;
+
+}
+
+#excluir{
+    background-image: linear-gradient(to top left, rgba(255, 16, 16, 0.801), rgb(173, 0, 0));
+    border-color: linear-gradient(to top left, rgb(255, 17, 17), rgb(170, 0, 0));
+    border: 1px solid;
+    height: 2.5rem;
+    width: 6rem;
+    font-size: 18px;
+    float: right;
+}
+
+#excluir:hover{
+    height: 2.7rem;
+    width: 6.2rem;
+    font-size: 20px;
+}
+
+#item{
+    background-image: linear-gradient(to top left, rgba(0, 52, 223, 0.801), rgb(0, 89, 173));
+    border-color: linear-gradient(to top left, rgb(0, 32, 216), rgb(0, 60, 170));
+    border: 1px solid;
+    height: 2.5rem;
+    width: 6rem;
+    font-size: 18px;
+    float: right;
+}
+
+#item:hover{
+    height: 2.7rem;
+    width: 6.2rem;
+    font-size: 20px;
 }
 
 #finalizar{
@@ -49,26 +109,13 @@
     height: 2.5rem;
     width: 6rem;
     font-size: 18px;
+    float: right;
 }
 
 #finalizar:hover{
     height: 2.7rem;
     width: 6.2rem;
     font-size: 20px;
-}
-
-#visualizar{
-    background-color: rgb(34, 93, 255);
-    border: rgb(34, 93, 255) 1px solid;
-    height: 2.5rem;
-    width: 9rem;
-    font-size: 16px;
-}
-
-#visualizar:hover{
-    height: 2.7rem;
-    width: 9.2rem;
-    font-size: 17px;
 }
 
 .adicionar{
@@ -90,6 +137,8 @@
     width: 9.2rem;
     font-size: 24px;   
 }
+
+
 
 .tabela-info-td{
     color: black;
