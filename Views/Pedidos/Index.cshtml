@@ -20,7 +20,7 @@
         @if(ViewBag.Mensagem != null) {
             <p class="alert alert-danger alert-message">@ViewBag.Mensagem</p>
         }
-
+        <div class="pedido-tudo">
         @foreach(var pedido in Model)
         {
             <div class="pedido-quadrado">
@@ -48,12 +48,14 @@
                     <a href="/Pedidos/Update/@pedido.IdPedido" class="btn btn-sm btn-primary" id="finalizar">Finalizar</a>
                 </div>
                 <div class="botoes-cad">
-                <a href="/ItensPedidos/Index/@pedido.IdPedido" class="btn btn-sm btn-primary" id="ItensPedido">Itens</a>
+                    <a href="/ItensPedidos/Index/@pedido.IdPedido" class="btn btn-sm btn-primary" id="ItensPedido">Itens</a>
                 </div>
                 }
             </div>
-            </div>
+            
         }
+        </div>
+        
 
     <div class="adicionar">
         <a href="/pedidos/create" class="btn btn-primary" id="adicionarB">Adicionar</a>
