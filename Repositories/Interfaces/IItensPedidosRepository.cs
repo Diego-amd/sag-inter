@@ -6,5 +6,6 @@ namespace sag.Repositories
     public interface IItensPedidosRepository
     {
         List<ItensPedidos> Read(int id);
+        //bool addProduto(int id);
     }
 }
