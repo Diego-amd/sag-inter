@@ -21,16 +21,18 @@ namespace sag.Repositories
             while (reader.Read())
             {
                 ItensPedidos item = new ItensPedidos();
-                item.CodPedido = (int)reader["IdPedido"];
+                item.CodPedido = reader.GetInt32(0);
+                
+                item.Qtde = reader.GetInt32(2);
+                item.ValorUnitario = reader.GetDecimal(3);
+                item.ValorTotal = reader.GetDecimal(4);
 
                 item.Produto = new Produtos
                 {
-                    Id_produto = (int)reader["IdPedido"],
-                    Nome = (string)reader["Nome"]
+                    Id_produto = reader.GetInt32(1),
+                    Nome = reader.GetString(5)
                 };
 
-                item.Qtde = (int)reader["Quantidade"];
-                item.ValorUnitario = (decimal)reader["Preco"];
 
                 lista.Add(item);
             }
