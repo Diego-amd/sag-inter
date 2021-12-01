@@ -49,3 +49,9 @@
     font-size: 24px;
     text-decoration: underline;
 }
+
+.tabela-baixo{
+    background-color:rgb(179, 0, 0);
+    font-size:22px ;
+    color: white;
+}
