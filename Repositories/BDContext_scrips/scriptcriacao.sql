@@ -359,3 +359,19 @@ select 'Domingo' as Dia,
 			where a.data_entrada = dateadd(week, datediff(week, 0, getdate()), 6) 
 			group by a.data_entrada
 	), 0000000) as Media 
+go
+	--Procedure Itenspedido
+CREATE PROCEDURE InsertItenspedido
+(
+	@cod_pedido int,
+	@cod_produto int,
+	@qtde int,
+	@valor_unitario decimal(10,2),
+	@valor_total decimal(10,2)
+)
+as
+BEGIN
+insert into tb_itens_pedidos  
+Values(@cod_pedido,@cod_produto,@qtde,@valor_unitario,@valor_total)
+END
+go

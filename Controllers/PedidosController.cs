@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -68,9 +69,13 @@ namespace sag.Controllers
                 return View(model);
             }
 
-            repository.Create((int)id, model);
+            var id_pedido = repository.Create((int)id, model);
 
-            return Json(new {Resultado = model.IdPedido});
+            HttpContext.Session.SetInt32("id_pedido", (int)id_pedido);
+
+            ViewBag.IdPedido = id_pedido;
+
+            return RedirectToAction("addProduto", "ItensPedidos");
         }
 
         [HttpGet]
