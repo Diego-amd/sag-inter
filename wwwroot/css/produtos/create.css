@@ -1,3 +1,14 @@
+.msg1{
+    margin-top: 0.5rem;
+    margin-left: 1.7rem;
+}
+
+#msg1{
+    color: rgb(2, 2, 2);
+    font-weight: bolder;
+    font-size: 48px;
+}
+
 .tabela-titulo {
     margin-top: 2.5rem;
     margin-left: 6rem;

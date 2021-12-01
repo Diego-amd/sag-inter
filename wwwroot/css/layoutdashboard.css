@@ -113,3 +113,16 @@
 	margin-left: 2rem;
 	overflow-y: auto;
 }
+
+.conteudo::-webkit-scrollbar{
+	width: 1rem;
+}
+
+.conteudo::-webkit-scrollbar-track {
+	background: rgb(150, 184, 255);        
+}
+  
+.conteudo::-webkit-scrollbar-thumb {
+	background-color: blue;    
+	border-radius: 20px;       
+}

@@ -9,8 +9,8 @@
 }
 
 .tabela th, td{
-    min-width: 11rem;
-    max-width: 11rem;
+    min-width: 10.95rem;
+    max-width: 10.95rem;
     height: 3.2rem;
     border: rgb(177, 0, 0) solid 1px;
     text-align: center;
