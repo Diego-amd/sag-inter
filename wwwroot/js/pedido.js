@@ -16,15 +16,15 @@ function SalvarPedido() {
     headersadr['__RequestVerificationToken'] = tokenadr;
 
     //Gravar
-    var url = "/Pedido/Create";
+    var url = "/Pedidos/Create";
 
     $.ajax({
         url: url, 
         type: "POST", 
         datatype: "json", 
         headers: headersadr, 
-        data: { Id: 0, Data: data, Cliente: cliente, Valor: valor, __RequestVerificationToken: token }
-        , success: function (data) {
+        data: { Id: 0, Data: data, Cliente: cliente, Valor: valor, __RequestVerificationToken: token }, 
+        success: function (data) {
             if (data.Resultado > 0) {
                 ListarItens(data.Resultado);
             }

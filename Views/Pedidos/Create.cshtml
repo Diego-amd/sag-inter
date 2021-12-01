@@ -12,6 +12,7 @@
 <div class="produtos">
     <div class="msg1">
         <h1 id="msg1">Novo pedido</h1>
+        <hr>
     </div>
     <div class="tabela-titulo">
         <form asp-controller="Pedidos" asp-action="Create" method="POST">
@@ -35,7 +36,7 @@
 
             <div class="botoes">
                 <div class="salvar">
-                    <button class="btn btn-primary" id="salvar">Salvar</button>
+                    <button class="btn btn-primary" id="salvar" onclick="SalvarPedido();">Salvar</button>
                 </div>
                 <div class="voltar">
                     <a href="/Pedidos/Index" class="btn btn-primary" id="voltar">Voltar</a>
@@ -44,3 +45,14 @@
         </form>
     </div>
 </div>
+
+<div id="divItens" style="display:none;">
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    <script src="~/Scripts/Pedido.js"></script>
+}
